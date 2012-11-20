@@ -1,0 +1,993 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Zusammenfassung Mathematische Grundlagen der Informatik 1 HS2012
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Variabeln
+\newcommand{\SUBJECT}{Zusammenfassung Math1I HS2012}
+\newcommand{\TITLE}{Mathematische Grundlagen der Informatik 1}
+\newcommand{\SEMESTER}{1. Semester (HS 2012)}
+\newcommand{\AUTHOR}{Emanuel Duss}
+\newcommand{\EMAIL}{emanuel.duss@gmail.com}
+\newcommand{\KEYWORDS}{Zusammenfassung, Informatik, HSR}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Header einbinden
+\input{header.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inhalt Start
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Aussagenlogik}
+\subsection{Aussage}
+Eine Aussage ist ein Satz, welcher entweder falsch oder wahr ist. 
+
+\subsection{Junktoren}
+\begin{itemize}
+  \item $\neg$ Negation (nicht): Wahr, wenn die Aussage falsch ist.
+  \item $\wedge$ Konjunktion (und): Wahr, wenn beide Aussagen wahr sind.
+  \item $\vee$ Disjunktion (oder): Wahr wenn eine der beiden Aussagen wahr ist.
+  \item $\Rightarrow$ Implikation (wenn \dots dann):
+    \begin{itemize}
+      \item Beispiel: $A \Rightarrow B$
+      \item Wenn Aussage $A$ wahr, dann gilt Aussage $B$.
+      \item Wenn Aussage $A$ falsch, ist es immer wahr.
+      \item Wenn die Aussage $A$ falsch ist, nützt uns die Implikation nichts,
+        denn man könnte damit etwas Richtiges, aber auch etwas Falsches herleiten.
+      \item Das heisst: Nur falsch, wenn $B$ falsch ist und $A$ richtig ist.
+    \end{itemize}
+  \item $\Leftrightarrow$ Äquivalenz (genau dann, wenn \dots)
+    \begin{itemize}
+      \item Beispiel: $A \Leftrightarrow B$
+      \item Wahr, wenn $A$ genau wie $B$ ist
+    \end{itemize}
+  \item $\uparrow$ NAND (Zusammengesetzt aus NOT (nicht, $\neg$) und AND (und $\wedge$))
+    \begin{itemize}
+      \item Alle Junktoren können durch das NAND ausgedrückt werden
+      \item Beispiel: $A \uparrow B \Leftrightarrow \neg (A \wedge B)$ sowie $A \uparrow A \Leftrightarrow \neg A$ \\
+       sowie $A \wedge B \Leftrightarrow (A \uparrow B) \uparrow (A \uparrow B)$ sowie 
+         $A \vee B \Leftrightarrow (A \uparrow A) \uparrow (B \uparrow B)$
+    \end{itemize}
+\end{itemize}
+
+\subsection{Wahrheitstabelle}
+\begin{tabular}{|l|l||l|l|l|l|l|l|l|}
+  \hline
+  & & Nicht &  & Und & Oder & Implikation & Äquivalenz & NAND \\
+  \hline
+  $A$ & $B$ & $\neg A$ & $\neg (\neg A)$ & $A \wedge B$ & $A \vee B$ & $A \Rightarrow B$ & $A \Leftrightarrow B$ & $A \uparrow B$ \\
+  \hline
+  \hline
+  w & w & f & w & w & w & w  & w  & f \\
+  w & f & f & w & f & w & f  & f  & w \\
+  f & w & w & f & f & w & w  & f  & w \\
+  f & f & w & f & f & f & w  & w  & w \\
+  \hline
+\end{tabular}
+\begin{itemize}
+  \item In der Wahrheitstabelle gilt: w = wahr und f = falsch.
+  \item Eine Aussage, die in jeder Zeile der Wahrheitstafel falsch ist, heisst Kontradiktion.
+  \item Aussagen wie $A \vee B$ sind Aussagenlogische Formeln.
+\end{itemize}
+
+\subsection{Hinreichend und notwendig}
+Die Implikation $A \Rightarrow B$ bedeutet:
+\begin{itemize}
+  \item Wenn A wahr ist, dann ist auch B wahr. A ist eine \emph{hinreichende} Bedingung für B.
+  \item A kann nicht wahr sein, wenn B falsch ist. B ist eine \emph{notwendige} Bedingung für A.
+\end{itemize}
+
+\subsection{Aussagenlogische Formeln}
+\begin{description}
+  \item[Kommutativität] $A \wedge B \Leftrightarrow B\wedge A$ und $A \vee B \Leftrightarrow B\vee A$
+  \item[Assoziativität] $A \wedge (B \wedge C) \Leftrightarrow (A \wedge B) \wedge C$
+    und $A \vee (B \vee C) \Leftrightarrow (A \vee B) \vee C$
+  \item[Distributivität] $A \wedge (B \vee C) \Leftrightarrow (A \wedge B) \vee (A \wedge C)$\\
+    und $A \vee (B \wedge C) \Leftrightarrow (A \vee B) \wedge (A \vee C)$
+  \item[Satz de Morgan] $\neg(A \wedge B) \Leftrightarrow \neg A \vee \neg B$
+    und $\neg(A \vee B) \Leftrightarrow \neg A \wedge \neg B$
+  \item[Aufeinanderfolgende Implikationen] Wenn $A \Rightarrow B$ und $B \Rightarrow C$ \\ kann man auch schreiben
+    $(A \Rightarrow B \Rightarrow C) \Leftrightarrow (A \Rightarrow B) \wedge (B \Rightarrow C)$.
+\end{description}
+Bei der Elimination von Klammern sind dies die Prioritäten:
+\begin{enumerate}
+  \item Klammern ($(\dots),[\dots],\{\dots\}$)
+  \item Negation ($\neg$)
+  \item Konjunktion ($\wedge$) und Disjunktion ($\vee$)
+  \item Implikation ($\Rightarrow$) und Äquivalenz ($\Leftrightarrow$)
+\end{enumerate}
+
+\subsection{Normalform}
+Normalformen braucht man, um Formeln übersichtlicher zu gestalten
+(diese in eine Normalform bringen). Das wird an folgendem Beispiel gezeigt:
+
+\begin{tabular}{|l|l|l||l|}
+  \hline
+  $X$ & $Y$ & $Z$ & $C$ \\
+  \hline
+  w & w & w & w \\
+  w & w & f & f \\
+  w & f & w & w \\
+  w & f & f & f \\
+  f & w & w & w \\
+  f & w & f & f \\
+  f & f & w & w \\
+  f & f & f & w \\
+  \hline
+\end{tabular}
+
+\subsubsection{Negationsnormalform}
+  Bei der Negationsnormalform dürfen Negationen ($\neg$) nur direkt vor
+  einer Variable (und nicht vor einer Klammer) stehen:
+  \[\neg (A \vee B) \Leftrightarrow \neg A \wedge \neg B\]
+\subsubsection{Verallgemeinerte Konjunktion}
+  Alle Variabeln werden mit der Konjunktion ($\wedge$) verbunden.
+  Die einzelnen Variabeln liegen dabei immer in der Negationsnormalform vor:
+  \[ X \wedge \neg Y \wedge Z\]
+\subsubsection{Disjunktive Normalform}
+  Die disjunktive Normalform ist eine Verbindung von verallgemeinerten
+  Konjunktionen mit einer Disjunktion ($\vee$).
+  Dabei werden die wahren Werte der Wahrheitstabelle ausgewertet.
+  \[ (X \wedge \neg Y \wedge Z) \vee (X \wedge \neg Y \wedge \neg Z) \vee (\neg X \wedge Y \wedge Z)
+    \vee (\neg X \wedge Y \wedge \neg Z) \vee (\neg X \wedge \neg Y \wedge \neg Z)\]
+\subsubsection{Verallgemeinerte Disjunktion}
+  Alle Variabeln werden mit der Disjunktion ($\vee$) verbunden. 
+  Die einzelnen Variabeln liegen dabei immer in der Negationsnormalform vor:
+  \[ X \vee \neg Y \vee Z\]
+\subsubsection{Konjunktive Normalform}
+  Die konjunktive Normalform ist eine Verbindung von verallgemeinerten Disjunktion
+  mit einer Konjunktion ($\wedge$).  Dabei werden die falschen Werte
+  der Wahrheitstabelle ausgewertet.
+  \[ A \Leftrightarrow \neg(X \wedge Y \wedge Z) \wedge \neg(X \wedge Y \wedge \neg Z) \wedge \neg(\neg X \wedge \neg Y \wedge Z) \]
+  Daraus macht man noch die Negationsnormalform (mit dem Satz de Morgan):
+  \[ A \Leftrightarrow (\neg X \vee \neg Y \vee \neg Z) \wedge (\neg X \vee \neg Y \vee Z) \wedge (X \vee Y \vee \neg Z) \]
+  Dort hat man jetzt in den Klammern die verallgemeinerte Disjunktion und A ist in der konjunktiven Normalform.
+
+\subsection{Aussageformen und Prädikate}
+  \begin{itemize}
+    \item Der Wahrheitswert einer Aussageform hängt von einer oder mehreren Variablen ab.
+    \item Aussageformen sind unbestimmt, weil nicht klar ist, welcher Wert für eine Variable eingesetzt wird.
+    \item Der Wert, welcher für eine Aussageform eingesetzt wird, heisst Subjekt.
+    \item Ein Subjekt kann zulässig (Aussage ist wahr) oder unzulässig (Aussage ist falsch) sein.
+    \item Aussagen und Aussageformen bestehen aus dem Subjekt (Variable) und dem Prädikat (Beschreibung, Eigenschaft).
+  \end{itemize}
+
+\subsection{Quantoren}
+  \begin{itemize}
+    \item Der Allquantor ($\forall$) sagt, dass eine Aussage für alle Elemente wahr ist.
+    \item Der Existenzquantor ($\exists$) sagt, dass eine Aussage für mindestens ein Element wahr ist.
+    \item Gibt es einen Quantor, sind die Variabeln nicht mehr frei wählbar, sondern an den Quantor gebunden.
+  \end{itemize}
+  Das wird an folgendem Beispiel erläutert: \[R(x) : \text{Der Weg } x \text{ aus der Menge } W \text{ aller Wege führt nach Rom.} \]
+  \begin{itemize}
+    \item Alle Wege führen nach Rom: $\forall x \in W: R(x)$
+    \item Nicht alle Wege führen nach Rom: $\neg \forall x \in W: R(x)$
+    \item Kein Weg führt nach Rom: $\neg \exists x \in W: R(x)$
+    \item Alle Wege führen nicht nach Rom: $\forall x \in W: \neg R(x)$
+  \end{itemize}
+  Wenn nicht alle Wege nach Rom führen, gibt es mindestens einen Weg, der Nicht nach Rom führt:
+  \[ \neg (\forall x \in W: R(x)) \Leftrightarrow \exists x \in W: R(x) \]
+  Man kann aber nichts darüber aussagen, ob überhaupt ein Weg nach Rom führt.
+
+\subsection{Natürliche Zahlen}
+  Null ist eine natürliche Zahl und jede natürliche Zahl hat einen Nachfolger (ausser der Null).
+  Wir können die Nachfolger von $n$ mit $s(n)$ darstellen:
+  \[ 0, s(0), s(s(0)), s(s(s(0))), \dots \]
+  Das kann später noch nützlich sein.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Beweisen}
+\subsection{Allgemeine Beweistechniken}
+Wir haben folgende Voraussetzung:
+  \[ a \in \mathbb{R}, b \in \mathbb{R}, a > 0, b > 0 \]
+  Folgende Behauptung soll geprüft werden:
+  \[ a^2 < b^2 \Rightarrow a < b \]
+  Dabei ist
+  \[ A: a^2 < b^2 \text{ und } B: a < b \text{ und } C: (A \Rightarrow B) \]
+  \subsubsection{Direkter Beweis}
+  Behauptung wird anhand allgemein geltenden Grundlagen abgeleitet und man versucht die Aussage $A(n) \Rightarrow B(n)$ direkt zu zeigen.
+  Ist \[a^2 < b^2\], dann ist \[0 < b^2 - a^2\] was \[0 < (b + a)(b - a)\] bedeutet. Es folgt 
+  adsfsadfdsafadsfadsf
+  \subsubsection{Indirekter Beweis}
+  Um zu zeigen 'wenn A, dann B' gilt, können wir auch sagen 'wenn nicht b, dann auch nicht a'.
+  \[ (A \Rightarrow B) \Leftrightarrow (\neg B \Rightarrow \neg A) \]
+
+\subsection{Vollständige Induktion}
+Folgende Formel ist zu beweisen:
+\[ S(n): \sum\limits_{k=1}^n k = \frac{1}{2} \cdot n \cdot (n + 1)\]
+\subsubsection{Induktionsanfang / Induktionsverankerung}
+Man prüft die Formel für die erste Zahl der Reihe. In unserem Fall ist
+das $n = 1$:
+\[ n = 1: \sum\limits_{k=1}^1 k = 1 = \frac{1}{2} \cdot 1 \cdot (1 + 1) = 1\]
+Die Summenformel git also für n = 1.
+
+\subsubsection{Induktionsschritt}
+\textbf{a) Induktionsannahme} \\
+Das ist die ursprüngliche Formel:
+\[ S(n): \sum\limits_{k=1}^n k = \frac{1}{2} \cdot n \cdot (n + 1)\]
+
+\textbf{b) Induktionsbehauptung} \\
+Man geht davon aus, dass die Formel auch für die darauf folgende Zahl
+gilt. Deshalb erhöhnt man $n$ überall um 1:
+ \[ S(n + 1): \sum\limits_{k=1}^{n+1} k = \frac{1}{2} \cdot (n + 1) \cdot (n + 2)\]
+(Quasi \texttt{s/n/n+1/g}) \\
+Die Induktionsbehauptung ist jetzt mit dem Induktionsbeweis zu beweisen.
+
+\textbf{c) Induktionsbeweis} \\
+Dann muss man die linke Seite der Induktionsbehauptung nehmen und in zwei Summen Teilen,
+damit man die Induktionsannahme einsetzen kann:
+ \[ \sum\limits_{k=1}^{n+1} k = \left( \sum\limits_{k=1}^{n} k \right) + n + 1 \]
+Das $n + 1$ auf der Rechten Seite kommt vom linken Summenzeichen.
+Das $n + 1$, bedeutet noch ein $k$ (von der nächsten Zahl) dazu addieren.
+
+Dann setzt man die Induktionsannahme beim Summenzeichen nach dem
+Gleichheitszeichen ein:
+ \[ \sum\limits_{k=1}^{n+1} k = \frac{1}{2} \cdot n \cdot (n + 1) + n + 1 \]
+
+Multiplizieren und $\frac{1}{2}$ ausklammern:
+ \[ \sum\limits_{k=1}^{n+1} k = \frac{1}{2} \cdot (n^2 + n + 2n + 2) =
+ \frac{1}{2} \cdot (n^2 + 3n + 2) \]
+
+Klammern als Produkt schreiben:
+ \[ \sum\limits_{k=1}^{n+1} k = \frac{1}{2} \cdot (n + 1) \cdot (n + 2)\]
+Somit ist man wieder bei der gleichen Formeln der Induktionsbehauptung
+und somit wurde die Wahrheit bewiesen.
+
+\subsection{Rekursionen}
+Eine Reihe ist eine Summe von Folgegliedern ($1 + 2 + 3 + ...$). Eine Folge ist eine Menge
+von Zahlen, in spezieller Reihenfolge:
+\[ (a_k)_{k...n} := (a_0, a_1, a_2, ..., a_{n-1}, a_n) \]
+\[ (a_k)_{n \in \mathbb{N}} := (a_0, a_1, a_2, a_3, a_4, ...) \]
+\subsubsection{Direkte Angabe}
+Man kann für jedes Folgeglied angeben, wie es berechnet wird:
+\[ a_n = 2^n \]
+\[ a_1 = 2; a_2 = 4; a_3 = 8, ... \]
+\subsubsection{Rekursive Angabe}
+Man gibt das erste Folgeglied an, sowie eine Rekursionsformel,
+wie man das nächste Glied berechnet.
+\[a_0 = 1 \text{ und } a_n = a_{n-1} \cdot 2 \]
+\[ a_1 = 2; a_2 = 4; a_3 = 8, ... \]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Mengen, Relationen, Abbildungen}
+
+\subsection{Mengen, Teilmengen, Potenzmengen}
+\begin{itemize}
+  \item Mengen: $\{5, 23, 42\}$ oder $\{1, 4, 9, 16, 25, ...\}$ oder
+  $\{x \in \mathbb{N} | x^2 = 1 \}$
+  \item Teilmenge/Inklusion: A ist Teilmenge von B: $A \subset B$ (Ganz A ist enthalten in B)
+  \item Leere Menge: $\emptyset$ oder $\{ \}$ (Die leere Menge ist
+    Teilmenge jeder Menge!)
+  \item Mächtigkeit $|M|$: Anzahl der Elemente: Ist $M = \{a, b, c\}$, dann ist $|M| = 3$
+  \item Potenzmenge $P(M)$: Menge aller Teilmengen von einer Menge $M$:
+  \\ Ist die Menge $M = \{a, b\}$, dann ist die Potenzmenge $P(M) = \{\{\},
+  \{a\}, \{b\}, \{a, b\}\}$
+\end{itemize}
+
+\subsection{Vereinigung und Durchschnitt}
+\subsubsection{Schreibweise}
+\begin{itemize}
+  \item Vereinigung: $A \cup B = \{ x | x \in A \text{ oder } x \in B \}$
+  \item Durchschnitt: $A \cap B = \{ x | x \in A \text{ und } x \in B \}$
+  \item Differenz: $A \backslash B = \{ x | x \in A \text{ und } x
+    \notin B \} = A \cap \overline B$
+  \item Komplement: $\overline A = \{ x | x \notin A \}$
+\end{itemize}
+
+\subsubsection{Gesetze}
+\begin{itemize}
+  \item Idempotenzgesetz: $A \cup A = A$ und $A \cap A = A$
+  \item Kommutativität: $A \cup B = B \cup A$ und $A \cap B = B \cap A$
+  \item Assoziativität: $A \cup (B \cup C) = (A \cup B) \cup C = A \cup
+  B \cup C$ \\ und $A \cap (B \cap C) = (A \cap B) \cap C = A \cap B \cap C$
+  \item Assoziativität: $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+    und $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+\end{itemize}
+Zusammenhang der Inklusion/Teilmenge mit der Vereinigung und Durchschnitt:
+\[ A \subset B \Leftrightarrow (A \cap B) = A \Leftrightarrow (A \cup B)
+= B \]
+
+\subsection{Komplement und Differenz}
+Das Komplement kann man mit der Menge $A$ und $B$ und der Obermenge $M$
+beschreiben:
+\[\overline A = \{ x \in M | x \notin A\} \]
+\[ \overline{A \cup B} = \overline A \cap \overline B \]
+\[ A \cap \overline{A \cup B \cup C} = A \cap (\overline A \cap
+  \overline B \cap \overline C) = (A \cap \overline A) \cup (B \cap
+  \overline C) = \{\}\]
+
+Bei der Differenz gilt folgendes:
+\[ A \backslash B = \{ a \in A | a \notin B \}\]
+\[ A \backslash B = A \cap \overline B \]
+\[ A \backslash (A \backslash B) = A \backslash (A \cap \overline B) = A
+  \cap (\overline{A \cap \overline B}) = A \cap (\overline A \cup B) = (A
+  \cap \overline A) \cup (A \cap B) = \{\}\]
+
+\subsection{Kartesische Produkte}
+Im Gegensatz zu den Mengen spielt bei den Kartesischen Produkten die
+Reihenfolge der Elemente eine Rolle.
+
+Ein geordnetes Paar nennt sich auch 2-Tupel und ist wie folgt definiert:
+\[ (a, b) = (a_0, b_0) \Leftrightarrow a = a_0 \text{ und } b = b_0 \]
+
+Das Kartesische Produkt von zwei Mengen $A$ und $B$ wird definiert als
+Menge aller geordneten Paare, deren erste Komponente aus der Menge $A$
+stammt und die zweite Komponente aus der Menge $B$:
+\[ A \times B = \{(a,b)|a \in A, b \in B \}\]
+Dasselbe gilt auch für Kartesische Produkte mit drei Faktoren:
+\[ A \times B \times C = \{(a,b,c)|a \in A, b \in B, c \in C \}\]
+Dasselbe gilt auch für Kartesische Produkte mit beliebig vielen Faktoren:
+\[ A_1 \times A_2 \times ... \times A_n = \{(a_1,a_2,...,a_n)|a_i \in
+A_i \text{ für } i = 1, ..., n \}\]
+Sind alle Faktoren gleich, kann man die Potenzschreibweise verwenden:
+\[ A^n = \underbrace{A \times A \times ... \times A}_{\text{n Faktoren}} \]
+
+\subsection{Relationen}
+Eine n-stellige Relation $R$ zwischen den nichtleeren Mengen $A_1, A_2,
+..., A_n$ ist eine Teilmenge des kartesischen Produktes $A$.
+\[ \prod \limits_{i=1}^{n}A_i = A_i \times A_i \times ...  \times A_i \]
+\[ R \subset A = \prod \limits_{i=1}^{n}A_i \]
+
+\subsection{Relationen in Datenbanken}
+\subsection{Entity-Relationship-Models}
+\subsection{Abbildungen}
+\subsection{Mächtigkeit von Mengen}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Vektoren und Vektorräume}
+
+\subsection{Begriffe}
+\subsubsection{Vektoren}
+Einen n-Tupel $(x_1, x_2, x_3, ..., x_n)$ aus dem $\mathbb{R}^n$ kann
+als Vektor dargestellt werden:
+\[ \vec x_n = \left(
+    \begin {array} {c}
+        x_1 \\
+        x_2 \\
+        x_3 \\
+        \vdots \\
+        x_n
+    \end {array}
+  \right) \]
+
+\subsubsection{Matrix, Matritzen}
+Eine $n \times m$ Matrix oder eine Matrix vom Typ $(n, m)$ hat $n$ Zeilen
+und $m$ Spalten, wird mit einem Grossbuchstaben beschrieben und sieht so aus:
+\[ A = \begin {pmatrix}
+  a_{11} & a_{12} & a_{13} & \hdots & a_{1m} \\
+  a_{21} & a_{22} & a_{23} & \hdots & a_{2m} \\
+  \vdots  & \vdots  & \vdots  &        & \vdots  \\
+  a_{n1} & a_{n2} & a_{n3} & \hdots & a_{nm} \\
+\end {pmatrix} \]
+Die Zahlen heissen Koeffizienten und werden mit zwei Indizes
+geschrieben. Der erste ist der Zeilenindex ($n$), der zweite ist der
+Spaltenindex ($m$).
+
+\textbf{Quadratische Matrix:} Eine Matrix ist quadratisch, wenn $n = m$ ist.
+Die quadratische Matrix hat also gleich viele Spalten wie Zeilen:
+\[ M = \begin {pmatrix}
+ 1  & 2 & 3  \\
+ 4  & 5 & 6  \\
+ 7  & 8 & 9  \\
+\end {pmatrix} \]
+
+
+\textbf{Diagonalmatrix:} Eine Diagonalmatrix ist quadratisch und zudem
+alle Koeffizienten $0$ ausser die Diagonale:
+\[ M = \begin {pmatrix}
+ 5  & 0  & 0  & 0  & 0  \\
+ 0  & 23  & 0  & 0  & 0  \\
+ 0  & 0  & 50  & 0  & 0  \\
+ 0  & 0  & 0  & 42  & 0  \\
+ 0  & 0  & 0  & 0  & 6  \\
+\end {pmatrix} \]
+
+\textbf{Einheitsmatrix:} Eine Einheitsmatrix ist eine Diagonalmatrix,
+welche aus lauter 1 besteht:
+\[ M = \begin {pmatrix}
+ 1  & 0  & 0  & 0 \\
+ 0  & 1  & 0  & 0 \\
+ 0  & 0  & 1  & 0 \\
+ 0  & 0  & 0  & 1 \\
+\end {pmatrix} \]
+
+\textbf{Dreiecksmatrix:} Eine (untere) Dreiecksmatrix ist eine Diagonalmatrix,
+in welcher oberhalb der Diagonale nicht aus Nullen besteht:
+\[ M = \begin {pmatrix}
+ 1  & 2  & 3  & 4 \\
+ 0  & 9  & 8  & 5 \\
+ 0  & 0  & 7  & 6 \\
+ 0  & 0  & 0  & 1 \\
+\end {pmatrix} \]
+
+\subsubsection{Rang}
+Anzahl Zeilen der Matrix A, die bei der Lösung eines linearen
+Gleichungssystems mit dem Gauss-Algorithmus nicht zu Nullzeilen werden.
+Die Matrix
+\[ M = \begin {pmatrix}
+ 5  & 0  & 0 \\
+ 0  & 23  & 0 \\
+ 0  & 0  & 0 \\
+\end {pmatrix} \]
+hat also den Rang 2.
+
+\subsubsection{Linearkombination}
+\begin{itemize}
+  \item Alle Linearkombinationen einer Menge von Vektoren bilden einen
+  Vektorraum
+  \item Einige Vektoren lassen sich als Linearkombinationen von anderen
+  Vektoren darstellen
+  \item Aus einem linear unabhängigen System lässt sich kein Vektor
+  weglassen, ohne den erzeugten Vektorraum zu verkleinern
+\end{itemize}
+
+\subsubsection{Lineare Abhängigkeit}
+Vektoren sind linear unabhängig, wenn keiner der Vektoren sich
+als Linearkombination der jeweils anderen Vektoren darstellen lässt
+(sie dürfen also z. B. nicht in die selbe Richtung zeigen.)
+
+Das heisst, dass Vektoren linear unabhängig sind, wenn aus $\lambda_1 \cdot \vec{v_1} +
+\lambda_2 \cdot \vec{v_2} + ... + \lambda_n \cdot \vec{v_n} = \vec{0}$
+folgt, dass $\lambda_1 = \lambda_2 = ... = \lambda_n = 0$
+
+Wenn nach der Gauss-Elimination die Koeffizienten ($\lambda_n$) Null sind, sind die
+Vektoren ($\vec{v_n}$) linear abhängig (= nicht linear unabhängig). Nur die, welche nicht Null sind, sind \emph{voneinander} linear unabhängig.
+\[ M = \begin {pmatrix}
+  1  &  0  &  -1  &  0  &  1  \\
+  0  &  1  &   2  &  3  &  4  \\
+  0  &  0  &   0  &  0  &  0  \\
+  0  &  0  &   0  &  0  &  0  \\
+\end {pmatrix} \]
+\begin{itemize}
+  \item Die fünf Vektoren (= Spalten der Matrix) sind linear abhängig
+  \item Nur zwei der fünf Vektoren sind linear unabhängig
+\end{itemize}
+
+\subsubsection{Erzeugendensystem}
+Ein Erzeugendensystem $E$ spannt eine Ebene / einen Raum der
+Dimension $n$ auf:
+\[ E = \{ \vec{v_1}, \vec{v_2}, ..., \vec{v_n}\} \]
+Die Vektoren $\vec{v_1}$ bis $\vec{v_n}$ müssen nicht zwingend linear
+unabhängig sein.
+
+\subsubsection{Basis}
+Eine Basis spannt ebenfalls eine Ebene / einen Raum der Dimension $n$
+auf:
+\[ B = \{ \vec{e_1}, \vec{e_2}, ..., \vec{e_n}\} \]
+Die Vektoren $\vec{v_1}$ bis $\vec{v_n}$ sind zwingend linear
+unabhängig. Keiner der Vektoren ist also ein Vielfaches eines anderen
+Vektoren.
+
+\subsubsection{Normalbasis / Kanonische Basis}
+Die Normalbasis / kanonische Basis besteht aus Einheitsvektoren, die
+linear unabhängig sind:
+\[ B_E = \{ \vec{e_1}, \vec{e_2}, ..., \vec{e_m}\} \]
+\[
+  \vec{e_1} = \begin {pmatrix} 1 \\ 0 \\ 0 \\ \vdots \\ 0 \end {pmatrix}, 
+  \vec{e_2} = \begin {pmatrix} 0 \\ 1 \\ 0 \\ \vdots \\ 0 \end {pmatrix}, 
+  \vec{e_m} = \begin {pmatrix} 0 \\ 0 \\ 0 \\ \vdots \\ 1 \end {pmatrix}
+\]
+\begin{itemize}
+  \item Der Betrag von von einem Einheitsvektor der Normalbasis ist $1$:
+    $|\vec{e_i}| = 1$
+  \item Beim Skalarprodukt von zwei Einheitsvektoren der Normalbasis
+    gilt
+    \[ \vec{e_i} \cdot \vec{e_j} = 
+       \begin{cases}
+         0 & \text{ wenn } \vec{e_i} \ne \vec{e_j} \\
+         1 & \text{ wenn } \vec{e_i} = \vec{e_j} \\
+       \end{cases}
+    \]
+\end{itemize}
+
+
+\subsection{Rechnen mit Vektoren}
+Vektoren können addiert werden:
+\[ \vec x_n + \vec y_n =
+  \left( \begin {array} {c} x_1 \\ x_2 \\ \vdots \\ x_n \end {array}
+  \right) +
+    \left( \begin {array} {c} y_1 \\ y_2 \\ \vdots \\ y_n \end {array}
+    \right) = 
+    \left( \begin {array} {c} x_1 + y_1 \\ x_2 + y_2 \\ \vdots \\ x_n + y_n \end {array} \right) \]
+Vektoren können multipliziert werden:
+\[
+23 \cdot \vec x = 23 \cdot
+  \left( \begin {array} {c} x_1 \\ x_2 \\ \vdots \\ x_n \end {array}
+  \right) = 
+    \left( \begin {array} {c} 23 \cdot x_1 \\ 23 \cdot x_2 \\ \vdots
+    \\ 23 \cdot x_n \end {array} \right)
+\]
+Der Definitionsbereich wird mit $\vec x_n \in \mathbb{R}^n$ angegeben.
+
+\subsubsection{Weitere Rechenregeln für Vektoren}
+\begin{itemize}
+  \item $\vec 0$ ist das neutrale Element: $\vec v + \vec 0 = \vec v$
+  \item $- \vec v$ ist das inversive Element: $\vec v + (- \vec v) = 0$
+  \item Es gilt die Assoziativität: $(\vec u + \vec v ) + \vec w = \vec u + (\vec v + \vec w)$
+  \item Es gilt die Kommutativität: $\vec u + \vec v = \vec v + \vec u$
+  \item Man kann Skalarkörper ($s$) ausmultiplizieren oder ausklammern:
+    $s (\vec u + \vec v) = s \cdot \vec u + s \cdot \vec v$
+\end{itemize}
+
+\subsubsection{Matrix mal Vektor}
+Eine Matrix kann mit einem Vektor multipliziert werden (Zeile der Matrix $\cdot$
+Spalte vom Vektor):
+\[ A \cdot \vec x = \vec b = \begin {pmatrix}
+  a_{11} & a_{12} & a_{13} \\
+  a_{21} & a_{22} & a_{23} \\
+  a_{31} & a_{32} & a_{33} \\
+\end {pmatrix} \cdot
+  \left( \begin {array} {c} x_1 \\ x_2 \\ x_3 \end {array} \right) = 
+  \left( \begin {array} {c}
+            a_{11}x_1 + a_{12}x_2 + a_{13}x_3 \\
+            a_{31}x_1 + a_{32}x_2 + a_{33}x_3 \\
+            a_{21}x_1 + a_{22}x_2 + a_{23}x_3 \\
+         \end {array}
+  \right) =
+  \left( \begin {array} {c} b_1 \\ b_2 \\ b_3 \end {array} \right)
+     \]
+Zudem gilt folgendes Gesetz:
+\[ A \cdot (\vec v + \vec w) = A \cdot \vec v + A \cdot \vec w \]
+
+\subsection{Lineare Gleichungssysteme}
+\subsubsection{Begriffe}
+\begin{itemize}
+  \item Ein lineares Gleichungssystem ist homogen, wenn der alle
+  Gleichungen $= 0$ sind.
+  \item Ein lineares Gleichungssystem ist inhomogen, wenn alle
+  Gleichungen $\ne 0$ sind. Spezielle Lösung = Rückwärts einsetzen;
+  allgemeine Lösung = Rechte Seite gleich Null.
+\end{itemize}
+
+\subsubsection{Erweiterte Koeffizientenmatrix}
+Das (inhomogene) Gleichungssystem
+\begin{align}
+   2x_1 - x_2 - 2x_3 = 0 \\
+   -1x_1 + 2x_2 + 3x_3 = 3 \\
+   3x_1 - x_3 = 3
+\end{align}
+kann auch als erweiterte Koeffizientenmatrix geschrieben werden:
+\[ \begin{array}{rrrr}
+2   &   -1    & -2    & 0   \\
+-1  &   2     & 3     & 3   \\
+3   &   0     & -1    & 3   \\
+\end {array} \]
+
+\subsubsection{Gauss-Algorithmus / Gauss-Elimination}
+Mit der Gauss-Elimination macht man die Zahlen links unter der Diagonale
+der erweiterten Koeffizientenmatrix zu Nullen. Dabei darf man folgende
+Aktionen durchführen:
+\begin{itemize}
+  \item Zeilen vertauschen: gibt keine Probleme
+  \item Spalten vertauschen: ok, aber beim Lösungsvektor wieder
+    zurücktauschen!
+  \item Multiplikation einer Gleichung mit einem Skalar
+  \item Addition einer Gleichung zu einer anderen Gleichung
+\end{itemize}
+Nach den Umformungen kann das so aussehen:
+\[ \begin{array}{rrrr}
+  -1 & 2  & 3  & 0 \\
+  0 & 3  & 4  & 6 \\
+  0 & 0  & 0  & 0 \\
+\end {array} \]
+Durch rückwärts Einsetzen kann man jetzt \emph{eine} Lösung bestimmen:
+$x_3$ sieht man in der untersten Zeile, also ist $x_3 = 0$. Jetzt setzt
+man $x_3$ in der zweiten Zeile ein, das ergibt $x_2 = 2$. Dasselbe macht
+man für $x_1$ und man erhält folgenden Vektor:
+\[ \vec x = \left( \begin{array} {c} 1 \\ 2 \\  0 \end{array} \right) \]
+Setzt man diese Lösung ins erste Gleichungssystem ein, sieht man, dass
+es mit diesen Lösungen funktioniert. Die Lösung ist auch für alle
+Vielfachen der Lösung gültig.
+
+\subsubsection{Lösungsmengen}
+Ein Gleichungssystem kann keine Lösung haben:
+\begin{align}
+  x_1 + x_2 = 1 \\
+  x_1 + x_2 = 2
+\end{align}
+
+Oder unendlich viele:
+\[ x_1 + x_2 = 2 \] Dabei ist die Lösungsmenge für $x_1 = t$ und $x_2 =
+2 - t$.
+
+Ist die letzte Zeile eine Nullzeile, gibt es auch unendlich viele
+Lösungen:
+\[ \begin{array}{rrrr}
+1  &   -2     & -3     & -3   \\
+0   &   3     & 4     & 6   \\
+0   &   0     & 0     & 0   \\
+\end {array} \]
+Eine spezielle Lösung gibt es durch Rückwärtseinsetzen mit $x_3 = 0
+\Rightarrow x_2 = 2 \Rightarrow = 1$. Das ist der Aufhänger:
+\[ \vec v = \left( \begin {array} {c} 1 \\ 2 \\ 0 \\ \end {array} \right) \]
+
+Die allgemeine Lösung ergibt sich dadurch, dass man die rechte Seite
+gleich Null setzt:
+\[ \begin{array}{rrrr}
+1  &   -2     & -3     & 0 \\
+0   &   3     & 4     & 0 \\
+0   &   0     & 0     & 0 \\
+\end {array} \]
+Die dritte Zeile ist eine Nullzeile. Die zweite Zeile heisst $3x_2 +
+4x_3 = 0$. Das hat unendlich viele Lösungen, z. B. $x_2 = 4$ und $x_3 =
+-3$. Dann folgt aus der ersten Zeile wegen $x_1 - 2x_2 - 3x_3 = 0$, dass
+$x_1 = -1$ ist. Eine Lösung des homogenen Systems ist also:
+\[ \vec r = \left( \begin {array} {c} -1 \\ -4 \\ 3 \\ \end {array} \right) \]
+Alle Lösungen des inhomogenen Gleichungssystems ergeben sich als Summe
+einer speziellen Lösung des inhomogenen Gleichungssystems plus alle
+Lösungen des homogenen Gleichungssystems:
+
+\[ \text{Lösung}(A, \vec{b}) = \left \{
+    \vec{x} \in \mathbb{R}^3 \middle |
+      \vec{x} = \left( \begin {array} {c} 1 \\ 2 \\ 0 \\ \end {array} \right) +
+      \lambda \cdot \left( \begin {array} {c} 1 \\ -4 \\ 3 \\ \end {array} \right), 
+      \lambda \in \mathbb{R}
+  \right \} \]
+\[ \text{Lösung} = \text{Spezielle Lösung} + \lambda \cdot \text{
+allgemeine Lösung}, \lambda \in \mathbb{R} \]
+
+\subsubsection{Lösen eines inhomogenen Gleichungssystems}
+Inhomogene Gleichungssysteme haben die Rechte seite immer $\ne 0$ und
+besitzen eine spezielle und eine allgemeine Lösung.
+
+Das Gleichungssystem
+\begin{align}
+  x_1 + x_2 + 3 \cdot x_3 = 4 \\
+  2 \cdot x_1 + x_2 - x_3 = -5 \\
+  3 \cdot x_1 + 2 \cdot x_2 + 2 \cdot x_3 = -1
+\end{align}
+ergibt die Koeffizientenmatrix
+\[ \begin {pmatrix}
+  1       & 1       & 2  & 4 \\
+  2       & 1       & -1  & -5 \\
+  3       & 2       & 2  & 1 \\
+\end {pmatrix} \]
+Nach der Gauss-Elimination hat man folgende Matrix:
+\[ \begin {pmatrix}
+  1       & 1       & 3  & 4 \\
+  0       & -1       & -7  & -13 \\
+  0       & 0       & 0  & 0 \\
+\end {pmatrix} \]
+Daher ist $x_3 = 0$. Somit ist $x_2 = 13$ und $x_1 = 4 - 13 = -9$. Das
+ist die spezielle Lösung.
+
+Die allgemeine Lösung erhält man, wenn man $x_3 = 1$ und die
+rechte Seite überall auf 0 setzt. Dann bekommt
+man $x_2 = -7$ und $x_3 = 4$.
+
+Die Lösungsmenge ist schlussendlich:
+\[ \text{Lösung}(A, \vec{b}) = \left \{
+    \vec{x} \in \mathbb{R}^3 \middle |
+      \vec{x} = \left( \begin {array} {c} -9 \\ 13 \\ 0 \\ \end {array} \right) +
+      \lambda \cdot \left( \begin {array} {c} 4 \\ -7 \\ 1 \\ \end {array} \right), 
+      \lambda \in \mathbb{R}
+  \right \} \]
+\[ \text{Lösung} = \text{Spezielle Lösung} + \lambda \cdot \text{
+allgemeine Lösung}, \lambda \in \mathbb{R} \]
+
+Wichtig: Hat man mehrere Nullzeilen, so muss für jede Nullzeile das
+entsprechende $x_n$ auf 1 (und deas andere auf 0) gesetzt werden
+und die Lösungsmenge erweitert
+sich dann um einen Faktor mal die allgemeine Lösung von diesem $x_n$.
+
+\subsection{Geraden und Ebenen}
+\subsection{Definition}
+Die Gerade
+\[ G : \vec{p} = \vec{a} + s \cdot \vec{r} \]
+ist definiert durch den Aufhänger $\vec{a}$, den Skalar/Parameter $s$
+und den Richtungsvektor $\vec{r}$.
+
+\subsubsection{Punkt auf Gerade}
+Um zu prüfen, ob ein Punkt $B$ auf einer Geraden $g$ liegt, setzt man
+die Gerade $g$ mit dem Punkt $B$ gleich und löst das Gleichungssystem.
+% Um festzustellen, ob der Punkt $B$
+% \[ B = \left( \begin{array}{c} -2 \\-1 \\3 \end{array} \right) \]
+% auf der Gerade $g_1$
+% \[ g : \vec{p} = \left( \begin{array}{c} 1 \\2 \\2 \end{array} \right)
+%   + s \cdot \left( \begin{array}{c} 5 \\ -1 \\ 1 \end{array} \right) \]
+% liegt, setzt man Punkt $B$ und die Gerade $g$ gleich:
+% \[ \left( \begin{array}{c} 1 \\2 \\2 \end{array} \right)
+%   + s \cdot \left( \begin{array}{c} 5 \\ -1 \\ 1 \end{array} \right)
+% = \left( \begin{array}{c} -2 \\-1 \\3 \end{array} \right) \]
+
+\subsubsection{Schnittpunkt zweier Geraden im $\mathbb{R}^3$}
+Um den Schnittpunkt der Geraden $g_1$ und $g_2$ im $\mathbb{R}^3$ festzustellen, setzt man
+diese gleich. Die Geraden heissen:
+\[ g_1 : \vec{p} = \left( \begin{array}{c} 1 \\2 \\2 \end{array} \right)
+  + s \cdot \left( \begin{array}{c} 5 \\ -1 \\ 1 \end{array} \right)
+  \text{ und }
+  g_2 : \vec{q} = \left( \begin{array}{c} -2 \\-1 \\3 \end{array} \right)
+  + t \cdot \left( \begin{array}{c} -1 \\ 2 \\ -1 \end{array} \right) \]
+Jetzt setzt man die zwei Geraden gleich:
+\[ \left( \begin{array}{c} 1 \\2 \\2 \end{array} \right)
+  + s \cdot \left( \begin{array}{c} 5 \\ -1 \\ 1 \end{array} \right)
+  = \left( \begin{array}{c} -2 \\-1 \\3 \end{array} \right)
+  + t \cdot \left( \begin{array}{c} -1 \\ 2 \\ -1 \end{array} \right) \]
+Die Aufhänger kann man addieren und auf die rechte Seite nehmen. Die
+Richtungsvektoren kommen auf die linke Seite.
+\[
+  s \cdot \left( \begin{array}{c} 5 \\ -1 \\ 1 \end{array} \right)
+  - t \cdot \left( \begin{array}{c} -1 \\ 2 \\ -1 \end{array} \right)
+  = \left( \begin{array}{c} -2 \\-1 \\3 \end{array} \right) -
+  \left( \begin{array}{c} 1 \\2 \\2 \end{array} \right)
+\]
+Daraus folgt das Gleichungssystem (Vorsicht mit den Vorzeichen!),
+welches man lösen kann:
+\[ \begin {pmatrix}
+  5 & 1 & -3 \\
+  -1 & -2 & -3 \\
+  1 & 1 & 1 \\
+\end {pmatrix} \Leftrightarrow \begin {pmatrix}
+  1 & 1 & 1 \\
+  0 & -1 & -2 \\
+  0 & -4 & -8 \\
+\end {pmatrix} \]
+Da in der ersten Spalte $s$ und in der zweiten Spalte $t$ ist (da das
+Gleichungssystem so aufgestellt wurde), kommt man auf $t = 2$ und $s =
+-1$. Jetzt kann man $s$ oder $t$ in $g_1$ bzw. $g_2$ einsetzen und man
+erhält den Schnittpunkt $S = (-4, 3, 1)$.
+
+Ist das Gleichungssystem nicht lösbar ($\text{Rang}(A,\vec{b}) >
+\text{Rang}(A))$, gibt es keinen Schnittpunkt. Die Geraden sind dann
+\emph{windschief}.
+
+\subsection{Norm und Skalarprodukt}
+\subsubsection{Betrag eines Vektors (Länge)}
+Der Betrag eines Vektors, also die Länge, rechnet sich wie folgt:
+\[ |\vec{v}| = \sqrt{\sum \limits_{i = 1}^n {v_i}^2} \]
+Der Betrag vom Vektor $\vec{u}$ aus dem $\mathbb{R}^3$ ist also:
+\[ |\vec{u}| = \left|\left( \begin{array}{c} 1 \\-2 \\2 \end{array}
+\right)\right| = \sqrt{1^2 + 2^2 + 2^2} = \sqrt{1 + 4 + 4} = \sqrt{9} = 3 \]
+Der Abstand zweier Vektoren ist der Betrag der Differenz der beiden
+Vektoren. Der Abstand zwischen 
+\[ \vec{u} = \left( \begin{array}{c} 2 \\ -1 \end{array}\right)
+\text{ und } \vec{v} = \left( \begin{array}{c} 3 \\ -4 \end{array}\right)
+\text{ ist } |\vec{u} + \vec{v}| = \left|\left(\begin{array}{c} 1 \\ -3
+\end{array}\right)\right| = \sqrt{1^2 + 3^2} = \sqrt{10} \]
+
+Bei den Beträgen gelten folgende Rechenregeln:
+\begin{itemize}
+  \item Ist der Betrag eines Vektors $0$, ist der Vektor der Nullvektor:
+    $|\vec{v}| = 0 \Leftrightarrow \vec{v} = \vec{0}$
+  \item $|r \cdot \vec{v}| = |r| \cdot |\vec{v}|$
+  \item Dreiecksungleichung: $|\vec{v_1} + \vec{v_2}| \le 
+    |\vec{v_1}| + |\vec{v_2}|$
+\end{itemize}
+
+\subsubsection{Skalarprodukt}
+Das Skalarprodukt ist das Produkt der Beträge zweier Vektoren mit dem
+Kosinus des eingeschlossenen Winkels. Man erhält eine reelle Zahl.
+\[ \vec{u} \cdot \vec{v} = |\vec{u}| \cdot |\vec{v}| \cdot \cos{(\phi)} \]
+Das Skalarprodukt im $\mathbb{R}^n$ kann auch anders berechnet werden
+(ohne Kosinus):
+\[ \vec{u} \cdot \vec{u} = \sum \limits_{i = 1}^n u_i \cdot v_i \]
+Das Skalarprodukt von den beiden Vektoren $\vec{u}$ und
+$\vec{v}$ aus dem $\mathbb{R}^3$ mit
+\[ \vec{u} = \left( \begin{array}{c} 2 \\ 6 \\ 3 \end{array}\right)
+\text{ und } \vec{v} = \left( \begin{array}{c} 3 \\ 1 \\ -4 \end{array}\right) \]
+ist also
+\[ \vec{u} \cdot \vec{v} = 2 \cdot 3 + 6 \cdot 1 + 3 \cdot (-4) = 0 \]
+Ist das Skalarprodukt $= 0$, stehen die Vektoren senkrecht zueinander!
+
+Der Winkel der beiden Vektoren lässt sich mit folgender Formel
+berechnen:
+\[ \phi := \arccos{\left(\frac{\vec{u} \cdot \vec{v}}{|\vec{u}| \cdot
+|\vec{v}|}\right)} \]
+
+Ist $\vec{u} \cdot \vec{v} = |\vec{u}| \cdot |\vec{v}|$, so ist
+$\cos(\phi) = 1$ und somit der Winkel $\phi = 0$. Diese Vektoren nennt
+man \emph{kollinear}.
+
+Beim Skalarprodukt gelten folgende Rechenregeln:
+\begin{itemize}
+  \item Grösser gleich Null: $\vec{v} \cdot \vec{v} \ge 0$
+  \item Nullvektor: Ist $\vec{v} \cdot \vec{v} = 0$, dann ist $\vec{v} = \vec{0}$
+  \item Assoziativität ($r \in \mathbb{R}$): $(r \cdot \vec{u}) \cdot \vec{v} 
+    = r \cdot ( \vec{u} \cdot \vec{v})$
+  \item Distributivität: $(\vec{u_1} + \vec{u_2}) \cdot \vec{v} 
+    = \vec{u_1} \cdot \vec{v} + \vec{u_2} \cdot \vec{v}$
+  \item Kommutativität: $\vec{u} \cdot \vec{v} = \vec{v} \cdot \vec{u}$
+\end{itemize}
+
+\subsection{Normalenform der Geraden / Ebenen}
+Der Normalenvektor $\vec{n}$ steht senkrecht zue iner Gerade $g$. Da das
+Skalarprodukt bei zwei senkrecht stehenden Vektoren $0$ ist, kann man
+die Gerade zu einem Normalenvektor berechnen:
+
+Ist der Normalenvektor
+\[ \vec{n} = \left( \begin{array}{r} -1 \\ 1 \end{array} \right) \]
+Dann gibt es aus folgender \emph{Normalenform} eine lineare
+Gleichung:
+\[ \underbrace{\left( \begin{array}{r} -1 \\ 1 \end{array} \right) \cdot
+  \left( \begin{array}{r} x_1 \\ x_2 \end{array} \right)}_{Normalenform}
+  = \underbrace{-x_1 + x_2}_{lineare Gleichung} = 0 \]
+
+Somit ist die Gerade $x_1 = x_2$.
+
+Wir haben eine Gerade $g$ mit dem Normalenvektor $\vec{n}$. Die Lage der Gerade
+wird mit einem Ortsvektor $\vec{a}$ ("`Aufhänger"') festgelegt. Zudem
+haben wir einen Punkt $P$ mit dem Ortsvektor $\vec{r}$. Es gilt nun: $\vec{n}
+\cdot (\vec{r} - \vec{a}) = 0$.
+
+\subsubsection{Normalenform im $\mathbb{R}^2$}
+
+\subsubsection{Hessesche Normalenform}
+Die Hessesche Normalenform erhält man, wenn man die Normalengleichung
+$\vec{n} \cdot \vec{r} - b = 0$ durch den Betrag des Normalenvektors
+$|\vec{n}|$ teilt. Mit den Definitionen $\vec{n_0} =
+\frac{\vec{n}}{|\vec{n}|}$ und $b_0 = \frac{b}{|\vec{n}|}$ ergibt sich
+die Form:
+\[ \vec{n_0} \cdot \vec{r} - b_0 = 0 \]
+
+Das Skalarprodukt ist
+\[ \vec{n_0} \cdot \vec{r} = |\vec{n_0}| \cdot |\vec{r}| \cdot
+\cos(\phi) = b_0 \]
+
+Wegen dem rechten Winkel gilt für den Abstand
+\[ \frac{x}{|\vec{r}|} = \cos(\phi)\]
+
+\subsection{Basen und Koordinaten}
+Im Erzeugendensystem $\vec{x} = \lambda_1 \cdot \vec{v_1} + \lambda_2
+\cdot \vec{v_2} + \dots + \lambda_n \cdot \vec{v_n}$ erzeugen
+$\vec{v_1}$ bis $\vec{v_n}$ ein Vektorraum.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Matrizen}
+\subsection{Rechenregeln für Matrizen}
+\subsubsection{Addition}
+\[ A \cdot B =
+  \begin {pmatrix}
+    a_{11} & a_{12} & a_{13} & \hdots & a_{1m} \\
+    a_{21} & a_{22} & a_{23} & \hdots & a_{2m} \\
+    \vdots  & \vdots  & \vdots  &        & \vdots  \\
+    a_{n1} & a_{n2} & a_{n3} & \hdots & a_{nm} \\
+  \end {pmatrix} \cdot 
+  \begin {pmatrix}
+    b_{11} & b_{12} & b_{13} & \hdots & b_{1m} \\
+    b_{21} & b_{22} & b_{23} & \hdots & b_{2m} \\
+    \vdots  & \vdots  & \vdots  &        & \vdots  \\
+    b_{n1} & b_{n2} & b_{n3} & \hdots & b_{nm} \\
+  \end {pmatrix} \]
+\[ = \begin {pmatrix}
+    a_{11} + b_{11} & a_{12} + b_{12} & a_{13} + b_{13} & \hdots &
+      a_{1m} + b_{1m} \\
+    a_{21} + b_{21} & a_{22} + b_{22} & a_{23} + b_{23} & \hdots &
+      a_{2m} + b_{2m} \\
+    \vdots  & \vdots  & \vdots  &        & \vdots  \\
+    a_{n1} + b_{n1} & a_{n2} + b_{n2} & a_{n3} + b_{n3} & \hdots &
+    a_{nm} + b_{nm} \\
+  \end {pmatrix} \]
+Beispiel:
+\[ A \cdot B =
+  \begin {pmatrix} 1 & -1 \\ 2 & 1 \\ \end {pmatrix} \cdot
+  \begin {pmatrix} 1 & 0 \\ 0 & 1 \\ \end {pmatrix} =
+  \begin {pmatrix} 2 & -1 \\ 2 & 2 \\ \end {pmatrix} 
+\]
+
+\subsubsection{Multiplikation mit einem Skalar}
+Eine Matrix $A$ kann mit einem Skalar $k$ multipliziert werden. Dabei
+ist $k \in \mathbb{R}$.
+\[ k \cdot A = k \cdot
+  \begin {pmatrix}
+    a_{11} & a_{12} &  \hdots & a_{1m} \\
+    a_{21} & a_{22} &  \hdots & a_{2m} \\
+    \vdots  & \vdots   &      & \vdots  \\
+    a_{n1} & a_{n2} &  \hdots & a_{nm} \\
+  \end {pmatrix} = 
+  \begin {pmatrix}
+    k \cdot a_{11} & k \cdot a_{12} &  \hdots & k \cdot a_{1m} \\
+    k \cdot a_{21} & k \cdot a_{22} &  \hdots & k \cdot a_{2m} \\
+    \vdots  & \vdots   &      & \vdots  \\
+    k \cdot a_{n1} & k \cdot a_{n2} &  \hdots & k \cdot a_{nm} \\
+  \end {pmatrix}
+\]
+Beispiel (für $k \in \mathbb{R}$):
+\[ k \cdot A = 5 \cdot
+  \begin {pmatrix} 1 & 0 \\ 0 & 1 \\ \end {pmatrix} =
+  \begin {pmatrix} 5 & 0 \\ 0 & 5 \\ \end {pmatrix} 
+\]
+\subsubsection{Matrix-Multiplikation}
+Wir haben die Matrix $A$ und die Matrix $B$:
+\[ A = 
+  \begin {pmatrix}
+    1 & 2 & 4 \\
+    3 & 2 & 1 \\
+  \end {pmatrix} \text{ und }
+  B =
+  \begin {pmatrix}
+    1 & 1 & 0 & -1 \\
+    0 & 3 & 1 & -1 \\
+    2 & 0 & 2 & -2 \\
+  \end {pmatrix}
+\]
+Man nimmt die Zeilenvektoren der Matrix $A$ (Das $T$ steht für
+Transformiert)
+\[ \vec{z_1} = (1, 2, 4)^T ,\vec{z_2} = (3, 2, 1)^T \]
+und die Spaltenvektoren der Matrix $B$:
+\[ \vec{s_1} \begin {pmatrix} 1 \\ 0 \\ 2 \\ \end {pmatrix}, 
+ \vec{s_2} \begin {pmatrix} 1 \\ 3 \\ 0 \\ \end {pmatrix}, 
+ \vec{s_3} \begin {pmatrix} 0 \\ 1 \\ 2 \\ \end {pmatrix}, 
+ \vec{s_4} \begin {pmatrix} -1 \\ -1 \\ -2 \\ \end {pmatrix}
+\]
+
+Das Produkt der Matrix $A$ mit der Matrix $B$ ergibt sich aus den Skalarprodukten
+der Zeilen- und Spaltenvektoren (Zeilen der rechten x Spalten der linken Matrix):
+\[ A \cdot B =
+  \begin {pmatrix}
+    \vec{z_1} \cdot \vec{s_1} & \vec{z_1} \cdot \vec{s_2} & \vec{z_1} \cdot \vec{s_3} & \vec{z_1} \cdot \vec{s_4} & \vec{z_1} \cdot \vec{s_2} \\
+    \vec{z_2} \cdot \vec{s_1} & \vec{z_2} \cdot \vec{s_2} & \vec{z_2} \cdot \vec{s_3} & \vec{z_2} \cdot \vec{s_4} & \vec{z_2} \cdot \vec{s_2} &
+  \end {pmatrix} \]
+Das rechnet man am Besten mit einer Tabelle:
+
+\begin{tabular}{|ccc||cccc|}
+\hline
+        &   &   & 1 & 1 & 0 & -1 \\
+  A & $\cdot$  & B & 0 & 3 & 1 & -1 \\
+        &   &   & 2 & 0 & 2 & -2 \\
+      \hline
+      \hline
+      1 & 2 & 4 & 9 & 7 & 10 & -11 \\
+      3 & 2 & 1 & 5 & 9 & 4 & -7 \\
+  \hline
+\end{tabular}
+
+Das Produkt hat immer so viele Zelen wie der erste Faktor.
+Das heisst jetzt:
+\[ A \cdot B = 
+  \begin {pmatrix}
+    1 & 2 & 4 \\
+    3 & 2 & 1 \\
+  \end {pmatrix} \cdot 
+  \begin {pmatrix}
+    1 & 1 & 0 & -1 \\
+    0 & 3 & 1 & -1 \\
+    2 & 0 & 2 & -2 \\
+  \end {pmatrix} =
+  \begin {pmatrix}
+    9 & 7 & 10 & -11 \\
+    5 & 9 & 4 & -7 \\
+\end {pmatrix} \]
+Wichtig:
+\begin{itemize}
+  \item Die Faktoren dürfen nicht vertauscht werden:  $ A \cdot B \ne B \cdot A $
+  \item Eine 2x4 und 4x4 Matrix kann auch nicht multipliziert werden.
+\end{itemize}
+
+\subsection{Matrizen und ihre Inversen}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Lineare Abbildungen}
+\subsection{Koordinaten und Transformation}
+\subsection{Determinanten}
+\subsection{Eigenwerte und Eigenvektoren}
+\subsubsection{Berechnung der Eigenvektoren}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Begriffe}
+\subsection{Ist Teiler von}
+Folgendes heisst $a$ ist ein Teiler von $b$:
+\[ a | b\]
+\subsection{Summenformel}
+\[\sum \limits_{k=1}^n k = 1 + 2 + ... + n \]
+Man kann sich das wie eine For-Schleife vorstellen:
+\begin{verbatim}
+for i in `seq k n`
+do
+  SUM=$(($SUM + i))
+done
+\end{verbatim}
+\subsection{Produktionsformel}
+\[\prod \limits_{k=1}^{n}k = 1\cdot 2\cdot ... \cdot n \]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inhalt Ende
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
+% EOF
