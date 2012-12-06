@@ -36,7 +36,6 @@ Eine Aussage ist ein Satz, welcher entweder falsch oder wahr ist.
     \begin{itemize}
       \item Beispiel: $A \Rightarrow B$
       \item Wenn Aussage $A$ wahr, dann gilt Aussage $B$.
-      \item Wenn Aussage $A$ falsch, ist es immer wahr.
       \item Wenn die Aussage $A$ falsch ist, nützt uns die Implikation nichts,
         denn man könnte damit etwas Richtiges, aber auch etwas Falsches herleiten.
       \item Das heisst: Nur falsch, wenn $B$ falsch ist und $A$ richtig ist.
@@ -44,7 +43,7 @@ Eine Aussage ist ein Satz, welcher entweder falsch oder wahr ist.
   \item $\Leftrightarrow$ Äquivalenz (genau dann, wenn \dots)
     \begin{itemize}
       \item Beispiel: $A \Leftrightarrow B$
-      \item Wahr, wenn $A$ genau wie $B$ ist
+      \item Wahr, wenn $A$ genau dann wahr ist, wenn $B$ wahr ist
     \end{itemize}
   \item $\uparrow$ NAND (Zusammengesetzt aus NOT (nicht, $\neg$) und AND (und $\wedge$))
     \begin{itemize}
@@ -110,13 +109,13 @@ Normalformen braucht man, um Formeln übersichtlicher zu gestalten
   \hline
   $X$ & $Y$ & $Z$ & $C$ \\
   \hline
-  w & w & w & w \\
+  w & w & w & f \\
   w & w & f & f \\
   w & f & w & w \\
-  w & f & f & f \\
+  w & f & f & w \\
   f & w & w & w \\
-  f & w & f & f \\
-  f & f & w & w \\
+  f & w & f & w \\
+  f & f & w & f \\
   f & f & f & w \\
   \hline
 \end{tabular}
@@ -151,31 +150,41 @@ Normalformen braucht man, um Formeln übersichtlicher zu gestalten
 \subsection{Aussageformen und Prädikate}
   \begin{itemize}
     \item Der Wahrheitswert einer Aussageform hängt von einer oder mehreren Variablen ab.
-    \item Aussageformen sind unbestimmt, weil nicht klar ist, welcher Wert für eine Variable eingesetzt wird.
+    \item Aussageformen sind unbestimmt, weil nicht klar ist, welcher Wert
+      für eine Variable eingesetzt wird.
     \item Der Wert, welcher für eine Aussageform eingesetzt wird, heisst Subjekt.
-    \item Ein Subjekt kann zulässig (Aussage ist wahr) oder unzulässig (Aussage ist falsch) sein.
-    \item Aussagen und Aussageformen bestehen aus dem Subjekt (Variable) und dem Prädikat (Beschreibung, Eigenschaft).
+    \item Ein Subjekt kann zulässig (Aussage ist wahr oder falsch) oder unzulässig
+      (Aussage ist nicht auswertbar) sein.
+    \item Aussagen und Aussageformen bestehen aus dem Subjekt (Variable)
+      und dem Prädikat (Beschreibung, Eigenschaft).
   \end{itemize}
 
 \subsection{Quantoren}
   \begin{itemize}
-    \item Der Allquantor ($\forall$) sagt, dass eine Aussage für alle Elemente wahr ist.
-    \item Der Existenzquantor ($\exists$) sagt, dass eine Aussage für mindestens ein Element wahr ist.
-    \item Gibt es einen Quantor, sind die Variabeln nicht mehr frei wählbar, sondern an den Quantor gebunden.
+    \item Der Allquantor ($\forall$) sagt, dass eine Aussage für alle
+      Elemente gelten soll.
+    \item Der Existenzquantor ($\exists$) sagt, dass eine Aussage für
+      mindestens ein Element gelten soll.
+    \item Gibt es einen Quantor, sind die Variabeln nicht mehr frei wählbar,
+      sondern an den Quantor gebunden.
   \end{itemize}
-  Das wird an folgendem Beispiel erläutert: \[R(x) : \text{Der Weg } x \text{ aus der Menge } W \text{ aller Wege führt nach Rom.} \]
+  Das wird an folgendem Beispiel erläutert:
+  \[R(x) : \text{Der Weg } x \text{ aus der Menge } W \text{ aller Wege führt nach Rom.} \]
   \begin{itemize}
     \item Alle Wege führen nach Rom: $\forall x \in W: R(x)$
-    \item Nicht alle Wege führen nach Rom: $\neg \forall x \in W: R(x)$
+    \item Nicht alle Wege führen nach Rom: $\neg \forall x \in W: R(x)
+    \Leftrightarrow \exists x \in W: \neg R(x)$
     \item Kein Weg führt nach Rom: $\neg \exists x \in W: R(x)$
     \item Alle Wege führen nicht nach Rom: $\forall x \in W: \neg R(x)$
   \end{itemize}
-  Wenn nicht alle Wege nach Rom führen, gibt es mindestens einen Weg, der Nicht nach Rom führt:
-  \[ \neg (\forall x \in W: R(x)) \Leftrightarrow \exists x \in W: R(x) \]
+  Wenn nicht alle Wege nach Rom führen, gibt es mindestens einen Weg,
+    der Nicht nach Rom führt:
+  \[ \neg (\forall x \in W: R(x)) \Leftrightarrow \exists x \in W: \neg R(x) \]
   Man kann aber nichts darüber aussagen, ob überhaupt ein Weg nach Rom führt.
 
 \subsection{Natürliche Zahlen}
-  Null ist eine natürliche Zahl und jede natürliche Zahl hat einen Nachfolger (ausser der Null).
+  Null ist eine natürliche Zahl und jede natürliche Zahl hat einen
+    Nachfolger (ausser der Null).
   Wir können die Nachfolger von $n$ mit $s(n)$ darstellen:
   \[ 0, s(0), s(s(0)), s(s(s(0))), \dots \]
   Das kann später noch nützlich sein.
@@ -191,8 +200,8 @@ Wir haben folgende Voraussetzung:
   \[ A: a^2 < b^2 \text{ und } B: a < b \text{ und } C: (A \Rightarrow B) \]
   \subsubsection{Direkter Beweis}
   Behauptung wird anhand allgemein geltenden Grundlagen abgeleitet und man versucht die Aussage $A(n) \Rightarrow B(n)$ direkt zu zeigen.
-  Ist \[a^2 < b^2\], dann ist \[0 < b^2 - a^2\] was \[0 < (b + a)(b - a)\] bedeutet. Es folgt 
-  adsfsadfdsafadsfadsf
+  Ist \[a^2 < b^2\], dann ist \[0 < b^2 - a^2\] was \[0 < (b + a)(b - a)
+  \Rightarrow b > a\] bedeutet.
   \subsubsection{Indirekter Beweis}
   Um zu zeigen 'wenn A, dann B' gilt, können wir auch sagen 'wenn nicht b, dann auch nicht a'.
   \[ (A \Rightarrow B) \Leftrightarrow (\neg B \Rightarrow \neg A) \]
@@ -235,14 +244,13 @@ Multiplizieren und $\frac{1}{2}$ ausklammern:
 
 Klammern als Produkt schreiben:
  \[ \sum\limits_{k=1}^{n+1} k = \frac{1}{2} \cdot (n + 1) \cdot (n + 2)\]
-Somit ist man wieder bei der gleichen Formeln der Induktionsbehauptung
-und somit wurde die Wahrheit bewiesen.
+Somit ist man wieder bei der gleichen Formeln der Induktionsbehauptung.
 
 \subsection{Rekursionen}
 Eine Reihe ist eine Summe von Folgegliedern ($1 + 2 + 3 + ...$). Eine Folge ist eine Menge
 von Zahlen, in spezieller Reihenfolge:
 \[ (a_k)_{k...n} := (a_0, a_1, a_2, ..., a_{n-1}, a_n) \]
-\[ (a_k)_{n \in \mathbb{N}} := (a_0, a_1, a_2, a_3, a_4, ...) \]
+\[ \Rightarrow (a_k)_{n \in \mathbb{N}} := (a_0, a_1, a_2, a_3, a_4, ...) \]
 \subsubsection{Direkte Angabe}
 Man kann für jedes Folgeglied angeben, wie es berechnet wird:
 \[ a_n = 2^n \]
@@ -251,7 +259,7 @@ Man kann für jedes Folgeglied angeben, wie es berechnet wird:
 Man gibt das erste Folgeglied an, sowie eine Rekursionsformel,
 wie man das nächste Glied berechnet.
 \[a_0 = 1 \text{ und } a_n = a_{n-1} \cdot 2 \]
-\[ a_1 = 2; a_2 = 4; a_3 = 8, ... \]
+\[ \Rightarrow a_1 = 2; a_2 = 4; a_3 = 8, ... \]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Mengen, Relationen, Abbildungen}
@@ -355,6 +363,12 @@ als Vektor dargestellt werden:
     \end {array}
   \right) \]
 
+\subsubsection{Vektoren aus zwei Punkten berechnen}
+Der Vektor von Punkt $Q = (3, 0)$ bis $P = (-1, 3)$ berechnet sich so:
+\[ \overline{QP} = \begin {pmatrix} P_1 - Q_1 \\ P_2 - Q_2 \\ \end {pmatrix}
+  = \begin {pmatrix} -1 - 3 \\ 0 - (-3) \\ \end {pmatrix}
+  = \begin {pmatrix} -4 \\ 3 \\ \end {pmatrix} \]
+
 \subsubsection{Matrix, Matritzen}
 Eine $n \times m$ Matrix oder eine Matrix vom Typ $(n, m)$ hat $n$ Zeilen
 und $m$ Spalten, wird mit einem Grossbuchstaben beschrieben und sieht so aus:
@@ -422,8 +436,8 @@ hat also den Rang 2.
   Vektorraum
   \item Einige Vektoren lassen sich als Linearkombinationen von anderen
   Vektoren darstellen
-  \item Aus einem linear unabhängigen System lässt sich kein Vektor
-  weglassen, ohne den erzeugten Vektorraum zu verkleinern
+  \item Aus einem linear unabhängigen Erzeugendensystem lässt sich kein Vektor
+    weglassen, ohne den erzeugten Vektorraum zu verkleinern
 \end{itemize}
 
 \subsubsection{Lineare Abhängigkeit}
@@ -435,8 +449,9 @@ Das heisst, dass Vektoren linear unabhängig sind, wenn aus $\lambda_1 \cdot \ve
 \lambda_2 \cdot \vec{v_2} + ... + \lambda_n \cdot \vec{v_n} = \vec{0}$
 folgt, dass $\lambda_1 = \lambda_2 = ... = \lambda_n = 0$
 
-Wenn nach der Gauss-Elimination die Koeffizienten ($\lambda_n$) Null sind, sind die
-Vektoren ($\vec{v_n}$) linear abhängig (= nicht linear unabhängig). Nur die, welche nicht Null sind, sind \emph{voneinander} linear unabhängig.
+Wenn es nach der Gauss-Elimination Nullzeilen gibt, sind die Vektoren
+linear abhängig (= nicht linear unabhängig). Es gibt nur so viele linear
+unabhängige Vektoren, wie es keine Nullzeilen gibt (=Rang):
 \[ M = \begin {pmatrix}
   1  &  0  &  -1  &  0  &  1  \\
   0  &  1  &   2  &  3  &  4  \\
@@ -537,11 +552,11 @@ Zudem gilt folgendes Gesetz:
 \subsection{Lineare Gleichungssysteme}
 \subsubsection{Begriffe}
 \begin{itemize}
-  \item Ein lineares Gleichungssystem ist homogen, wenn der alle
-  Gleichungen $= 0$ sind.
-  \item Ein lineares Gleichungssystem ist inhomogen, wenn alle
-  Gleichungen $\ne 0$ sind. Spezielle Lösung = Rückwärts einsetzen;
-  allgemeine Lösung = Rechte Seite gleich Null.
+  \item Ein lineares Gleichungssystem ist homogen, wenn die rechte Seite
+    für alle Gleichungen $= 0$ ist.
+  \item Ein lineares Gleichungssystem ist inhomogen, wenn die rechte
+    Seite nicht immer $= 0$ ist. Spezielle Lösung = Rückwärts einsetzen;
+    allgemeine Lösung = Rechte Seite gleich Null.
 \end{itemize}
 
 \subsubsection{Erweiterte Koeffizientenmatrix}
@@ -552,7 +567,7 @@ Das (inhomogene) Gleichungssystem
    3x_1 - x_3 = 3
 \end{align}
 kann auch als erweiterte Koeffizientenmatrix geschrieben werden:
-\[ \begin{array}{rrrr}
+\[ \begin{array}{rrr|r}
 2   &   -1    & -2    & 0   \\
 -1  &   2     & 3     & 3   \\
 3   &   0     & -1    & 3   \\
@@ -570,7 +585,7 @@ Aktionen durchführen:
   \item Addition einer Gleichung zu einer anderen Gleichung
 \end{itemize}
 Nach den Umformungen kann das so aussehen:
-\[ \begin{array}{rrrr}
+\[ \begin{array}{rrr|r}
   -1 & 2  & 3  & 0 \\
   0 & 3  & 4  & 6 \\
   0 & 0  & 0  & 0 \\
@@ -758,6 +773,19 @@ Bei den Beträgen gelten folgende Rechenregeln:
   \item Dreiecksungleichung: $|\vec{v_1} + \vec{v_2}| \le 
     |\vec{v_1}| + |\vec{v_2}|$
 \end{itemize}
+
+\subsubsection{Normalenvektor}
+Der Normalenvektor steht senkrecht zu einem Vektor. Das Skalarprodukt
+zwischen dem Vektor $\vec{v}$ und dem Normalenvektor $\vec{n}$ ist glech 0.
+\[ \vec{n} \cdot \begin {pmatrix} 1 \\ 2 \\ 3 \\ 4 \end {pmatrix} = 0 \]
+Daraus folgt die Gleichung:
+\[ 1 \cdot \vec{x_1} - 2 \cdot \vec{x_2} + 3 \cdot \vec{x_3} + 4 \cdot
+\vec{x_4} = 0 \]
+Nach dem Auflösen ergibt sich die Lösung:
+\[ \begin{pmatrix} 2 \\ -1 \\ 0 \\ 0 \end {pmatrix}\]
+
+\emph{Trick}: $x_1$ und $x_2$ auf vertauschen und eines davon mit $-1$
+multiplizieren. Die restlichen $x_n$ auf Null setzen!
 
 \subsubsection{Skalarprodukt}
 Das Skalarprodukt ist das Produkt der Beträge zweier Vektoren mit dem
@@ -965,6 +993,74 @@ Wichtig:
 \section{Lineare Abbildungen}
 \subsection{Koordinaten und Transformation}
 \subsection{Determinanten}
+\subsubsection{Determinante einer 2x2 Matrix}
+Von der Matrix $A$
+\[ A =
+  \begin {pmatrix}
+    a_{11} & a_{12} \\
+    a_{21} & a_{22} \\
+  \end {pmatrix} \]
+Ist die Determinante
+\[ \text{Det}(A) = 
+    a_{11} \cdot a_{22} - a_{21} \cdot a_{12} \]
+Produkt der ersten Diagonale minus Produkt der zweiten Diagonale.
+
+\subsubsection{Invertierende einer 2x2 Matrix mit der Determinante berechnen}
+\[ A^{-1} = \frac{1}{\text{Det}(A)} \cdot 
+  \begin {pmatrix}
+    a_{22} & -a_{12} \\
+    -a_{21} & a_{11} \\
+  \end {pmatrix} \]
+Kehrwert der Determinalte multipliziert mit der Matrix von A, in welcher
+die erste Diagonale vertauscht wurde und die zweite Diagonale mit $(-1)$
+multipliziert wurde.
+
+\subsubsection{Regeln für das rechnen mit Determinanten}
+Bei gewissen Operationen in einer Matrix muss man gewisse Sachen
+beachten:
+\begin{itemize}
+  \item Determinanten könnnen nur bei quadratischen Matritzen berechnet
+    werden.
+  \item Vertauschen von Zeilen oder Spalten ändert das Vorzeichen der
+    Determinante.
+  \item Wenn eine Zeile mit $c \ne 0$ multipliziert wird, wird die
+    Determinante mit $c$ multipliziert.
+  \item Eine Determiinante ist Null, wenn ist eine gesamte Zeile oder
+    eine gesamte Spalte $= 0$ ist.
+  \item Eine Determinante ist Null, wenn zwei Spalten oder zwei Zelen
+    gleich sind.
+  \item Eine Determinante ist Null, wenn Zeilen oder Spalten linear
+    abhängig sind.
+  \item Eine obere Dreiecksmatrix hat als Determinante das Produkt der
+    Diagonale.
+  \item $\text{Det}(A \cdot B) = \text{Det}(A) \cdot \text{Det}(B)$
+  \item Ist die Matritze $A$ invertierbar, dann ist $\text{Det}(A^{-1}) =
+    \frac{1}{\text{Det}(A)}$
+\end{itemize}
+
+
+\subsubsection{Determinante einer 3x3 Matrix}
+Die Determinante einer 3x3 Matrix
+\[ A =
+  \begin {pmatrix}
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23} \\
+    a_{31} & a_{32} & a_{33} \\
+  \end {pmatrix} \]
+Berechnet sich so:
+\[ \text{Det}(A) = 
+a_{11} \cdot a_{22} \cdot a_{33} +
+a_{12} \cdot a_{23} \cdot a_{31} +
+a_{13} \cdot a_{21} \cdot a_{32} -
+a_{31} \cdot a_{22} \cdot a_{12} -
+a_{32} \cdot a_{23} \cdot a_{11} -
+a_{33} \cdot a_{21} \cdot a_{12}
+\]
+Man wiederholt die Zahlen der Matrix hinter der Matrix und multipliziert
+alle 'fallenden` Diagonalprodukte und subtrahiert alle 'steigenden`
+Diagonalprodukte.
+
+\subsubsection{Determinante einer nxm Matrix}
 \subsection{Eigenwerte und Eigenvektoren}
 \subsubsection{Berechnung der Eigenvektoren}
 
@@ -982,7 +1078,7 @@ do
   SUM=$(($SUM + i))
 done
 \end{verbatim}
-\subsection{Produktionsformel}
+\subsection{Produkteformel}
 \[\prod \limits_{k=1}^{n}k = 1\cdot 2\cdot ... \cdot n \]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
