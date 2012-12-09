@@ -823,7 +823,7 @@ Beim Skalarprodukt gelten folgende Rechenregeln:
 \end{itemize}
 
 \subsection{Normalenform der Geraden / Ebenen}
-Der Normalenvektor $\vec{n}$ steht senkrecht zue iner Gerade $g$. Da das
+Der Normalenvektor $\vec{n}$ steht senkrecht zu einer Gerade $g$. Da das
 Skalarprodukt bei zwei senkrecht stehenden Vektoren $0$ ist, kann man
 die Gerade zu einem Normalenvektor berechnen:
 
@@ -992,6 +992,24 @@ Wichtig:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Lineare Abbildungen}
 \subsection{Koordinaten und Transformation}
+Eine lineare Abbildung beschreibt die Abbildung zwischen zwei Vektorräumen 
+über demselben Körper.
+
+\paragraph{\emph{Spalten der Matrix $=$ die Bilder der Basisvektoren}}
+\[ A \cdot \vec{e_1} = \begin {pmatrix}
+  0 & -1 & 0 \\
+  1 & 0 & 0 \\
+  0 & 0 & 1 \\
+\end {pmatrix} \cdot \begin {pmatrix}
+  1 \\
+  0 \\
+  0 \\ 
+\end {pmatrix} = \begin {pmatrix}
+  0 \\
+  1 \\
+  0 \\ 
+\end {pmatrix} = \vec{e_1}' = \vec{e_2} \]
+
 \subsection{Determinanten}
 \subsubsection{Determinante einer 2x2 Matrix}
 Von der Matrix $A$
