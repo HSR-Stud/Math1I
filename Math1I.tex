@@ -1081,6 +1081,38 @@ Diagonalprodukte.
 \subsubsection{Determinante einer nxm Matrix}
 \subsection{Eigenwerte und Eigenvektoren}
 \subsubsection{Berechnung der Eigenvektoren}
+\emph{Als Beispiel mit einer 2x2 Matrix}
+
+\textbf{Eigenwerte} = Nullstellen des charakteristischen Polynoms
+\begin{enumerate}
+\item Charakteristisches Polynom durch die Determinante mit der Einheitsmatrix \[ \text{CharPol}(A, \lambda) = \text{Det}(A - \lambda \cdot E) \]
+\item Determinante nach 0 auflösen ergeben die Eigenwerte: \[ \lambda_1 = x, \lambda_2 = y \]
+\end{enumerate}
+
+\textbf{Eigenvektoren} = Lösungen des linearen Gleichungssystems 
+\begin{enumerate}
+\item Eigenwerte $\lambda_1$ bzw. $\lambda_2$ einsetzen und Gleichungssystem lösen 
+\[ \lambda_1 = x: (A - \lambda \cdot E)\cdot \vec{v} = 0 
+\text{ bzw. } 
+\lambda_2 = y: (A - \lambda \cdot E)\cdot \vec{v} = 0 \]
+
+\item Daraus ergeben sich die Einheisvektoren \[ EV_{\lambda_1 = x} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} \text{ bzw. } EV_{\lambda_2 = y} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} \]
+\end{enumerate}
+
+\textbf{Eigenraum}
+Der Eigenvektor kann ein beliebiges Vielfaches sein. Daraus folgt der Eigenraum:
+\[ Eig_{\lambda_1 = x} = \left \{
+    \vec{x} \in \mathbb{R}^2 \middle |
+      \vec{x} = t \cdot \left( \begin {array} {c} v_1 \\ v_2 \end {array} \right),
+      t \in \mathbb{R}
+\right \} \]
+\begin{center} bzw. \end{center}
+\[ Eig_{\lambda_2 = y} = \left \{
+    \vec{x} \in \mathbb{R}^2 \middle |
+      \vec{x} = t \cdot \left( \begin {array} {c} v_1 \\ v_2 \end {array} \right),
+      t \in \mathbb{R}
+\right \} \]
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Begriffe}
