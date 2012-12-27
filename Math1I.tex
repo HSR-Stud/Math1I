@@ -43,7 +43,7 @@ Eine Aussage ist ein Satz, welcher entweder falsch oder wahr ist.
   \item $\Leftrightarrow$ Äquivalenz (genau dann, wenn \dots)
     \begin{itemize}
       \item Beispiel: $A \Leftrightarrow B$
-      \item Wahr, wenn $A$ genau dann wahr ist, wenn $B$ wahr ist
+      \item Wahr, wenn $A$ und $B$ den gleichen Wahrheitswert besitzen.
     \end{itemize}
   \item $\uparrow$ NAND (Zusammengesetzt aus NOT (nicht, $\neg$) und AND (und $\wedge$))
     \begin{itemize}
@@ -129,7 +129,7 @@ Normalformen braucht man, um Formeln übersichtlicher zu gestalten
   Die einzelnen Variabeln liegen dabei immer in der Negationsnormalform vor:
   \[ X \wedge \neg Y \wedge Z\]
 \subsubsection{Disjunktive Normalform}
-  Die disjunktive Normalform ist eine Verbindung von verallgemeinerten
+  Die disjunktive Normalform ist eine Verbindung der verallgemeinerten
   Konjunktionen mit einer Disjunktion ($\vee$).
   Dabei werden die wahren Werte der Wahrheitstabelle ausgewertet.
   \[ (X \wedge \neg Y \wedge Z) \vee (X \wedge \neg Y \wedge \neg Z) \vee (\neg X \wedge Y \wedge Z)
@@ -145,7 +145,7 @@ Normalformen braucht man, um Formeln übersichtlicher zu gestalten
   \[ A \Leftrightarrow \neg(X \wedge Y \wedge Z) \wedge \neg(X \wedge Y \wedge \neg Z) \wedge \neg(\neg X \wedge \neg Y \wedge Z) \]
   Daraus macht man noch die Negationsnormalform (mit dem Satz de Morgan):
   \[ A \Leftrightarrow (\neg X \vee \neg Y \vee \neg Z) \wedge (\neg X \vee \neg Y \vee Z) \wedge (X \vee Y \vee \neg Z) \]
-  Dort hat man jetzt in den Klammern die verallgemeinerte Disjunktion und A ist in der konjunktiven Normalform.
+  Jetzt hat man in den Klammern die verallgemeinerte Disjunktion und A liegt in der konjunktiven Normalform vor.
 
 \subsection{Aussageformen und Prädikate}
   \begin{itemize}
@@ -793,7 +793,7 @@ Kosinus des eingeschlossenen Winkels. Man erhält eine reelle Zahl.
 \[ \vec{u} \cdot \vec{v} = |\vec{u}| \cdot |\vec{v}| \cdot \cos{(\phi)} \]
 Das Skalarprodukt im $\mathbb{R}^n$ kann auch anders berechnet werden
 (ohne Kosinus):
-\[ \vec{u} \cdot \vec{u} = \sum \limits_{i = 1}^n u_i \cdot v_i \]
+\[ \vec{u} \cdot \vec{v} = \sum \limits_{i = 1}^n u_i \cdot v_i \]
 Das Skalarprodukt von den beiden Vektoren $\vec{u}$ und
 $\vec{v}$ aus dem $\mathbb{R}^3$ mit
 \[ \vec{u} = \left( \begin{array}{c} 2 \\ 6 \\ 3 \end{array}\right)
@@ -1033,9 +1033,8 @@ Kehrwert der Determinalte multipliziert mit der Matrix von A, in welcher
 die erste Diagonale vertauscht wurde und die zweite Diagonale mit $(-1)$
 multipliziert wurde.
 
-\subsubsection{Regeln für das rechnen mit Determinanten}
-Bei gewissen Operationen in einer Matrix muss man gewisse Sachen
-beachten:
+\subsubsection{Regeln für das Rechnen mit Determinanten}
+Folgende Regeln sind bei Operationen mit Determinanten zu beachten:
 \begin{itemize}
   \item Determinanten könnnen nur bei quadratischen Matritzen berechnet
     werden.
@@ -1043,11 +1042,11 @@ beachten:
     Determinante.
   \item Wenn eine Zeile mit $c \ne 0$ multipliziert wird, wird die
     Determinante mit $c$ multipliziert.
-  \item Eine Determiinante ist Null, wenn ist eine gesamte Zeile oder
+  \item Die Determinante ist Null, wenn ist eine gesamte Zeile oder
     eine gesamte Spalte $= 0$ ist.
-  \item Eine Determinante ist Null, wenn zwei Spalten oder zwei Zelen
+  \item Die Determinante ist Null, wenn zwei Spalten oder zwei Zelen
     gleich sind.
-  \item Eine Determinante ist Null, wenn Zeilen oder Spalten linear
+  \item Die Determinante ist Null, wenn Zeilen oder Spalten linear
     abhängig sind.
   \item Eine obere Dreiecksmatrix hat als Determinante das Produkt der
     Diagonale.
@@ -1070,7 +1069,7 @@ Berechnet sich so:
 a_{11} \cdot a_{22} \cdot a_{33} +
 a_{12} \cdot a_{23} \cdot a_{31} +
 a_{13} \cdot a_{21} \cdot a_{32} -
-a_{31} \cdot a_{22} \cdot a_{12} -
+a_{31} \cdot a_{22} \cdot a_{13} -
 a_{32} \cdot a_{23} \cdot a_{11} -
 a_{33} \cdot a_{21} \cdot a_{12}
 \]
