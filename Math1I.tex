@@ -241,7 +241,7 @@ Die Summenformel git also für n = 1.
 \subsubsection{Induktionsschritt}
 \textbf{a) Induktionsannahme} \\
 Das ist die ursprüngliche Formel:
-\[ S(n): \sum\limits_{k=1}^n k = \frac{1}{2} \cdot n \cdot (n + 1)\]
+\\ $S(n): \sum\limits_{k=1}^n $ \colorbox{red}{$ k $} $ = $ \colorbox{green}{$\frac{1}{2} \cdot n \cdot (n + 1)$}
 
 \textbf{b) Induktionsbehauptung} \\
 Man geht davon aus, dass die Formel auch für die darauf folgende Zahl
@@ -259,7 +259,7 @@ Das $n + 1$, bedeutet noch ein $k$ (von der nächsten Zahl) dazu addieren.
 
 Dann setzt man die Induktionsannahme beim Summenzeichen nach dem
 Gleichheitszeichen ein:
- \[ \sum\limits_{k=1}^{n+1} k = \frac{1}{2} \cdot n \cdot (n + 1) + n + 1 \]
+\\ $\sum\limits_{k=1}^{n+1} k = $ \colorbox{green}{$\frac{1}{2} \cdot n \cdot (n + 1)$}$ + $ \colorbox{red}{$ (n + 1) $}
 
 Multiplizieren und $\frac{1}{2}$ ausklammern:
  \[ \sum\limits_{k=1}^{n+1} k = \frac{1}{2} \cdot (n^2 + n + 2n + 2) =
@@ -583,8 +583,8 @@ Spalte vom Vektor):
   \left( \begin {array} {c} x_1 \\ x_2 \\ x_3 \end {array} \right) = 
   \left( \begin {array} {c}
             a_{11}x_1 + a_{12}x_2 + a_{13}x_3 \\
-            a_{31}x_1 + a_{32}x_2 + a_{33}x_3 \\
             a_{21}x_1 + a_{22}x_2 + a_{23}x_3 \\
+            a_{31}x_1 + a_{32}x_2 + a_{33}x_3 \\
          \end {array}
   \right) =
   \left( \begin {array} {c} b_1 \\ b_2 \\ b_3 \end {array} \right)
@@ -884,7 +884,122 @@ wird mit einem Ortsvektor $\vec{a}$ ("`Aufhänger"') festgelegt. Zudem
 haben wir einen Punkt $P$ mit dem Ortsvektor $\vec{r}$. Es gilt nun: $\vec{n}
 \cdot (\vec{r} - \vec{a}) = 0$.
 
+\subsubsection{Richtungsvektor einer Gerade}
+Der Richtungsvektor zweier Punkte ergibt sich aus deren Differenz:
+$$
+  \vec{r_p} = 
+  \begin{pmatrix}
+    -1 \\
+    -1
+  \end{pmatrix},
+  \vec{r_q} = 
+  \begin{pmatrix}
+    2 \\
+    1
+  \end{pmatrix}
+$$
+
+$$
+  \vec{v} = \vec{r_q} - \vec{r_p} = 
+  \begin{pmatrix}
+    3 \\
+    2
+  \end{pmatrix}
+$$
+
 \subsubsection{Normalenform im $\mathbb{R}^2$}
+
+\subsubsection{Ebene aus 3 Punkten}
+$$
+A = (1, 2, 4), B = (1, -1, 1), C=(0, 1, 3)
+$$
+\emph{ARBASCA Formel}
+
+\[
+\begin{array}{lcccccl}
+& A & R & B-A & S & C-A
+\\
+E: \vec{x} =
+  & \begin{pmatrix}
+    1 \\ 2 \\ 4
+  \end{pmatrix} +
+  & \lambda \cdot 
+  & \begin{pmatrix}
+    1 - 1 \\ -1 - 2 \\ 1 - 4
+  \end{pmatrix}  +
+  & \mu \cdot 
+  & \begin{pmatrix}
+    0 - 1 \\ 1 - 2 \\ 3 - 4
+  \end{pmatrix} 
+  =
+  & \begin{pmatrix}
+    1 \\ 2 \\ 4
+  \end{pmatrix} +
+  \lambda \cdot \begin{pmatrix}
+    0 \\ -3 \\ -3
+  \end{pmatrix}  +
+  \mu \cdot \begin{pmatrix}
+    -1 \\ -1 \\ -1
+  \end{pmatrix} 
+
+\end{array}
+\]
+
+\subsubsection{Punktrichtungsform in Normalenform}
+\[
+E: \vec{x} = 
+  \begin{pmatrix}
+    1 \\ 2 \\ 4
+  \end{pmatrix} + \lambda
+  \begin{pmatrix}
+    0 \\ -3 \\ -3
+  \end{pmatrix} + \mu
+  \begin{pmatrix}
+    -1 \\ -1 \\ -1
+  \end{pmatrix} 
+\]
+Kreuzprodukt bestimmen (mit Haus von Niklaus):
+\[
+  \begin{pmatrix}
+    \colorbox{green}{0} \\ \colorbox{green}{-3} \\ -3
+  \end{pmatrix} \times
+  \begin{pmatrix}
+    \colorbox{red}{-1} \\ \colorbox{red}{-1} \\ -1
+  \end{pmatrix} =  
+  \begin{matrix}
+    \colorbox{green}{0} \\ \colorbox{green}{-3} \\ -3 \\ \colorbox{green}{0} \\ \colorbox{green}{-3}
+  \end{matrix} -
+  \begin{matrix}
+    \colorbox{red}{-1} \\ \colorbox{red}{-1} \\ -1 \\ \colorbox{red}{-1} \\ \colorbox{red}{-1}
+  \end{matrix} =
+  \begin{matrix}
+    \\
+    \\ -3 \cdot (-1) - (-3) \cdot (-1) = 0
+    \\ -3 \cdot (-1) - 0 \cdot (-1) = 3
+    \\ 0 \cdot (-1) - (-3) \cdot (-1) = -3
+  \end{matrix}
+\]
+Normalenform:
+\[
+E: 
+  (\vec{x} - 
+  \begin{pmatrix}
+    1 \\ 2 \\ 4
+  \end{pmatrix}) \cdot 
+  \begin{pmatrix}
+    0 \\ 3 \\ -3
+  \end{pmatrix} = 0 
+\]
+
+\subsubsection{Koordinatenform zu Normalenform}
+\[ 
+\begin{array}{lll}
+    2x_1 + 3x_2 + 4x_3 = 7 & \Rightarrow &
+      \begin{pmatrix}
+        2 \\ 3 \\ 4 
+      \end{pmatrix} \cdot \vec{x} - 7 = 0
+\end{array} 
+\]
 
 \subsubsection{Hessesche Normalenform}
 Die Hessesche Normalenform erhält man, wenn man die Normalengleichung
@@ -894,12 +1009,60 @@ $|\vec{n}|$ teilt. Mit den Definitionen $\vec{n_0} =
 die Form:
 \[ \vec{n_0} \cdot \vec{r} - b_0 = 0 \]
 
-Das Skalarprodukt ist
-\[ \vec{n_0} \cdot \vec{r} = |\vec{n_0}| \cdot |\vec{r}| \cdot
-\cos(\phi) = b_0 \]
-
-Wegen dem rechten Winkel gilt für den Abstand
-\[ \frac{x}{|\vec{r}|} = \cos(\phi)\]
+\highlight{Berechnung}
+$P(-1, 3)$ und $Q(3,0)$
+\begin{enumerate}
+  \item Normalenvektor bestimmen
+  \[
+    \begin{array}{llclc}
+      \\ \vec{n} \cdot (\vec{r_P} - \vec{r_Q}) & = 0 & \Rightarrow & \vec{n} \cdot \begin{pmatrix} -4 \\ 3 \end{pmatrix} & = 0 
+      \\ 
+      & & & -4n_x + 3n_y & = 0
+      \\ 
+      & & & \vec{n} & = \begin{pmatrix} 3 \\ 4 \end{pmatrix}
+    \end{array}
+  \]
+  \item Parameter b in Normalenform berechnen
+  \[
+    \begin{array}{llclc}
+      \\ \vec{n} \cdot \vec{r_q} - b & = 0 & \Rightarrow & \begin{pmatrix} 3 \\ 4 \end{pmatrix} \cdot \begin{pmatrix} 3 \\ 0 \end{pmatrix} & = b 
+      \\ 
+      b & = 9 & \Rightarrow & \begin{pmatrix} 3 \\ 4 \end{pmatrix} \cdot \vec{x} - 9 & = 0
+    \end{array}
+  \] 
+  \item Betrag Normalenvektor berechnen
+  \[
+    |\vec{n}| = \sqrt{3^2 + 4^2} = 5
+  \]
+  \item Hessesche Normalenform
+  \[
+    \begin{array}{lr}
+        \begin{pmatrix}
+          \frac{3}{5} \\
+          \frac{4}{5}
+        \end{pmatrix} \cdot \vec{x} - \frac{9}{5} = 0
+      & \Rightarrow       
+        \begin{pmatrix}
+          0.6 \\
+          0.8
+        \end{pmatrix} \cdot \vec{x} - 1.8 = 0
+    \end{array}
+  \]
+\end{enumerate}
+\highlight{Abstände}
+Um den Abstand zu einem Punkt zu berechen setzt man den Punkt für $\vec{x}$ in die HNF ein:
+\[
+Punkt(2, 2) \Rightarrow         
+\begin{pmatrix}
+  0.6 \\
+  0.8
+\end{pmatrix} \cdot 
+\begin{pmatrix}
+  2 \\
+  2
+\end{pmatrix}
+ - 1.8 = (1.2 + 1.6) - 1.8 = 1
+\]
 
 \subsection{Basen und Koordinaten}
 Im Erzeugendensystem $\vec{x} = \lambda_1 \cdot \vec{v_1} + \lambda_2
@@ -1047,6 +1210,9 @@ Ist die Determinante
     a_{11} \cdot a_{22} - a_{21} \cdot a_{12} \]
 Produkt der ersten Diagonale minus Produkt der zweiten Diagonale.
 
+\subsubsection{Determinante der invertierten Matrix}
+$$ \text{Det}(A^{-1}) = \frac{1}{\text{Det}(A)} $$
+
 \subsubsection{Invertierende einer 2x2 Matrix mit der Determinante berechnen}
 \[ A^{-1} = \frac{1}{\text{Det}(A)} \cdot 
   \begin {pmatrix}
@@ -1104,8 +1270,178 @@ alle 'fallenden` Diagonalprodukte und subtrahiert alle 'steigenden`
 Diagonalprodukte.
 
 \subsubsection{Determinante einer nxm Matrix}
+Matrix reduzieren:
+\[ \text{Det}(A) =
+  \begin{pmatrix}
+    1 & 4 & 3 & 2 \\
+    2 & 1 & -1 & 1 \\
+    -3 & 2 & 2 & -2 \\
+    -1 & -5 & -4 & 1 \\
+  \end{pmatrix} 
+  =
+  \begin{pmatrix}
+    1 & 4 & 3 & 2 \\
+    0 & -7 & -7 & -5 \\
+    0 & 14 & 11 & 4 \\
+    0 & -1 & -1 & 3 \\
+  \end{pmatrix} 
+  =
+  \begin{pmatrix}
+    1 & 4 & 3 & 2 \\
+    0 & -7 & -7 & -5 \\
+    0 & 0 & -3 & -6 \\
+    0 & 0 & 0 & \frac{26}{7} \\
+  \end{pmatrix} 
+  = 1 \cdot 78
+\]
+
 \subsection{Eigenwerte und Eigenvektoren}
+
+\subsubsection{Eigenwerte}
+Indem man die Determinante einer Matrix $ 0 $ setzt, können die Eigegenwerte berechnet werden:
+
+\begin{align*}
+  A =
+  \begin {pmatrix}
+    \colorbox{green}{$3 - \lambda$} & \colorbox{red}{1} \\
+    \colorbox{red}{1} & \colorbox{green}{$3 - \lambda$} \\
+  \end {pmatrix}
+  \\ \Leftrightarrow \colorbox{green}{$(3 - \lambda)$} \cdot \colorbox{green}{$(3 - \lambda)$} - \colorbox{red}{1} \cdot \colorbox{red}{1} = 0
+  \\ \Leftrightarrow (\lambda - 2) \cdot (\lambda - 4) = 0
+\end{align*}
+
+\subsubsection{Eigenvektor}
+$$(A - \lambda \cdot E) \cdot \vec{v} = 0$$
+
+\[
+\begin{array}{llcl}
+ \lambda_1 = 4: & (A - 4\cdot E) \cdot \vec{v_1} & = & 0 
+ \\ 
+  &\begin{pmatrix}
+     3 & 1 \\
+     1 & 3 \\
+  \end{pmatrix} - 4 \cdot 
+  \begin{pmatrix}
+   1 & 0 \\
+   0 & 1 \\
+  \end{pmatrix} \cdot
+  \begin{pmatrix}
+   x_1 \\
+   x_2 \\
+  \end{pmatrix} & = & 0
+\\
+  &\begin{pmatrix}
+     -1 & 1 \\
+     1 & -1 \\
+  \end{pmatrix} \cdot
+  \begin{pmatrix}
+   x_1 \\
+   x_2 \\
+  \end{pmatrix} & = & 0
+\\
+\\ \hline
+\\
+  &\color{green}{\text{Gauss-Algorithmus}}
+  &\begin{array}{rr|r}
+  -1x_1 & 1x_2 & 0 \\
+  1x_1 & -1x_2 & 0 \\
+  \end {array} & \color{green}{\text{Wähle }x_2=1}
+\\
+  &\Rightarrow
+  x_1 & = & 1
+\\
+  &\Rightarrow
+  x_2 & = & 1
+\\
+  &\Rightarrow
+   \vec{v_1} & = & \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+\end{array}
+\]
+
+\[
+\begin{array}{llcl}
+ \lambda_1 = 2: & (A - 2\cdot E) \cdot \vec{v_2} & = & 0 
+ \\ 
+  &\begin{pmatrix}
+     3 & 1 \\
+     1 & 3 \\
+  \end{pmatrix} - 2 \cdot 
+  \begin{pmatrix}
+   1 & 0 \\
+   0 & 1 \\
+  \end{pmatrix} \cdot
+  \begin{pmatrix}
+   x_1 \\
+   x_2 \\
+  \end{pmatrix} & = & 0
+\\
+  &\begin{pmatrix}
+     1 & 1 \\
+     1 & 1 \\
+  \end{pmatrix} \cdot
+  \begin{pmatrix}
+   x_1 \\
+   x_2 \\
+  \end{pmatrix} & = & 0
+\\
+\\ \hline
+\\
+  &\color{green}{\text{Gauss-Algorithmus}}
+  &\begin{array}{rr|r}
+  1x_1 & 1x_2 & 0 \\
+  1x_1 & 1x_2 & 0 \\
+  \end {array} & \color{green}{\text{Wähle }x_2=1}
+\\
+  &\Rightarrow
+  x_1 & = &  -1
+\\
+  &\Rightarrow
+   x_2 & = & 1
+\\
+  &\Rightarrow
+   \vec{v_2} & = & \begin{pmatrix} -1 \\ 1 \end{pmatrix}
+\end{array}
+\]
+\subsubsection{Kanonische Basis zu Eigenvektoren}
+\[
+\begin{pmatrix}
+  1 & 2 \\
+  1 & 1
+\end{pmatrix} = B
+\]
+
 \subsubsection{Berechnung der Eigenvektoren}
+\emph{Als Beispiel mit einer 2x2 Matrix}
+
+\textbf{Eigenwerte} = Nullstellen des charakteristischen Polynoms
+\begin{enumerate}
+\item Charakteristisches Polynom durch die Determinante mit der Einheitsmatrix \[ \text{CharPol}(A, \lambda) = \text{Det}(A - \lambda \cdot E) \]
+\item Determinante nach 0 auflösen ergeben die Eigenwerte: \[ \lambda_1 = x, \lambda_2 = y \]
+\end{enumerate}
+
+\textbf{Eigenvektoren} = Lösungen des linearen Gleichungssystems 
+\begin{enumerate}
+\item Eigenwerte $\lambda_1$ bzw. $\lambda_2$ einsetzen und Gleichungssystem lösen 
+\[ \lambda_1 = x: (A - \lambda \cdot E)\cdot \vec{v} = 0 
+\text{ bzw. } 
+\lambda_2 = y: (A - \lambda \cdot E)\cdot \vec{v} = 0 \]
+
+\item Daraus ergeben sich die Einheisvektoren \[ EV_{\lambda_1 = x} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} \text{ bzw. } EV_{\lambda_2 = y} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} \]
+\end{enumerate}
+
+\textbf{Eigenraum}
+Der Eigenvektor kann ein beliebiges Vielfaches sein. Daraus folgt der Eigenraum:
+\[ Eig_{\lambda_1 = x} = \left \{
+    \vec{x} \in \mathbb{R}^2 \middle |
+      \vec{x} = t \cdot \left( \begin {array} {c} v_1 \\ v_2 \end {array} \right),
+      t \in \mathbb{R}
+\right \} \]
+\begin{center} bzw. \end{center}
+\[ Eig_{\lambda_2 = y} = \left \{
+    \vec{x} \in \mathbb{R}^2 \middle |
+      \vec{x} = t \cdot \left( \begin {array} {c} v_1 \\ v_2 \end {array} \right),
+      t \in \mathbb{R}
+\right \} \]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Begriffe}
