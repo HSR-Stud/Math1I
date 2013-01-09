@@ -13,6 +13,8 @@
 \newcommand{\EMAIL}{emanuel.duss@gmail.com}
 \newcommand{\KEYWORDS}{Zusammenfassung, Informatik, HSR}
 
+
+\newcommand{\highlight}[1]{\textbf{#1}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Header einbinden
 \input{header.tex}
@@ -26,6 +28,7 @@
 \section{Aussagenlogik}
 \subsection{Aussage}
 Eine Aussage ist ein Satz, welcher entweder falsch oder wahr ist. 
+
 
 \subsection{Junktoren}
 \begin{itemize}
@@ -71,8 +74,24 @@ Eine Aussage ist ein Satz, welcher entweder falsch oder wahr ist.
 \begin{itemize}
   \item In der Wahrheitstabelle gilt: w = wahr und f = falsch.
   \item Eine Aussage, die in jeder Zeile der Wahrheitstafel falsch ist, heisst Kontradiktion.
-  \item Aussagen wie $A \vee B$ sind Aussagenlogische Formeln.
+  % \item Aussagen wie $A \vee B$ sind Aussagenlogische Formeln.
 \end{itemize}
+
+\subsubsection{Beispiel}
+\[ \neg (\neg \colorbox{green}{$(A \Rightarrow B)$} \Rightarrow \neg \colorbox{yellow}{$(B \Rightarrow A)$}) \Rightarrow \colorbox{pink}{$A \wedge B$} \]
+\begin{tabular}{|l|l||l|l|l|l|l|l|l|l|l}
+  \hline
+  1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+  \hline
+  $A$ & $B$ & \cellcolor{green} $A \Rightarrow B$ & $\neg 3$ & \cellcolor{yellow} $B \Rightarrow A$ & $\neg 5$ & $4 \Rightarrow 6$ & $\neg 7$ & \cellcolor{pink} $A \wedge B$ & $8 \Rightarrow 9$\\
+  \hline
+  \hline
+  w & w & w & f & w & f & w & f & w & w \\
+  w & f & f & w & w & f & f & w & f & f \\
+  f & w & w & f & f & w & w & f & f & w \\
+  f & f & w & f & w & f & w & f & f & w \\
+  \hline
+\end{tabular}
 
 \subsection{Hinreichend und notwendig}
 Die Implikation $A \Rightarrow B$ bedeutet:
@@ -102,8 +121,8 @@ Bei der Elimination von Klammern sind dies die Prioritäten:
 \end{enumerate}
 
 \subsection{Normalform}
-Normalformen braucht man, um Formeln übersichtlicher zu gestalten
-(diese in eine Normalform bringen). Das wird an folgendem Beispiel gezeigt:
+Eine Vollkonjunktion ist ein boolescher Ausdruck, in dem alle Variablen genau einmal vorkommen und durch $\wedge$ (konjunktiv) oder $\vee$ (disjunktiv) verbunden sind. Dabei dürfen die Variablen auch negiert auftreten.
+Das wird an folgendem Beispiel gezeigt:
 
 \begin{tabular}{|l|l|l||l|}
   \hline
@@ -120,6 +139,7 @@ Normalformen braucht man, um Formeln übersichtlicher zu gestalten
   \hline
 \end{tabular}
 
+
 \subsubsection{Negationsnormalform}
   Bei der Negationsnormalform dürfen Negationen ($\neg$) nur direkt vor
   einer Variable (und nicht vor einer Klammer) stehen:
@@ -128,10 +148,11 @@ Normalformen braucht man, um Formeln übersichtlicher zu gestalten
   Alle Variabeln werden mit der Konjunktion ($\wedge$) verbunden.
   Die einzelnen Variabeln liegen dabei immer in der Negationsnormalform vor:
   \[ X \wedge \neg Y \wedge Z\]
+
 \subsubsection{Disjunktive Normalform}
   Die disjunktive Normalform ist eine Verbindung der verallgemeinerten
   Konjunktionen mit einer Disjunktion ($\vee$).
-  Dabei werden die wahren Werte der Wahrheitstabelle ausgewertet.
+  \highlight{Dabei werden die wahren Werte der Wahrheitstabelle ausgewertet.}
   \[ (X \wedge \neg Y \wedge Z) \vee (X \wedge \neg Y \wedge \neg Z) \vee (\neg X \wedge Y \wedge Z)
     \vee (\neg X \wedge Y \wedge \neg Z) \vee (\neg X \wedge \neg Y \wedge \neg Z)\]
 \subsubsection{Verallgemeinerte Disjunktion}
@@ -140,12 +161,13 @@ Normalformen braucht man, um Formeln übersichtlicher zu gestalten
   \[ X \vee \neg Y \vee Z\]
 \subsubsection{Konjunktive Normalform}
   Die konjunktive Normalform ist eine Verbindung von verallgemeinerten Disjunktion
-  mit einer Konjunktion ($\wedge$).  Dabei werden die falschen Werte
-  der Wahrheitstabelle ausgewertet.
+  mit einer Konjunktion ($\wedge$). \highlight{Dabei werden die falschen Werte
+  der Wahrheitstabelle ausgewertet.}
   \[ A \Leftrightarrow \neg(X \wedge Y \wedge Z) \wedge \neg(X \wedge Y \wedge \neg Z) \wedge \neg(\neg X \wedge \neg Y \wedge Z) \]
   Daraus macht man noch die Negationsnormalform (mit dem Satz de Morgan):
   \[ A \Leftrightarrow (\neg X \vee \neg Y \vee \neg Z) \wedge (\neg X \vee \neg Y \vee Z) \wedge (X \vee Y \vee \neg Z) \]
   Jetzt hat man in den Klammern die verallgemeinerte Disjunktion und A liegt in der konjunktiven Normalform vor.
+
 
 \subsection{Aussageformen und Prädikate}
   \begin{itemize}
@@ -182,6 +204,7 @@ Normalformen braucht man, um Formeln übersichtlicher zu gestalten
   \[ \neg (\forall x \in W: R(x)) \Leftrightarrow \exists x \in W: \neg R(x) \]
   Man kann aber nichts darüber aussagen, ob überhaupt ein Weg nach Rom führt.
 
+ 
 \subsection{Natürliche Zahlen}
   Null ist eine natürliche Zahl und jede natürliche Zahl hat einen
     Nachfolger (ausser der Null).
@@ -218,7 +241,7 @@ Die Summenformel git also für n = 1.
 \subsubsection{Induktionsschritt}
 \textbf{a) Induktionsannahme} \\
 Das ist die ursprüngliche Formel:
-\[ S(n): \sum\limits_{k=1}^n k = \frac{1}{2} \cdot n \cdot (n + 1)\]
+\\ $S(n): \sum\limits_{k=1}^n $ \colorbox{red}{$ k $} $ = $ \colorbox{green}{$\frac{1}{2} \cdot n \cdot (n + 1)$}
 
 \textbf{b) Induktionsbehauptung} \\
 Man geht davon aus, dass die Formel auch für die darauf folgende Zahl
@@ -236,7 +259,7 @@ Das $n + 1$, bedeutet noch ein $k$ (von der nächsten Zahl) dazu addieren.
 
 Dann setzt man die Induktionsannahme beim Summenzeichen nach dem
 Gleichheitszeichen ein:
- \[ \sum\limits_{k=1}^{n+1} k = \frac{1}{2} \cdot n \cdot (n + 1) + n + 1 \]
+\\ $\sum\limits_{k=1}^{n+1} k = $ \colorbox{green}{$\frac{1}{2} \cdot n \cdot (n + 1)$}$ + $ \colorbox{red}{$ (n + 1) $}
 
 Multiplizieren und $\frac{1}{2}$ ausklammern:
  \[ \sum\limits_{k=1}^{n+1} k = \frac{1}{2} \cdot (n^2 + n + 2n + 2) =
@@ -269,12 +292,14 @@ wie man das nächste Glied berechnet.
   \item Mengen: $\{5, 23, 42\}$ oder $\{1, 4, 9, 16, 25, ...\}$ oder
   $\{x \in \mathbb{N} | x^2 = 1 \}$
   \item Teilmenge/Inklusion: A ist Teilmenge von B: $A \subset B$ (Ganz A ist enthalten in B)
-  \item Leere Menge: $\emptyset$ oder $\{ \}$ (Die leere Menge ist
-    Teilmenge jeder Menge!)
-  \item Mächtigkeit $|M|$: Anzahl der Elemente: Ist $M = \{a, b, c\}$, dann ist $|M| = 3$
+  \highlight{\item Leere Menge: $\emptyset$ oder $\{ \}$ (Die leere Menge ist
+    Teilmenge jeder Menge!)}
+  \item Mächtigkeit oder Kardinalität $|M|$: Anzahl der Elemente: Ist $M = \{a, b, c\}$, dann ist $|M| = 3$
   \item Potenzmenge $P(M)$: Menge aller Teilmengen von einer Menge $M$:
+  \\ Die Kardinalität der Potenzmenge ist zwei hoch der Kardinalität der Ausgangsmenge:
   \\ Ist die Menge $M = \{a, b\}$, dann ist die Potenzmenge $P(M) = \{\{\},
-  \{a\}, \{b\}, \{a, b\}\}$
+  \{a\}, \{b\}, \{a, b\}\}$ $(|P(M)| = 2^2 = 4)$
+
 \end{itemize}
 
 \subsection{Vereinigung und Durchschnitt}
@@ -323,12 +348,15 @@ Reihenfolge der Elemente eine Rolle.
 Ein geordnetes Paar nennt sich auch 2-Tupel und ist wie folgt definiert:
 \[ (a, b) = (a_0, b_0) \Leftrightarrow a = a_0 \text{ und } b = b_0 \]
 
-Das Kartesische Produkt von zwei Mengen $A$ und $B$ wird definiert als
+\highlight{Das Kartesische Produkt von zwei Mengen $A$ und $B$ wird definiert als
 Menge aller geordneten Paare, deren erste Komponente aus der Menge $A$
-stammt und die zweite Komponente aus der Menge $B$:
+stammt und die zweite Komponente aus der Menge $B$}:
 \[ A \times B = \{(a,b)|a \in A, b \in B \}\]
+
+
 Dasselbe gilt auch für Kartesische Produkte mit drei Faktoren:
 \[ A \times B \times C = \{(a,b,c)|a \in A, b \in B, c \in C \}\]
+
 Dasselbe gilt auch für Kartesische Produkte mit beliebig vielen Faktoren:
 \[ A_1 \times A_2 \times ... \times A_n = \{(a_1,a_2,...,a_n)|a_i \in
 A_i \text{ für } i = 1, ..., n \}\]
@@ -410,7 +438,7 @@ welche aus lauter 1 besteht:
  0  & 0  & 0  & 1 \\
 \end {pmatrix} \]
 
-\textbf{Dreiecksmatrix:} Eine (untere) Dreiecksmatrix ist eine Diagonalmatrix,
+\textbf{Dreiecksmatrix:} Eine (obere) Dreiecksmatrix ist eine Diagonalmatrix,
 in welcher oberhalb der Diagonale nicht aus Nullen besteht:
 \[ M = \begin {pmatrix}
  1  & 2  & 3  & 4 \\
@@ -430,14 +458,19 @@ Die Matrix
 \end {pmatrix} \]
 hat also den Rang 2.
 
+\subsubsection{Dimension}
+Die Anzahl der Elemente einer Basis heisst die Dimension des Vektorraums, kurz \( \text{dim}(V) \). Die Elemente der Basis werden gebraucht, um den Lösungsraum des homogenen Gleichungssystems zu bestimmen (die \highlight{linear abhängigen} Vekoren durch die \highlight{linear unabhängignen} Vektoren berechnen). 
+\[ \text{dim}(\text{Lös}(A, \vec{0})) = n - Rg(A)\]
+\( n \) steht für Anzahl Unbekannte. 
+
 \subsubsection{Linearkombination}
 \begin{itemize}
   \item Alle Linearkombinationen einer Menge von Vektoren bilden einen
   Vektorraum
-  \item Einige Vektoren lassen sich als Linearkombinationen von anderen
-  Vektoren darstellen
   \item Aus einem linear unabhängigen Erzeugendensystem lässt sich kein Vektor
     weglassen, ohne den erzeugten Vektorraum zu verkleinern
+  \item Einige Vektoren (linear abhängige) lassen sich als Linearkombinationen von anderen
+  Vektoren darstellen
 \end{itemize}
 
 \subsubsection{Lineare Abhängigkeit}
@@ -450,8 +483,8 @@ Das heisst, dass Vektoren linear unabhängig sind, wenn aus $\lambda_1 \cdot \ve
 folgt, dass $\lambda_1 = \lambda_2 = ... = \lambda_n = 0$
 
 Wenn es nach der Gauss-Elimination Nullzeilen gibt, sind die Vektoren
-linear abhängig (= nicht linear unabhängig). Es gibt nur so viele linear
-unabhängige Vektoren, wie es keine Nullzeilen gibt (=Rang):
+linear abhängig (= nicht linear unabhängig). \highlight{Es gibt nur so viele linear
+unabhängige Vektoren, wie es keine Nullzeilen gibt (=Rang):}
 \[ M = \begin {pmatrix}
   1  &  0  &  -1  &  0  &  1  \\
   0  &  1  &   2  &  3  &  4  \\
@@ -460,8 +493,18 @@ unabhängige Vektoren, wie es keine Nullzeilen gibt (=Rang):
 \end {pmatrix} \]
 \begin{itemize}
   \item Die fünf Vektoren (= Spalten der Matrix) sind linear abhängig
-  \item Nur zwei der fünf Vektoren sind linear unabhängig
+  \item \( \text{Rg}(M) = 2\) (Nur zwei der fünf Vektoren sind linear unabhängig)
+  \item \( \text{dim}(M) = 3\)
 \end{itemize}
+\[ x_1 = x_3 - x_5 \]
+\[ x_2 = -2x_3 - 3x_4 - 4x_5 \]
+\\ Die Komponenten $x_3$, $x_4$ und $x_5$ werden gewählt und erhält:
+\[   
+  \vec{v_1} = \begin {pmatrix} 1 \\ -2 \\ \color{red}{1} \\ 0 \\ 0 \end {pmatrix}, 
+  \vec{v_2} = \begin {pmatrix} 0 \\ -3 \\ 0 \\ \color{red}{1} \\ 0 \end {pmatrix}, 
+  \vec{v_3} = \begin {pmatrix} -1 \\ -4 \\ 0 \\ 0 \\ \color{red}{1} \end {pmatrix} 
+\]
+% TODO evtl. ergänzen aus Skirpt Algebra1-32 Seite 21
 
 \subsubsection{Erzeugendensystem}
 Ein Erzeugendensystem $E$ spannt eine Ebene / einen Raum der
@@ -540,8 +583,8 @@ Spalte vom Vektor):
   \left( \begin {array} {c} x_1 \\ x_2 \\ x_3 \end {array} \right) = 
   \left( \begin {array} {c}
             a_{11}x_1 + a_{12}x_2 + a_{13}x_3 \\
-            a_{31}x_1 + a_{32}x_2 + a_{33}x_3 \\
             a_{21}x_1 + a_{22}x_2 + a_{23}x_3 \\
+            a_{31}x_1 + a_{32}x_2 + a_{33}x_3 \\
          \end {array}
   \right) =
   \left( \begin {array} {c} b_1 \\ b_2 \\ b_3 \end {array} \right)
@@ -552,8 +595,7 @@ Zudem gilt folgendes Gesetz:
 \subsection{Lineare Gleichungssysteme}
 \subsubsection{Begriffe}
 \begin{itemize}
-  \item Ein lineares Gleichungssystem ist homogen, wenn die rechte Seite
-    für alle Gleichungen $= 0$ ist.
+  \item Ein lineares Gleichungssystem ist homogen, wenn die rechte Seitefür alle Gleichungen $= 0$ ist.
   \item Ein lineares Gleichungssystem ist inhomogen, wenn die rechte
     Seite nicht immer $= 0$ ist. Spezielle Lösung = Rückwärts einsetzen;
     allgemeine Lösung = Rechte Seite gleich Null.
@@ -579,8 +621,8 @@ der erweiterten Koeffizientenmatrix zu Nullen. Dabei darf man folgende
 Aktionen durchführen:
 \begin{itemize}
   \item Zeilen vertauschen: gibt keine Probleme
-  \item Spalten vertauschen: ok, aber beim Lösungsvektor wieder
-    zurücktauschen!
+  \item Spalten vertauschen: ok, \highlight{aber beim Lösungsvektor wieder
+    zurücktauschen!}
   \item Multiplikation einer Gleichung mit einem Skalar
   \item Addition einer Gleichung zu einer anderen Gleichung
 \end{itemize}
@@ -600,6 +642,7 @@ es mit diesen Lösungen funktioniert. Die Lösung ist auch für alle
 Vielfachen der Lösung gültig.
 
 \subsubsection{Lösungsmengen}
+
 Ein Gleichungssystem kann keine Lösung haben:
 \begin{align}
   x_1 + x_2 = 1 \\
@@ -727,16 +770,16 @@ Die Aufhänger kann man addieren und auf die rechte Seite nehmen. Die
 Richtungsvektoren kommen auf die linke Seite.
 \[
   s \cdot \left( \begin{array}{c} 5 \\ -1 \\ 1 \end{array} \right)
-  - t \cdot \left( \begin{array}{c} -1 \\ 2 \\ -1 \end{array} \right)
+  \color{red}{-t \cdot} \color{black}{\left( \begin{array}{c} -1 \\ 2 \\ -1 \end{array} \right)}
   = \left( \begin{array}{c} -2 \\-1 \\3 \end{array} \right) -
   \left( \begin{array}{c} 1 \\2 \\2 \end{array} \right)
 \]
-Daraus folgt das Gleichungssystem (Vorsicht mit den Vorzeichen!),
+Daraus folgt das Gleichungssystem \highlight{(Vorsicht mit den Vorzeichen!)},
 welches man lösen kann:
 \[ \begin {pmatrix}
-  5 & 1 & -3 \\
-  -1 & -2 & -3 \\
-  1 & 1 & 1 \\
+  5 & \color{red}{1} & -3 \\
+  -1 & \color{red}{-2} & -3 \\
+  1 & \color{red}{1} & 1 \\
 \end {pmatrix} \Leftrightarrow \begin {pmatrix}
   1 & 1 & 1 \\
   0 & -1 & -2 \\
@@ -775,17 +818,16 @@ Bei den Beträgen gelten folgende Rechenregeln:
 \end{itemize}
 
 \subsubsection{Normalenvektor}
-Der Normalenvektor steht senkrecht zu einem Vektor. Das Skalarprodukt
-zwischen dem Vektor $\vec{v}$ und dem Normalenvektor $\vec{n}$ ist glech 0.
-\[ \vec{n} \cdot \begin {pmatrix} 1 \\ 2 \\ 3 \\ 4 \end {pmatrix} = 0 \]
-Daraus folgt die Gleichung:
-\[ 1 \cdot \vec{x_1} - 2 \cdot \vec{x_2} + 3 \cdot \vec{x_3} + 4 \cdot
-\vec{x_4} = 0 \]
-Nach dem Auflösen ergibt sich die Lösung:
-\[ \begin{pmatrix} 2 \\ -1 \\ 0 \\ 0 \end {pmatrix}\]
+Ein Normalenvektor ist ein Vektor, der \highlight{senkrecht} (orthogonal) auf einem Vektor, einer Geraden, einer Kurve, einer Fläche oder einer Ebene steht. Meistens wird der Normalenvektor zu einer Ebene gesucht. Für einen Normalenvektor ist einzig die Richtung entscheidend, daher gibt es jeweils beliebig viele Lösungen. 
+\\\emph{Das Skalarprodukt zwischen dem Vektor $\vec{v}$ und dem Normalenvektor $\vec{n_v}$ ist gleich 0.}
+\\Der Normalenvektor zu einem Vektor:
 
-\emph{Trick}: $x_1$ und $x_2$ auf vertauschen und eines davon mit $-1$
-multiplizieren. Die restlichen $x_n$ auf Null setzen!
+\[ \text{aus } \vec{v} = \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix} \text{ergibt sich } \vec{n_v} = \begin{pmatrix} -2 \\ 1 \\ 0 \\ 0 \end{pmatrix} \]
+\emph{Trick}: $v_1$ und $v_2$ auf vertauschen und eines davon mit $-1$
+multiplizieren. Die restlichen $v_n$ auf Null setzen!
+\\Der Normalenvektor zu einer Ebene (Ebene ist in Parameterform):
+\[ E: \vec{v} = \begin{pmatrix} s_1 \\ s_2 \\ s_3 \end{pmatrix} + \lambda \cdot \begin{pmatrix} r_{11} \\ r_{12} \\ r_{13} \end{pmatrix} + \mu \cdot \begin{pmatrix} r_{21} \\ r_{22} \\ r_{23} \end{pmatrix} \]
+\[ \text{Normalenvektor: } \vec{n_v} = \vec{r_1} \cdot \vec{r_2} \]
 
 \subsubsection{Skalarprodukt}
 Das Skalarprodukt ist das Produkt der Beträge zweier Vektoren mit dem
@@ -807,9 +849,9 @@ berechnen:
 \[ \phi := \arccos{\left(\frac{\vec{u} \cdot \vec{v}}{|\vec{u}| \cdot
 |\vec{v}|}\right)} \]
 
-Ist $\vec{u} \cdot \vec{v} = |\vec{u}| \cdot |\vec{v}|$, so ist
+\highlight{Ist $\vec{u} \cdot \vec{v} = |\vec{u}| \cdot |\vec{v}|$, so ist
 $\cos(\phi) = 1$ und somit der Winkel $\phi = 0$. Diese Vektoren nennt
-man \emph{kollinear}.
+man \emph{kollinear}.}
 
 Beim Skalarprodukt gelten folgende Rechenregeln:
 \begin{itemize}
@@ -842,7 +884,122 @@ wird mit einem Ortsvektor $\vec{a}$ ("`Aufhänger"') festgelegt. Zudem
 haben wir einen Punkt $P$ mit dem Ortsvektor $\vec{r}$. Es gilt nun: $\vec{n}
 \cdot (\vec{r} - \vec{a}) = 0$.
 
+\subsubsection{Richtungsvektor einer Gerade}
+Der Richtungsvektor zweier Punkte ergibt sich aus deren Differenz:
+$$
+  \vec{r_p} = 
+  \begin{pmatrix}
+    -1 \\
+    -1
+  \end{pmatrix},
+  \vec{r_q} = 
+  \begin{pmatrix}
+    2 \\
+    1
+  \end{pmatrix}
+$$
+
+$$
+  \vec{v} = \vec{r_q} - \vec{r_p} = 
+  \begin{pmatrix}
+    3 \\
+    2
+  \end{pmatrix}
+$$
+
 \subsubsection{Normalenform im $\mathbb{R}^2$}
+
+\subsubsection{Ebene aus 3 Punkten}
+$$
+A = (1, 2, 4), B = (1, -1, 1), C=(0, 1, 3)
+$$
+\emph{ARBASCA Formel}
+
+\[
+\begin{array}{lcccccl}
+& A & R & B-A & S & C-A
+\\
+E: \vec{x} =
+  & \begin{pmatrix}
+    1 \\ 2 \\ 4
+  \end{pmatrix} +
+  & \lambda \cdot 
+  & \begin{pmatrix}
+    1 - 1 \\ -1 - 2 \\ 1 - 4
+  \end{pmatrix}  +
+  & \mu \cdot 
+  & \begin{pmatrix}
+    0 - 1 \\ 1 - 2 \\ 3 - 4
+  \end{pmatrix} 
+  =
+  & \begin{pmatrix}
+    1 \\ 2 \\ 4
+  \end{pmatrix} +
+  \lambda \cdot \begin{pmatrix}
+    0 \\ -3 \\ -3
+  \end{pmatrix}  +
+  \mu \cdot \begin{pmatrix}
+    -1 \\ -1 \\ -1
+  \end{pmatrix} 
+
+\end{array}
+\]
+
+\subsubsection{Punktrichtungsform in Normalenform}
+\[
+E: \vec{x} = 
+  \begin{pmatrix}
+    1 \\ 2 \\ 4
+  \end{pmatrix} + \lambda
+  \begin{pmatrix}
+    0 \\ -3 \\ -3
+  \end{pmatrix} + \mu
+  \begin{pmatrix}
+    -1 \\ -1 \\ -1
+  \end{pmatrix} 
+\]
+Kreuzprodukt bestimmen (mit Haus von Niklaus):
+\[
+  \begin{pmatrix}
+    \colorbox{green}{0} \\ \colorbox{green}{-3} \\ -3
+  \end{pmatrix} \times
+  \begin{pmatrix}
+    \colorbox{red}{-1} \\ \colorbox{red}{-1} \\ -1
+  \end{pmatrix} =  
+  \begin{matrix}
+    \colorbox{green}{0} \\ \colorbox{green}{-3} \\ -3 \\ \colorbox{green}{0} \\ \colorbox{green}{-3}
+  \end{matrix} -
+  \begin{matrix}
+    \colorbox{red}{-1} \\ \colorbox{red}{-1} \\ -1 \\ \colorbox{red}{-1} \\ \colorbox{red}{-1}
+  \end{matrix} =
+  \begin{matrix}
+    \\
+    \\ -3 \cdot (-1) - (-3) \cdot (-1) = 0
+    \\ -3 \cdot (-1) - 0 \cdot (-1) = 3
+    \\ 0 \cdot (-1) - (-3) \cdot (-1) = -3
+  \end{matrix}
+\]
+Normalenform:
+\[
+E: 
+  (\vec{x} - 
+  \begin{pmatrix}
+    1 \\ 2 \\ 4
+  \end{pmatrix}) \cdot 
+  \begin{pmatrix}
+    0 \\ 3 \\ -3
+  \end{pmatrix} = 0 
+\]
+
+\subsubsection{Koordinatenform zu Normalenform}
+\[ 
+\begin{array}{lll}
+    2x_1 + 3x_2 + 4x_3 = 7 & \Rightarrow &
+      \begin{pmatrix}
+        2 \\ 3 \\ 4 
+      \end{pmatrix} \cdot \vec{x} - 7 = 0
+\end{array} 
+\]
 
 \subsubsection{Hessesche Normalenform}
 Die Hessesche Normalenform erhält man, wenn man die Normalengleichung
@@ -852,12 +1009,60 @@ $|\vec{n}|$ teilt. Mit den Definitionen $\vec{n_0} =
 die Form:
 \[ \vec{n_0} \cdot \vec{r} - b_0 = 0 \]
 
-Das Skalarprodukt ist
-\[ \vec{n_0} \cdot \vec{r} = |\vec{n_0}| \cdot |\vec{r}| \cdot
-\cos(\phi) = b_0 \]
-
-Wegen dem rechten Winkel gilt für den Abstand
-\[ \frac{x}{|\vec{r}|} = \cos(\phi)\]
+\highlight{Berechnung}
+$P(-1, 3)$ und $Q(3,0)$
+\begin{enumerate}
+  \item Normalenvektor bestimmen
+  \[
+    \begin{array}{llclc}
+      \\ \vec{n} \cdot (\vec{r_P} - \vec{r_Q}) & = 0 & \Rightarrow & \vec{n} \cdot \begin{pmatrix} -4 \\ 3 \end{pmatrix} & = 0 
+      \\ 
+      & & & -4n_x + 3n_y & = 0
+      \\ 
+      & & & \vec{n} & = \begin{pmatrix} 3 \\ 4 \end{pmatrix}
+    \end{array}
+  \]
+  \item Parameter b in Normalenform berechnen
+  \[
+    \begin{array}{llclc}
+      \\ \vec{n} \cdot \vec{r_q} - b & = 0 & \Rightarrow & \begin{pmatrix} 3 \\ 4 \end{pmatrix} \cdot \begin{pmatrix} 3 \\ 0 \end{pmatrix} & = b 
+      \\ 
+      b & = 9 & \Rightarrow & \begin{pmatrix} 3 \\ 4 \end{pmatrix} \cdot \vec{x} - 9 & = 0
+    \end{array}
+  \] 
+  \item Betrag Normalenvektor berechnen
+  \[
+    |\vec{n}| = \sqrt{3^2 + 4^2} = 5
+  \]
+  \item Hessesche Normalenform
+  \[
+    \begin{array}{lr}
+        \begin{pmatrix}
+          \frac{3}{5} \\
+          \frac{4}{5}
+        \end{pmatrix} \cdot \vec{x} - \frac{9}{5} = 0
+      & \Rightarrow       
+        \begin{pmatrix}
+          0.6 \\
+          0.8
+        \end{pmatrix} \cdot \vec{x} - 1.8 = 0
+    \end{array}
+  \]
+\end{enumerate}
+\highlight{Abstände}
+Um den Abstand zu einem Punkt zu berechen setzt man den Punkt für $\vec{x}$ in die HNF ein:
+\[
+Punkt(2, 2) \Rightarrow         
+\begin{pmatrix}
+  0.6 \\
+  0.8
+\end{pmatrix} \cdot 
+\begin{pmatrix}
+  2 \\
+  2
+\end{pmatrix}
+ - 1.8 = (1.2 + 1.6) - 1.8 = 1
+\]
 
 \subsection{Basen und Koordinaten}
 Im Erzeugendensystem $\vec{x} = \lambda_1 \cdot \vec{v_1} + \lambda_2
@@ -869,7 +1074,7 @@ $\vec{v_1}$ bis $\vec{v_n}$ ein Vektorraum.
 \section{Matrizen}
 \subsection{Rechenregeln für Matrizen}
 \subsubsection{Addition}
-\[ A \cdot B =
+\[ A + B =
   \begin {pmatrix}
     a_{11} & a_{12} & a_{13} & \hdots & a_{1m} \\
     a_{21} & a_{22} & a_{23} & \hdots & a_{2m} \\
@@ -892,8 +1097,8 @@ $\vec{v_1}$ bis $\vec{v_n}$ ein Vektorraum.
     a_{nm} + b_{nm} \\
   \end {pmatrix} \]
 Beispiel:
-\[ A \cdot B =
-  \begin {pmatrix} 1 & -1 \\ 2 & 1 \\ \end {pmatrix} \cdot
+\[ A + B =
+  \begin {pmatrix} 1 & -1 \\ 2 & 1 \\ \end {pmatrix} +
   \begin {pmatrix} 1 & 0 \\ 0 & 1 \\ \end {pmatrix} =
   \begin {pmatrix} 2 & -1 \\ 2 & 2 \\ \end {pmatrix} 
 \]
@@ -1023,6 +1228,9 @@ Ist die Determinante
     a_{11} \cdot a_{22} - a_{21} \cdot a_{12} \]
 Produkt der ersten Diagonale minus Produkt der zweiten Diagonale.
 
+\subsubsection{Determinante der invertierten Matrix}
+$$ \text{Det}(A^{-1}) = \frac{1}{\text{Det}(A)} $$
+
 \subsubsection{Invertierende einer 2x2 Matrix mit der Determinante berechnen}
 \[ A^{-1} = \frac{1}{\text{Det}(A)} \cdot 
   \begin {pmatrix}
@@ -1042,17 +1250,24 @@ Folgende Regeln sind bei Operationen mit Determinanten zu beachten:
     Determinante.
   \item Wenn eine Zeile mit $c \ne 0$ multipliziert wird, wird die
     Determinante mit $c$ multipliziert.
+<<<<<<< HEAD
   \item Die Determinante ist Null, wenn ist eine gesamte Zeile oder
     eine gesamte Spalte $= 0$ ist.
   \item Die Determinante ist Null, wenn zwei Spalten oder zwei Zelen
+=======
+  \item \highlight{Eine Determinanten ist Null, wenn eine gesamte Zeile oder
+    eine gesamte Spalte $= 0$ ist.}
+  \item Eine Determinante ist Null, wenn zwei Spalten oder zwei Zelen
+>>>>>>> 16cc1982a67b1474953062e00022b6c557c2caca
     gleich sind.
   \item Die Determinante ist Null, wenn Zeilen oder Spalten linear
     abhängig sind.
-  \item Eine obere Dreiecksmatrix hat als Determinante das Produkt der
-    Diagonale.
+  \item \highlight{Eine obere Dreiecksmatrix hat als Determinante das Produkt der
+    Diagonale.}
   \item $\text{Det}(A \cdot B) = \text{Det}(A) \cdot \text{Det}(B)$
   \item Ist die Matritze $A$ invertierbar, dann ist $\text{Det}(A^{-1}) =
     \frac{1}{\text{Det}(A)}$
+  \item \highlight{Ist die {\text{Det}(A) $\neq$ 0}, so ist die Matritze $A$ invertierbar.}
 \end{itemize}
 
 
@@ -1078,7 +1293,146 @@ alle 'fallenden` Diagonalprodukte und subtrahiert alle 'steigenden`
 Diagonalprodukte.
 
 \subsubsection{Determinante einer nxm Matrix}
+Matrix reduzieren:
+\[ \text{Det}(A) =
+  \begin{pmatrix}
+    1 & 4 & 3 & 2 \\
+    2 & 1 & -1 & 1 \\
+    -3 & 2 & 2 & -2 \\
+    -1 & -5 & -4 & 1 \\
+  \end{pmatrix} 
+  =
+  \begin{pmatrix}
+    1 & 4 & 3 & 2 \\
+    0 & -7 & -7 & -5 \\
+    0 & 14 & 11 & 4 \\
+    0 & -1 & -1 & 3 \\
+  \end{pmatrix} 
+  =
+  \begin{pmatrix}
+    1 & 4 & 3 & 2 \\
+    0 & -7 & -7 & -5 \\
+    0 & 0 & -3 & -6 \\
+    0 & 0 & 0 & \frac{26}{7} \\
+  \end{pmatrix} 
+  = 1 \cdot 78
+\]
+
 \subsection{Eigenwerte und Eigenvektoren}
+
+\subsubsection{Eigenwerte}
+Indem man die Determinante einer Matrix $ 0 $ setzt, können die Eigegenwerte berechnet werden:
+
+\begin{align*}
+  A =
+  \begin {pmatrix}
+    \colorbox{green}{$3 - \lambda$} & \colorbox{red}{1} \\
+    \colorbox{red}{1} & \colorbox{green}{$3 - \lambda$} \\
+  \end {pmatrix}
+  \\ \Leftrightarrow \colorbox{green}{$(3 - \lambda)$} \cdot \colorbox{green}{$(3 - \lambda)$} - \colorbox{red}{1} \cdot \colorbox{red}{1} = 0
+  \\ \Leftrightarrow (\lambda - 2) \cdot (\lambda - 4) = 0
+\end{align*}
+
+\subsubsection{Eigenvektor}
+$$(A - \lambda \cdot E) \cdot \vec{v} = 0$$
+
+\[
+\begin{array}{llcl}
+ \lambda_1 = 4: & (A - 4\cdot E) \cdot \vec{v_1} & = & 0 
+ \\ 
+  &\begin{pmatrix}
+     3 & 1 \\
+     1 & 3 \\
+  \end{pmatrix} - 4 \cdot 
+  \begin{pmatrix}
+   1 & 0 \\
+   0 & 1 \\
+  \end{pmatrix} \cdot
+  \begin{pmatrix}
+   x_1 \\
+   x_2 \\
+  \end{pmatrix} & = & 0
+\\
+  &\begin{pmatrix}
+     -1 & 1 \\
+     1 & -1 \\
+  \end{pmatrix} \cdot
+  \begin{pmatrix}
+   x_1 \\
+   x_2 \\
+  \end{pmatrix} & = & 0
+\\
+\\ \hline
+\\
+  &\color{green}{\text{Gauss-Algorithmus}}
+  &\begin{array}{rr|r}
+  -1x_1 & 1x_2 & 0 \\
+  1x_1 & -1x_2 & 0 \\
+  \end {array} & \color{green}{\text{Wähle }x_2=1}
+\\
+  &\Rightarrow
+  x_1 & = & 1
+\\
+  &\Rightarrow
+  x_2 & = & 1
+\\
+  &\Rightarrow
+   \vec{v_1} & = & \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+\end{array}
+\]
+
+\[
+\begin{array}{llcl}
+ \lambda_1 = 2: & (A - 2\cdot E) \cdot \vec{v_2} & = & 0 
+ \\ 
+  &\begin{pmatrix}
+     3 & 1 \\
+     1 & 3 \\
+  \end{pmatrix} - 2 \cdot 
+  \begin{pmatrix}
+   1 & 0 \\
+   0 & 1 \\
+  \end{pmatrix} \cdot
+  \begin{pmatrix}
+   x_1 \\
+   x_2 \\
+  \end{pmatrix} & = & 0
+\\
+  &\begin{pmatrix}
+     1 & 1 \\
+     1 & 1 \\
+  \end{pmatrix} \cdot
+  \begin{pmatrix}
+   x_1 \\
+   x_2 \\
+  \end{pmatrix} & = & 0
+\\
+\\ \hline
+\\
+  &\color{green}{\text{Gauss-Algorithmus}}
+  &\begin{array}{rr|r}
+  1x_1 & 1x_2 & 0 \\
+  1x_1 & 1x_2 & 0 \\
+  \end {array} & \color{green}{\text{Wähle }x_2=1}
+\\
+  &\Rightarrow
+  x_1 & = &  -1
+\\
+  &\Rightarrow
+   x_2 & = & 1
+\\
+  &\Rightarrow
+   \vec{v_2} & = & \begin{pmatrix} -1 \\ 1 \end{pmatrix}
+\end{array}
+\]
+\subsubsection{Kanonische Basis zu Eigenvektoren}
+\[
+\begin{pmatrix}
+  1 & 2 \\
+  1 & 1
+\end{pmatrix} = B
+\]
+
 \subsubsection{Berechnung der Eigenvektoren}
 \emph{Als Beispiel mit einer 2x2 Matrix}
 
@@ -1111,7 +1465,10 @@ Der Eigenvektor kann ein beliebiges Vielfaches sein. Daraus folgt der Eigenraum:
       \vec{x} = t \cdot \left( \begin {array} {c} v_1 \\ v_2 \end {array} \right),
       t \in \mathbb{R}
 \right \} \]
+<<<<<<< HEAD
 
+=======
+>>>>>>> 16cc1982a67b1474953062e00022b6c557c2caca
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Begriffe}
