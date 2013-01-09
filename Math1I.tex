@@ -13,8 +13,8 @@
 \newcommand{\EMAIL}{emanuel.duss@gmail.com}
 \newcommand{\KEYWORDS}{Zusammenfassung, Informatik, HSR}
 
-
 \newcommand{\highlight}[1]{\textbf{#1}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Header einbinden
 \input{header.tex}
@@ -27,8 +27,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Aussagenlogik}
 \subsection{Aussage}
-Eine Aussage ist ein Satz, welcher entweder falsch oder wahr ist. 
-
+Eine Aussage ist ein Satz, welcher entweder falsch oder wahr ist.
 
 \subsection{Junktoren}
 \begin{itemize}
@@ -38,10 +37,8 @@ Eine Aussage ist ein Satz, welcher entweder falsch oder wahr ist.
   \item $\Rightarrow$ Implikation (wenn \dots dann):
     \begin{itemize}
       \item Beispiel: $A \Rightarrow B$
-      \item Wenn Aussage $A$ wahr, dann gilt Aussage $B$.
-      \item Wenn die Aussage $A$ falsch ist, nützt uns die Implikation nichts,
-        denn man könnte damit etwas Richtiges, aber auch etwas Falsches herleiten.
-      \item Das heisst: Nur falsch, wenn $B$ falsch ist und $A$ richtig ist.
+      \item Wenn Aussage $A$ gilt, dann gilt auch Aussage $B$.
+      \item Das heisst: Nur falsch, wenn $A$ wahr und $B$ falsch ist.
     \end{itemize}
   \item $\Leftrightarrow$ Äquivalenz (genau dann, wenn \dots)
     \begin{itemize}
@@ -78,7 +75,8 @@ Eine Aussage ist ein Satz, welcher entweder falsch oder wahr ist.
 \end{itemize}
 
 \subsubsection{Beispiel}
-\[ \neg (\neg \colorbox{green}{$(A \Rightarrow B)$} \Rightarrow \neg \colorbox{yellow}{$(B \Rightarrow A)$}) \Rightarrow \colorbox{pink}{$A \wedge B$} \]
+\( \neg (\neg \colorbox{green}{$(A \Rightarrow B)$} \Rightarrow \neg \colorbox{yellow}{$(B \Rightarrow A)$}) \Rightarrow \colorbox{pink}{$A \wedge B$} \)
+
 \begin{tabular}{|l|l||l|l|l|l|l|l|l|l|l}
   \hline
   1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
@@ -204,7 +202,6 @@ Das wird an folgendem Beispiel gezeigt:
   \[ \neg (\forall x \in W: R(x)) \Leftrightarrow \exists x \in W: \neg R(x) \]
   Man kann aber nichts darüber aussagen, ob überhaupt ein Weg nach Rom führt.
 
- 
 \subsection{Natürliche Zahlen}
   Null ist eine natürliche Zahl und jede natürliche Zahl hat einen
     Nachfolger (ausser der Null).
@@ -306,7 +303,7 @@ wie man das nächste Glied berechnet.
 \subsubsection{Schreibweise}
 \begin{itemize}
   \item Vereinigung: $A \cup B = \{ x | x \in A \text{ oder } x \in B \}$
-  \item Durchschnitt: $A \cap B = \{ x | x \in A \text{ und } x \in B \}$
+  \item Durchschnitt / Schnittmenge: $A \cap B = \{ x | x \in A \text{ und } x \in B \}$
   \item Differenz: $A \backslash B = \{ x | x \in A \text{ und } x
     \notin B \} = A \cap \overline B$
   \item Komplement: $\overline A = \{ x | x \notin A \}$
@@ -318,7 +315,7 @@ wie man das nächste Glied berechnet.
   \item Kommutativität: $A \cup B = B \cup A$ und $A \cap B = B \cap A$
   \item Assoziativität: $A \cup (B \cup C) = (A \cup B) \cup C = A \cup
   B \cup C$ \\ und $A \cap (B \cap C) = (A \cap B) \cap C = A \cap B \cap C$
-  \item Assoziativität: $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+  \item Distributivität: $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
     und $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
 \end{itemize}
 Zusammenhang der Inklusion/Teilmenge mit der Vereinigung und Durchschnitt:
@@ -341,6 +338,9 @@ Bei der Differenz gilt folgendes:
   \cap (\overline{A \cap \overline B}) = A \cap (\overline A \cup B) = (A
   \cap \overline A) \cup (A \cap B) = \{\}\]
 
+\subsection{Venn-Diagramm}
+In einem Venn-Diagramm können die Mengen grafisch dargestellt werden.
+
 \subsection{Kartesische Produkte}
 Im Gegensatz zu den Mengen spielt bei den Kartesischen Produkten die
 Reihenfolge der Elemente eine Rolle.
@@ -362,16 +362,23 @@ Dasselbe gilt auch für Kartesische Produkte mit beliebig vielen Faktoren:
 A_i \text{ für } i = 1, ..., n \}\]
 Sind alle Faktoren gleich, kann man die Potenzschreibweise verwenden:
 \[ A^n = \underbrace{A \times A \times ... \times A}_{\text{n Faktoren}} \]
-
 \subsection{Relationen}
 Eine n-stellige Relation $R$ zwischen den nichtleeren Mengen $A_1, A_2,
 ..., A_n$ ist eine Teilmenge des kartesischen Produktes $A$.
 \[ \prod \limits_{i=1}^{n}A_i = A_i \times A_i \times ...  \times A_i \]
 \[ R \subset A = \prod \limits_{i=1}^{n}A_i \]
 
-\subsection{Relationen in Datenbanken}
-\subsection{Entity-Relationship-Models}
 \subsection{Abbildungen}
+\begin{itemize}
+  \item Injektiv: \emph{Jedem} Element der Definitionsmenge wird ein
+    \emph{anderes} Element der Zielmenge zugeordnet.
+  \item Surjektiv: \emph{Jedem} Element der Definitionsmenge wird ein
+    Element der Zielmenge zugeordnet und alle Elemente der Zielmenge werden
+    mindestens einmal erreicht.
+  \item Bijektiv (Injektiv und Surjektiv): \emph{Jedem} Element der
+  Definitionsmenge wird ein \emph{anderes} Element der Zielmenge zugeordnet und
+  alle Elemente der Zielmenge werden erreicht.
+\end{itemize}
 \subsection{Mächtigkeit von Mengen}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
