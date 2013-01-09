@@ -49,7 +49,7 @@ Eine Aussage ist ein Satz, welcher entweder falsch oder wahr ist.
     \begin{itemize}
       \item Alle Junktoren können durch das NAND ausgedrückt werden
       \item Beispiel: $A \uparrow B \Leftrightarrow \neg (A \wedge B)$ sowie $A \uparrow A \Leftrightarrow \neg A$ \\
-       sowie $A \wedge B \Leftrightarrow (A \uparrow B) \uparrow (A \uparrow B)$ sowie 
+       sowie $A \wedge B \Leftrightarrow (A \uparrow B) \uparrow (A \uparrow B)$ sowie
          $A \vee B \Leftrightarrow (A \uparrow A) \uparrow (B \uparrow B)$
     \end{itemize}
 \end{itemize}
@@ -154,7 +154,7 @@ Das wird an folgendem Beispiel gezeigt:
   \[ (X \wedge \neg Y \wedge Z) \vee (X \wedge \neg Y \wedge \neg Z) \vee (\neg X \wedge Y \wedge Z)
     \vee (\neg X \wedge Y \wedge \neg Z) \vee (\neg X \wedge \neg Y \wedge \neg Z)\]
 \subsubsection{Verallgemeinerte Disjunktion}
-  Alle Variabeln werden mit der Disjunktion ($\vee$) verbunden. 
+  Alle Variabeln werden mit der Disjunktion ($\vee$) verbunden.
   Die einzelnen Variabeln liegen dabei immer in der Negationsnormalform vor:
   \[ X \vee \neg Y \vee Z\]
 \subsubsection{Konjunktive Normalform}
@@ -410,7 +410,7 @@ und $m$ Spalten, wird mit einem Grossbuchstaben beschrieben und sieht so aus:
 \[ A = \begin {pmatrix}
   a_{11} & a_{12} & a_{13} & \hdots & a_{1m} \\
   a_{21} & a_{22} & a_{23} & \hdots & a_{2m} \\
-  \vdots  & \vdots  & \vdots  &        & \vdots  \\
+  \vdots  & \vdots  & \vdots  &     & \vdots  \\
   a_{n1} & a_{n2} & a_{n3} & \hdots & a_{nm} \\
 \end {pmatrix} \]
 Die Zahlen heissen Koeffizienten und werden mit zwei Indizes
@@ -466,9 +466,9 @@ Die Matrix
 hat also den Rang 2.
 
 \subsubsection{Dimension}
-Die Anzahl der Elemente einer Basis heisst die Dimension des Vektorraums, kurz \( \text{dim}(V) \). Die Elemente der Basis werden gebraucht, um den Lösungsraum des homogenen Gleichungssystems zu bestimmen (die \highlight{linear abhängigen} Vekoren durch die \highlight{linear unabhängignen} Vektoren berechnen). 
+Die Anzahl der Elemente einer Basis heisst die Dimension des Vektorraums, kurz \( \text{dim}(V) \). Die Elemente der Basis werden gebraucht, um den Lösungsraum des homogenen Gleichungssystems zu bestimmen (die \highlight{linear abhängigen} Vekoren durch die \highlight{linear unabhängignen} Vektoren berechnen).
 \[ \text{dim}(\text{Lös}(A, \vec{0})) = n - Rg(A)\]
-\( n \) steht für Anzahl Unbekannte. 
+\( n \) steht für Anzahl Unbekannte.
 
 \subsubsection{Linearkombination}
 \begin{itemize}
@@ -506,10 +506,10 @@ unabhängige Vektoren, wie es keine Nullzeilen gibt (=Rang):}
 \[ x_1 = x_3 - x_5 \]
 \[ x_2 = -2x_3 - 3x_4 - 4x_5 \]
 \\ Die Komponenten $x_3$, $x_4$ und $x_5$ werden gewählt und erhält:
-\[   
-  \vec{v_1} = \begin {pmatrix} 1 \\ -2 \\ \color{red}{1} \\ 0 \\ 0 \end {pmatrix}, 
-  \vec{v_2} = \begin {pmatrix} 0 \\ -3 \\ 0 \\ \color{red}{1} \\ 0 \end {pmatrix}, 
-  \vec{v_3} = \begin {pmatrix} -1 \\ -4 \\ 0 \\ 0 \\ \color{red}{1} \end {pmatrix} 
+\[
+  \vec{v_1} = \begin {pmatrix} 1 \\ -2 \\ \color{red}{1} \\ 0 \\ 0 \end {pmatrix},
+  \vec{v_2} = \begin {pmatrix} 0 \\ -3 \\ 0 \\ \color{red}{1} \\ 0 \end {pmatrix},
+  \vec{v_3} = \begin {pmatrix} -1 \\ -4 \\ 0 \\ 0 \\ \color{red}{1} \end {pmatrix}
 \]
 % TODO evtl. ergänzen aus Skirpt Algebra1-32 Seite 21
 
@@ -533,8 +533,8 @@ Die Normalbasis / kanonische Basis besteht aus Einheitsvektoren, die
 linear unabhängig sind:
 \[ B_E = \{ \vec{e_1}, \vec{e_2}, ..., \vec{e_m}\} \]
 \[
-  \vec{e_1} = \begin {pmatrix} 1 \\ 0 \\ 0 \\ \vdots \\ 0 \end {pmatrix}, 
-  \vec{e_2} = \begin {pmatrix} 0 \\ 1 \\ 0 \\ \vdots \\ 0 \end {pmatrix}, 
+  \vec{e_1} = \begin {pmatrix} 1 \\ 0 \\ 0 \\ \vdots \\ 0 \end {pmatrix},
+  \vec{e_2} = \begin {pmatrix} 0 \\ 1 \\ 0 \\ \vdots \\ 0 \end {pmatrix},
   \vec{e_m} = \begin {pmatrix} 0 \\ 0 \\ 0 \\ \vdots \\ 1 \end {pmatrix}
 \]
 \begin{itemize}
@@ -542,7 +542,7 @@ linear unabhängig sind:
     $|\vec{e_i}| = 1$
   \item Beim Skalarprodukt von zwei Einheitsvektoren der Normalbasis
     gilt
-    \[ \vec{e_i} \cdot \vec{e_j} = 
+    \[ \vec{e_i} \cdot \vec{e_j} =
        \begin{cases}
          0 & \text{ wenn } \vec{e_i} \ne \vec{e_j} \\
          1 & \text{ wenn } \vec{e_i} = \vec{e_j} \\
@@ -557,13 +557,13 @@ Vektoren können addiert werden:
   \left( \begin {array} {c} x_1 \\ x_2 \\ \vdots \\ x_n \end {array}
   \right) +
     \left( \begin {array} {c} y_1 \\ y_2 \\ \vdots \\ y_n \end {array}
-    \right) = 
+    \right) =
     \left( \begin {array} {c} x_1 + y_1 \\ x_2 + y_2 \\ \vdots \\ x_n + y_n \end {array} \right) \]
 Vektoren können multipliziert werden:
 \[
 23 \cdot \vec x = 23 \cdot
   \left( \begin {array} {c} x_1 \\ x_2 \\ \vdots \\ x_n \end {array}
-  \right) = 
+  \right) =
     \left( \begin {array} {c} 23 \cdot x_1 \\ 23 \cdot x_2 \\ \vdots
     \\ 23 \cdot x_n \end {array} \right)
 \]
@@ -587,7 +587,7 @@ Spalte vom Vektor):
   a_{21} & a_{22} & a_{23} \\
   a_{31} & a_{32} & a_{33} \\
 \end {pmatrix} \cdot
-  \left( \begin {array} {c} x_1 \\ x_2 \\ x_3 \end {array} \right) = 
+  \left( \begin {array} {c} x_1 \\ x_2 \\ x_3 \end {array} \right) =
   \left( \begin {array} {c}
             a_{11}x_1 + a_{12}x_2 + a_{13}x_3 \\
             a_{21}x_1 + a_{22}x_2 + a_{23}x_3 \\
@@ -690,7 +690,7 @@ Lösungen des homogenen Gleichungssystems:
 \[ \text{Lösung}(A, \vec{b}) = \left \{
     \vec{x} \in \mathbb{R}^3 \middle |
       \vec{x} = \left( \begin {array} {c} 1 \\ 2 \\ 0 \\ \end {array} \right) +
-      \lambda \cdot \left( \begin {array} {c} 1 \\ -4 \\ 3 \\ \end {array} \right), 
+      \lambda \cdot \left( \begin {array} {c} 1 \\ -4 \\ 3 \\ \end {array} \right),
       \lambda \in \mathbb{R}
   \right \} \]
 \[ \text{Lösung} = \text{Spezielle Lösung} + \lambda \cdot \text{
@@ -729,7 +729,7 @@ Die Lösungsmenge ist schlussendlich:
 \[ \text{Lösung}(A, \vec{b}) = \left \{
     \vec{x} \in \mathbb{R}^3 \middle |
       \vec{x} = \left( \begin {array} {c} -9 \\ 13 \\ 0 \\ \end {array} \right) +
-      \lambda \cdot \left( \begin {array} {c} 4 \\ -7 \\ 1 \\ \end {array} \right), 
+      \lambda \cdot \left( \begin {array} {c} 4 \\ -7 \\ 1 \\ \end {array} \right),
       \lambda \in \mathbb{R}
   \right \} \]
 \[ \text{Lösung} = \text{Spezielle Lösung} + \lambda \cdot \text{
@@ -809,7 +809,7 @@ Der Betrag vom Vektor $\vec{u}$ aus dem $\mathbb{R}^3$ ist also:
 \[ |\vec{u}| = \left|\left( \begin{array}{c} 1 \\-2 \\2 \end{array}
 \right)\right| = \sqrt{1^2 + 2^2 + 2^2} = \sqrt{1 + 4 + 4} = \sqrt{9} = 3 \]
 Der Abstand zweier Vektoren ist der Betrag der Differenz der beiden
-Vektoren. Der Abstand zwischen 
+Vektoren. Der Abstand zwischen
 \[ \vec{u} = \left( \begin{array}{c} 2 \\ -1 \end{array}\right)
 \text{ und } \vec{v} = \left( \begin{array}{c} 3 \\ -4 \end{array}\right)
 \text{ ist } |\vec{u} + \vec{v}| = \left|\left(\begin{array}{c} 1 \\ -3
@@ -820,12 +820,12 @@ Bei den Beträgen gelten folgende Rechenregeln:
   \item Ist der Betrag eines Vektors $0$, ist der Vektor der Nullvektor:
     $|\vec{v}| = 0 \Leftrightarrow \vec{v} = \vec{0}$
   \item $|r \cdot \vec{v}| = |r| \cdot |\vec{v}|$
-  \item Dreiecksungleichung: $|\vec{v_1} + \vec{v_2}| \le 
+  \item Dreiecksungleichung: $|\vec{v_1} + \vec{v_2}| \le
     |\vec{v_1}| + |\vec{v_2}|$
 \end{itemize}
 
 \subsubsection{Normalenvektor}
-Ein Normalenvektor ist ein Vektor, der \highlight{senkrecht} (orthogonal) auf einem Vektor, einer Geraden, einer Kurve, einer Fläche oder einer Ebene steht. Meistens wird der Normalenvektor zu einer Ebene gesucht. Für einen Normalenvektor ist einzig die Richtung entscheidend, daher gibt es jeweils beliebig viele Lösungen. 
+Ein Normalenvektor ist ein Vektor, der \highlight{senkrecht} (orthogonal) auf einem Vektor, einer Geraden, einer Kurve, einer Fläche oder einer Ebene steht. Meistens wird der Normalenvektor zu einer Ebene gesucht. Für einen Normalenvektor ist einzig die Richtung entscheidend, daher gibt es jeweils beliebig viele Lösungen.
 \\\emph{Das Skalarprodukt zwischen dem Vektor $\vec{v}$ und dem Normalenvektor $\vec{n_v}$ ist gleich 0.}
 \\Der Normalenvektor zu einem Vektor:
 
@@ -864,9 +864,9 @@ Beim Skalarprodukt gelten folgende Rechenregeln:
 \begin{itemize}
   \item Grösser gleich Null: $\vec{v} \cdot \vec{v} \ge 0$
   \item Nullvektor: Ist $\vec{v} \cdot \vec{v} = 0$, dann ist $\vec{v} = \vec{0}$
-  \item Assoziativität ($r \in \mathbb{R}$): $(r \cdot \vec{u}) \cdot \vec{v} 
+  \item Assoziativität ($r \in \mathbb{R}$): $(r \cdot \vec{u}) \cdot \vec{v}
     = r \cdot ( \vec{u} \cdot \vec{v})$
-  \item Distributivität: $(\vec{u_1} + \vec{u_2}) \cdot \vec{v} 
+  \item Distributivität: $(\vec{u_1} + \vec{u_2}) \cdot \vec{v}
     = \vec{u_1} \cdot \vec{v} + \vec{u_2} \cdot \vec{v}$
   \item Kommutativität: $\vec{u} \cdot \vec{v} = \vec{v} \cdot \vec{u}$
 \end{itemize}
@@ -894,12 +894,12 @@ haben wir einen Punkt $P$ mit dem Ortsvektor $\vec{r}$. Es gilt nun: $\vec{n}
 \subsubsection{Richtungsvektor einer Gerade}
 Der Richtungsvektor zweier Punkte ergibt sich aus deren Differenz:
 $$
-  \vec{r_p} = 
+  \vec{r_p} =
   \begin{pmatrix}
     -1 \\
     -1
   \end{pmatrix},
-  \vec{r_q} = 
+  \vec{r_q} =
   \begin{pmatrix}
     2 \\
     1
@@ -907,7 +907,7 @@ $$
 $$
 
 $$
-  \vec{v} = \vec{r_q} - \vec{r_p} = 
+  \vec{v} = \vec{r_q} - \vec{r_p} =
   \begin{pmatrix}
     3 \\
     2
@@ -930,14 +930,14 @@ E: \vec{x} =
   & \begin{pmatrix}
     1 \\ 2 \\ 4
   \end{pmatrix} +
-  & \lambda \cdot 
+  & \lambda \cdot
   & \begin{pmatrix}
     1 - 1 \\ -1 - 2 \\ 1 - 4
   \end{pmatrix}  +
-  & \mu \cdot 
+  & \mu \cdot
   & \begin{pmatrix}
     0 - 1 \\ 1 - 2 \\ 3 - 4
-  \end{pmatrix} 
+  \end{pmatrix}
   =
   & \begin{pmatrix}
     1 \\ 2 \\ 4
@@ -947,14 +947,14 @@ E: \vec{x} =
   \end{pmatrix}  +
   \mu \cdot \begin{pmatrix}
     -1 \\ -1 \\ -1
-  \end{pmatrix} 
+  \end{pmatrix}
 
 \end{array}
 \]
 
 \subsubsection{Punktrichtungsform in Normalenform}
 \[
-E: \vec{x} = 
+E: \vec{x} =
   \begin{pmatrix}
     1 \\ 2 \\ 4
   \end{pmatrix} + \lambda
@@ -963,7 +963,7 @@ E: \vec{x} =
   \end{pmatrix} + \mu
   \begin{pmatrix}
     -1 \\ -1 \\ -1
-  \end{pmatrix} 
+  \end{pmatrix}
 \]
 Kreuzprodukt bestimmen (mit Haus von Niklaus):
 \[
@@ -972,7 +972,7 @@ Kreuzprodukt bestimmen (mit Haus von Niklaus):
   \end{pmatrix} \times
   \begin{pmatrix}
     \colorbox{red}{-1} \\ \colorbox{red}{-1} \\ -1
-  \end{pmatrix} =  
+  \end{pmatrix} =
   \begin{matrix}
     \colorbox{green}{0} \\ \colorbox{green}{-3} \\ -3 \\ \colorbox{green}{0} \\ \colorbox{green}{-3}
   \end{matrix} -
@@ -988,24 +988,24 @@ Kreuzprodukt bestimmen (mit Haus von Niklaus):
 \]
 Normalenform:
 \[
-E: 
-  (\vec{x} - 
+E:
+  (\vec{x} -
   \begin{pmatrix}
     1 \\ 2 \\ 4
-  \end{pmatrix}) \cdot 
+  \end{pmatrix}) \cdot
   \begin{pmatrix}
     0 \\ 3 \\ -3
-  \end{pmatrix} = 0 
+  \end{pmatrix} = 0
 \]
 
 \subsubsection{Koordinatenform zu Normalenform}
-\[ 
+\[
 \begin{array}{lll}
     2x_1 + 3x_2 + 4x_3 = 7 & \Rightarrow &
       \begin{pmatrix}
-        2 \\ 3 \\ 4 
+        2 \\ 3 \\ 4
       \end{pmatrix} \cdot \vec{x} - 7 = 0
-\end{array} 
+\end{array}
 \]
 
 \subsubsection{Hessesche Normalenform}
@@ -1022,21 +1022,21 @@ $P(-1, 3)$ und $Q(3,0)$
   \item Normalenvektor bestimmen
   \[
     \begin{array}{llclc}
-      \\ \vec{n} \cdot (\vec{r_P} - \vec{r_Q}) & = 0 & \Rightarrow & \vec{n} \cdot \begin{pmatrix} -4 \\ 3 \end{pmatrix} & = 0 
-      \\ 
+      \\ \vec{n} \cdot (\vec{r_P} - \vec{r_Q}) & = 0 & \Rightarrow & \vec{n} \cdot \begin{pmatrix} -4 \\ 3 \end{pmatrix} & = 0
+      \\
       & & & -4n_x + 3n_y & = 0
-      \\ 
+      \\
       & & & \vec{n} & = \begin{pmatrix} 3 \\ 4 \end{pmatrix}
     \end{array}
   \]
   \item Parameter b in Normalenform berechnen
   \[
     \begin{array}{llclc}
-      \\ \vec{n} \cdot \vec{r_q} - b & = 0 & \Rightarrow & \begin{pmatrix} 3 \\ 4 \end{pmatrix} \cdot \begin{pmatrix} 3 \\ 0 \end{pmatrix} & = b 
-      \\ 
+      \\ \vec{n} \cdot \vec{r_q} - b & = 0 & \Rightarrow & \begin{pmatrix} 3 \\ 4 \end{pmatrix} \cdot \begin{pmatrix} 3 \\ 0 \end{pmatrix} & = b
+      \\
       b & = 9 & \Rightarrow & \begin{pmatrix} 3 \\ 4 \end{pmatrix} \cdot \vec{x} - 9 & = 0
     \end{array}
-  \] 
+  \]
   \item Betrag Normalenvektor berechnen
   \[
     |\vec{n}| = \sqrt{3^2 + 4^2} = 5
@@ -1048,7 +1048,7 @@ $P(-1, 3)$ und $Q(3,0)$
           \frac{3}{5} \\
           \frac{4}{5}
         \end{pmatrix} \cdot \vec{x} - \frac{9}{5} = 0
-      & \Rightarrow       
+      & \Rightarrow
         \begin{pmatrix}
           0.6 \\
           0.8
@@ -1059,11 +1059,11 @@ $P(-1, 3)$ und $Q(3,0)$
 \highlight{Abstände}
 Um den Abstand zu einem Punkt zu berechen setzt man den Punkt für $\vec{x}$ in die HNF ein:
 \[
-Punkt(2, 2) \Rightarrow         
+Punkt(2, 2) \Rightarrow
 \begin{pmatrix}
   0.6 \\
   0.8
-\end{pmatrix} \cdot 
+\end{pmatrix} \cdot
 \begin{pmatrix}
   2 \\
   2
@@ -1087,7 +1087,7 @@ $\vec{v_1}$ bis $\vec{v_n}$ ein Vektorraum.
     a_{21} & a_{22} & a_{23} & \hdots & a_{2m} \\
     \vdots  & \vdots  & \vdots  &        & \vdots  \\
     a_{n1} & a_{n2} & a_{n3} & \hdots & a_{nm} \\
-  \end {pmatrix} \cdot 
+  \end {pmatrix} \cdot
   \begin {pmatrix}
     b_{11} & b_{12} & b_{13} & \hdots & b_{1m} \\
     b_{21} & b_{22} & b_{23} & \hdots & b_{2m} \\
@@ -1107,7 +1107,7 @@ Beispiel:
 \[ A + B =
   \begin {pmatrix} 1 & -1 \\ 2 & 1 \\ \end {pmatrix} +
   \begin {pmatrix} 1 & 0 \\ 0 & 1 \\ \end {pmatrix} =
-  \begin {pmatrix} 2 & -1 \\ 2 & 2 \\ \end {pmatrix} 
+  \begin {pmatrix} 2 & -1 \\ 2 & 2 \\ \end {pmatrix}
 \]
 
 \subsubsection{Multiplikation mit einem Skalar}
@@ -1119,7 +1119,7 @@ ist $k \in \mathbb{R}$.
     a_{21} & a_{22} &  \hdots & a_{2m} \\
     \vdots  & \vdots   &      & \vdots  \\
     a_{n1} & a_{n2} &  \hdots & a_{nm} \\
-  \end {pmatrix} = 
+  \end {pmatrix} =
   \begin {pmatrix}
     k \cdot a_{11} & k \cdot a_{12} &  \hdots & k \cdot a_{1m} \\
     k \cdot a_{21} & k \cdot a_{22} &  \hdots & k \cdot a_{2m} \\
@@ -1130,11 +1130,11 @@ ist $k \in \mathbb{R}$.
 Beispiel (für $k \in \mathbb{R}$):
 \[ k \cdot A = 5 \cdot
   \begin {pmatrix} 1 & 0 \\ 0 & 1 \\ \end {pmatrix} =
-  \begin {pmatrix} 5 & 0 \\ 0 & 5 \\ \end {pmatrix} 
+  \begin {pmatrix} 5 & 0 \\ 0 & 5 \\ \end {pmatrix}
 \]
 \subsubsection{Matrix-Multiplikation}
 Wir haben die Matrix $A$ und die Matrix $B$:
-\[ A = 
+\[ A =
   \begin {pmatrix}
     1 & 2 & 4 \\
     3 & 2 & 1 \\
@@ -1150,9 +1150,9 @@ Man nimmt die Zeilenvektoren der Matrix $A$ (Das $T$ steht für
 Transformiert)
 \[ \vec{z_1} = (1, 2, 4)^T ,\vec{z_2} = (3, 2, 1)^T \]
 und die Spaltenvektoren der Matrix $B$:
-\[ \vec{s_1} \begin {pmatrix} 1 \\ 0 \\ 2 \\ \end {pmatrix}, 
- \vec{s_2} \begin {pmatrix} 1 \\ 3 \\ 0 \\ \end {pmatrix}, 
- \vec{s_3} \begin {pmatrix} 0 \\ 1 \\ 2 \\ \end {pmatrix}, 
+\[ \vec{s_1} \begin {pmatrix} 1 \\ 0 \\ 2 \\ \end {pmatrix},
+ \vec{s_2} \begin {pmatrix} 1 \\ 3 \\ 0 \\ \end {pmatrix},
+ \vec{s_3} \begin {pmatrix} 0 \\ 1 \\ 2 \\ \end {pmatrix},
  \vec{s_4} \begin {pmatrix} -1 \\ -1 \\ -2 \\ \end {pmatrix}
 \]
 
@@ -1179,11 +1179,11 @@ Das rechnet man am Besten mit einer Tabelle:
 
 Das Produkt hat immer so viele Zelen wie der erste Faktor.
 Das heisst jetzt:
-\[ A \cdot B = 
+\[ A \cdot B =
   \begin {pmatrix}
     1 & 2 & 4 \\
     3 & 2 & 1 \\
-  \end {pmatrix} \cdot 
+  \end {pmatrix} \cdot
   \begin {pmatrix}
     1 & 1 & 0 & -1 \\
     0 & 3 & 1 & -1 \\
@@ -1200,11 +1200,21 @@ Wichtig:
 \end{itemize}
 
 \subsection{Matrizen und ihre Inversen}
+Vorgehen: Matrix links, und eine Einheitsmatrix rechts hinschreiben. Die
+Matrix zur Einheitsmatrix umformen ergibt auf der rechten Seite die
+Inverse.
+
+Regeln:
+\begin{itemize}
+  \item Werden in der Matrix $A$ während dem Gauss-Algorithmus
+  \emph{Spalten} 1 und 2 vertauscht, muss man in der rechten Matrix
+  am Schluss die \emph{Zeilen} 1 und 2 vertauschen.
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Lineare Abbildungen}
 \subsection{Koordinaten und Transformation}
-Eine lineare Abbildung beschreibt die Abbildung zwischen zwei Vektorräumen 
+Eine lineare Abbildung beschreibt die Abbildung zwischen zwei Vektorräumen
 über demselben Körper.
 
 \paragraph{\emph{Spalten der Matrix $=$ die Bilder der Basisvektoren}}
@@ -1215,11 +1225,11 @@ Eine lineare Abbildung beschreibt die Abbildung zwischen zwei Vektorräumen
 \end {pmatrix} \cdot \begin {pmatrix}
   1 \\
   0 \\
-  0 \\ 
+  0 \\
 \end {pmatrix} = \begin {pmatrix}
   0 \\
   1 \\
-  0 \\ 
+  0 \\
 \end {pmatrix} = \vec{e_1}' = \vec{e_2} \]
 
 \subsection{Determinanten}
@@ -1231,7 +1241,7 @@ Von der Matrix $A$
     a_{21} & a_{22} \\
   \end {pmatrix} \]
 Ist die Determinante
-\[ \text{Det}(A) = 
+\[ \text{Det}(A) =
     a_{11} \cdot a_{22} - a_{21} \cdot a_{12} \]
 Produkt der ersten Diagonale minus Produkt der zweiten Diagonale.
 
@@ -1239,7 +1249,7 @@ Produkt der ersten Diagonale minus Produkt der zweiten Diagonale.
 $$ \text{Det}(A^{-1}) = \frac{1}{\text{Det}(A)} $$
 
 \subsubsection{Invertierende einer 2x2 Matrix mit der Determinante berechnen}
-\[ A^{-1} = \frac{1}{\text{Det}(A)} \cdot 
+\[ A^{-1} = \frac{1}{\text{Det}(A)} \cdot
   \begin {pmatrix}
     a_{22} & -a_{12} \\
     -a_{21} & a_{11} \\
@@ -1281,7 +1291,7 @@ Die Determinante einer 3x3 Matrix
     a_{31} & a_{32} & a_{33} \\
   \end {pmatrix} \]
 Berechnet sich so:
-\[ \text{Det}(A) = 
+\[ \text{Det}(A) =
 a_{11} \cdot a_{22} \cdot a_{33} +
 a_{12} \cdot a_{23} \cdot a_{31} +
 a_{13} \cdot a_{21} \cdot a_{32} -
@@ -1301,21 +1311,21 @@ Matrix reduzieren:
     2 & 1 & -1 & 1 \\
     -3 & 2 & 2 & -2 \\
     -1 & -5 & -4 & 1 \\
-  \end{pmatrix} 
+  \end{pmatrix}
   =
   \begin{pmatrix}
     1 & 4 & 3 & 2 \\
     0 & -7 & -7 & -5 \\
     0 & 14 & 11 & 4 \\
     0 & -1 & -1 & 3 \\
-  \end{pmatrix} 
+  \end{pmatrix}
   =
   \begin{pmatrix}
     1 & 4 & 3 & 2 \\
     0 & -7 & -7 & -5 \\
     0 & 0 & -3 & -6 \\
     0 & 0 & 0 & \frac{26}{7} \\
-  \end{pmatrix} 
+  \end{pmatrix}
   = 1 \cdot 78
 \]
 
@@ -1339,12 +1349,12 @@ $$(A - \lambda \cdot E) \cdot \vec{v} = 0$$
 
 \[
 \begin{array}{llcl}
- \lambda_1 = 4: & (A - 4\cdot E) \cdot \vec{v_1} & = & 0 
- \\ 
+ \lambda_1 = 4: & (A - 4\cdot E) \cdot \vec{v_1} & = & 0
+ \\
   &\begin{pmatrix}
      3 & 1 \\
      1 & 3 \\
-  \end{pmatrix} - 4 \cdot 
+  \end{pmatrix} - 4 \cdot
   \begin{pmatrix}
    1 & 0 \\
    0 & 1 \\
@@ -1384,12 +1394,12 @@ $$(A - \lambda \cdot E) \cdot \vec{v} = 0$$
 
 \[
 \begin{array}{llcl}
- \lambda_1 = 2: & (A - 2\cdot E) \cdot \vec{v_2} & = & 0 
- \\ 
+ \lambda_1 = 2: & (A - 2\cdot E) \cdot \vec{v_2} & = & 0
+ \\
   &\begin{pmatrix}
      3 & 1 \\
      1 & 3 \\
-  \end{pmatrix} - 2 \cdot 
+  \end{pmatrix} - 2 \cdot
   \begin{pmatrix}
    1 & 0 \\
    0 & 1 \\
@@ -1443,11 +1453,11 @@ $$(A - \lambda \cdot E) \cdot \vec{v} = 0$$
 \item Determinante nach 0 auflösen ergeben die Eigenwerte: \[ \lambda_1 = x, \lambda_2 = y \]
 \end{enumerate}
 
-\textbf{Eigenvektoren} = Lösungen des linearen Gleichungssystems 
+\textbf{Eigenvektoren} = Lösungen des linearen Gleichungssystems
 \begin{enumerate}
-\item Eigenwerte $\lambda_1$ bzw. $\lambda_2$ einsetzen und Gleichungssystem lösen 
-\[ \lambda_1 = x: (A - \lambda \cdot E)\cdot \vec{v} = 0 
-\text{ bzw. } 
+\item Eigenwerte $\lambda_1$ bzw. $\lambda_2$ einsetzen und Gleichungssystem lösen
+\[ \lambda_1 = x: (A - \lambda \cdot E)\cdot \vec{v} = 0
+\text{ bzw. }
 \lambda_2 = y: (A - \lambda \cdot E)\cdot \vec{v} = 0 \]
 
 \item Daraus ergeben sich die Einheisvektoren \[ EV_{\lambda_1 = x} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} \text{ bzw. } EV_{\lambda_2 = y} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} \]
