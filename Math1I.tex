@@ -1205,15 +1205,18 @@ Wichtig:
 \end{itemize}
 
 \subsection{Matrizen und ihre Inversen}
-Vorgehen: Matrix links, und eine Einheitsmatrix rechts hinschreiben. Die
-Matrix zur Einheitsmatrix umformen ergibt auf der rechten Seite die
-Inverse.
+Vorgehen: Matrix $A$ links, und eine Einheitsmatrix $E$ rechts hinschreiben. Die
+Matrix $A$ zur Einheitsmatrix $E$ umformen ergibt auf der rechten Seite die
+Inverse $A^{-1}$. Das ergibt folgende Beziehung:
+
+\[ A \cdot A^{-1} = A^{-1} \cdot A = E \]
 
 Regeln:
 \begin{itemize}
   \item Werden in der Matrix $A$ während dem Gauss-Algorithmus
-  \emph{Spalten} 1 und 2 vertauscht, muss man in der rechten Matrix
-  am Schluss die \emph{Zeilen} 1 und 2 vertauschen.
+    \emph{Spalten} 1 und 2 vertauscht, muss man in der rechten Matrix
+    am Schluss die \emph{Zeilen} 1 und 2 vertauschen.
+  \item Nicht jede Matrix ist invertierbar.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
