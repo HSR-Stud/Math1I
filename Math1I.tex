@@ -522,25 +522,29 @@ Die Vektoren $\vec{v_1}$ bis $\vec{v_n}$ müssen nicht zwingend linear
 unabhängig sein.
 
 \subsubsection{Basis}
-Eine Basis spannt ebenfalls eine Ebene / einen Raum der Dimension $n$
-auf:
-\[ B = \{ \vec{e_1}, \vec{e_2}, ..., \vec{e_n}\} \]
+Eine Basis $B$ ist eine Menge von linear unabhängigen Vektoren $B =
+\{\vec{b_1}, \vec{b_2}, ..., \vec{b_n}\}$, welche einen Vektorraum $V$
+aufspannen. Jeder Vektor $\vec{x} \in V$ besitzt eindeutige Koordinaten
+$x_1, x_2, ..., x_n$ bezüglich der Basis $B$. Das heisst $\vec{x} = x_1
+\cdot \vec{b_1} + x_2 \cdot \vec{b_2} + ... + x_n \cdot \vec{b_n}$ ist
+eindeutig.
 Die Vektoren $\vec{v_1}$ bis $\vec{v_n}$ sind zwingend linear
 unabhängig. Keiner der Vektoren ist also ein Vielfaches eines anderen
 Vektoren.
 
-\subsubsection{Normalbasis / Kanonische Basis}
-Die Normalbasis / kanonische Basis besteht aus Einheitsvektoren, die
-linear unabhängig sind:
-\[ B_E = \{ \vec{e_1}, \vec{e_2}, ..., \vec{e_m}\} \]
-\[
-  \vec{e_1} = \begin {pmatrix} 1 \\ 0 \\ 0 \\ \vdots \\ 0 \end {pmatrix},
-  \vec{e_2} = \begin {pmatrix} 0 \\ 1 \\ 0 \\ \vdots \\ 0 \end {pmatrix},
-  \vec{e_m} = \begin {pmatrix} 0 \\ 0 \\ 0 \\ \vdots \\ 1 \end {pmatrix}
-\]
+\subsubsection{Einheitsbasis}
+Da es unendlich viele Basen eines Vektorraums gibt, hat man die
+Einheitsbasis $B_E = \{ \vec{e_1}, \vec{e_2}, ..., \vec{e_n}\}$
+definiert.  Die Einheitsbasis / Normalbasis / kanonische Basis besteht
+aus Einheitsvektoren, die linear unabhängig sind:
+\[ B_E = \vec{e_1} = \begin{pmatrix} 1 \\ 0 \\ 0 \\ \vdots \\ 0 \end{pmatrix},
+  \vec{e_2} = \begin{pmatrix} 0 \\ 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix},
+  \vec{e_3} = \begin{pmatrix} 0 \\ 0 \\ 1 \\ \vdots \\ 0 \end{pmatrix},
+  ...,
+  \vec{e_n} = \begin{pmatrix} 0 \\ 0 \\ 0 \\ \vdots \\ 1 \end{pmatrix} \]
+
 \begin{itemize}
-  \item Der Betrag von von einem Einheitsvektor der Normalbasis ist $1$:
-    $|\vec{e_i}| = 1$
+  \item Daraus erkennt man, dass der Betrag $|\vec{e_i}|$ immer $1$ ist.
   \item Beim Skalarprodukt von zwei Einheitsvektoren der Normalbasis
     gilt
     \[ \vec{e_i} \cdot \vec{e_j} =
@@ -1077,25 +1081,6 @@ Im Erzeugendensystem $\vec{x} = \lambda_1 \cdot \vec{v_1} + \lambda_2
 \cdot \vec{v_2} + \dots + \lambda_n \cdot \vec{v_n}$ erzeugen
 $\vec{v_1}$ bis $\vec{v_n}$ ein Vektorraum.
 
-\subsubsection{Basis}
-Eine Basis $B$ ist eine Menge von linear unabhängigen Vektoren $B =
-\{\vec{b_1}, \vec{b_2}, ..., \vec{b_n}\}$, welche einen Vektorraum $V$
-aufspannen. Jeder Vektor $\vec{x} \in V$ besitzt eindeutige Koordinaten
-$x_1, x_2, ..., x_n$ bezüglich der Basis $B$. Das heisst $\vec{x} = x_1
-\cdot \vec{b_1} + x_2 \cdot \vec{b_2} + ... + x_n \cdot \vec{b_n}$ ist
-eindeutig.
-
-\subsubsection{Einheitsbasis}
-Da es unendlich viele Basen eines Vektorraums gibt, hat man die
-Einheitsbasis $B_E = \{ \vec{e_1}, \vec{e_2}, ..., \vec{e_n}\}$
-definiert. Diese besitzen folgende Einheitsvektoren:
-\[ \vec{e_1} = \begin{pmatrix} 1 \\ 0 \\ 0 \\ \vdots \\ 0 \end{pmatrix},
-  \vec{e_2} = \begin{pmatrix} 0 \\ 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix},
-  \vec{e_3} = \begin{pmatrix} 0 \\ 0 \\ 1 \\ \vdots \\ 0 \end{pmatrix},
-  ...,
-  \vec{e_n} = \begin{pmatrix} 0 \\ 0 \\ 0 \\ \vdots \\ 1 \end{pmatrix} \]
-
-Daraus erkennt man, dass der Betrag $|\vec{e_i}|$ immer $1$ ist.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Matrizen}
