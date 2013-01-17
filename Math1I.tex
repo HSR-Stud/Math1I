@@ -1327,6 +1327,21 @@ Matrix reduzieren:
   = 1 \cdot 78
 \]
 
+\subsubsection{Die Cramersche Regel}
+
+Gegeben sei ein lineares Gleichungssystem in der Form
+
+$$ a_{11} x_1 + a_{12} x_2 + ... + a_{1n} x_n = b_1 $$
+$$ a_{21} x_1 + a_{22} x_2 + ... + a_{2n} x_n = b_2 $$
+$$ ... $$
+$$ a_{n1} x_1 + a_{n2} x_2 + ... + a_{1n} x_n = b_n $$
+
+Vorausgesetzt $det(A) \neq 0 $ kann das Gleichungssystem wie folgt gelöst werden
+
+$$ x_i = \frac{det(A_i)}{det(A)} $$
+
+Die Matrix $A_i$ wird hierbei gebildet, indem die $i$te Spalte der Koeffizientenmatrix $A$ durch die rechte Seite des Gleichungssystems $b$ ersetzt wird.
+
 \subsection{Eigenwerte und Eigenvektoren}
 
 \subsubsection{Eigenwerte}
