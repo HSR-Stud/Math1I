@@ -1301,7 +1301,7 @@ Man wiederholt die Zahlen der Matrix hinter der Matrix und multipliziert
 alle 'fallenden` Diagonalprodukte und subtrahiert alle 'steigenden`
 Diagonalprodukte.
 
-\subsubsection{Determinante einer nxm Matrix}
+\subsubsection{Determinante einer $ n \times m$ Matrix}
 Matrix reduzieren:
 \[ \text{Det}(A) =
   \begin{pmatrix}
@@ -1326,6 +1326,21 @@ Matrix reduzieren:
   \end{pmatrix}
   = 1 \cdot 78
 \]
+
+\subsubsection{Laplacescher Entwicklungssatz}
+
+Mit dem Laplaceschen Entwicklungssatz kann man die Determinante einer $n \times n$-Matrix „nach einer Zeile oder Spalte entwickeln“. Die beiden Formeln lauten
+
+$\det(A) = \sum_{i=1}^n (-1)^{i+j} \cdot a_{ij} \cdot \det A_{ij}$ (Entwicklung nach der $j$-ten Spalte)
+
+
+$\det(A) = \sum_{j=1}^n (-1)^{i+j} \cdot a_{ij} \cdot \det A_{ij}$ (Entwicklung nach der $i$-ten Zeile)
+
+
+wobei $A_{ij}$ die $(n-1) \times (n-1)$-Untermatrix von $A$ ist, die durch Streichen der $i$-ten Zeile und $j$-ten Spalte entsteht.
+
+Hinweis: Wenn man Spalte oder Zeile, nach der man die Determinante entwickelt, geschickt wählt (möglichst viele Nullen!), kann die Rechnung gegebenenfalls stark vereinfacht werden.
+
 
 \subsubsection{Die Cramersche Regel}
 
