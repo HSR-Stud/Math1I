@@ -1227,6 +1227,16 @@ Regeln:
   \item Nicht jede Matrix ist invertierbar.
 \end{itemize}
 
+\subsubsection{Invertierende einer 2x2 Matrix mit der Determinante berechnen}
+\[ A^{-1} = \frac{1}{\text{Det}(A)} \cdot
+  \begin {pmatrix}
+    a_{22} & -a_{12} \\
+    -a_{21} & a_{11} \\
+  \end {pmatrix} \]
+Kehrwert der Determinalte multipliziert mit der Matrix von A, in welcher
+die erste Diagonale vertauscht wurde und die zweite Diagonale mit $(-1)$
+multipliziert wurde.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Lineare Abbildungen}
 \subsection{Koordinaten und Transformation}
@@ -1269,16 +1279,6 @@ Produkt der ersten Diagonale minus Produkt der zweiten Diagonale.
 
 \subsubsection{Determinante der invertierten Matrix}
 $$ \text{Det}(A^{-1}) = \frac{1}{\text{Det}(A)} $$
-
-\subsubsection{Invertierende einer 2x2 Matrix mit der Determinante berechnen}
-\[ A^{-1} = \frac{1}{\text{Det}(A)} \cdot
-  \begin {pmatrix}
-    a_{22} & -a_{12} \\
-    -a_{21} & a_{11} \\
-  \end {pmatrix} \]
-Kehrwert der Determinalte multipliziert mit der Matrix von A, in welcher
-die erste Diagonale vertauscht wurde und die zweite Diagonale mit $(-1)$
-multipliziert wurde.
 
 \subsubsection{Regeln für das Rechnen mit Determinanten}
 Folgende Regeln sind bei Operationen mit Determinanten zu beachten:
