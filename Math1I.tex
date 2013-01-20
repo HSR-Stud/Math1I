@@ -1234,13 +1234,29 @@ Eine lineare Abbildung beschreibt die Abbildung zwischen zwei Vektorräumen
 über demselben Körper.
 
 \paragraph{\emph{Spalten der Matrix $=$ die Bilder der Basisvektoren}}
-\[ A \cdot \vec{e_1} = \begin {pmatrix}
+\[ A \cdot \vec{e_1} = \begin{pmatrix}
   0 & -1 & 0 \\
   1 & 0 & 0 \\
-  0 & 0 & 1 \\ \end {pmatrix}
-\cdot \begin {pmatrix} 1 \\ 0 \\ 0 \\
-\end {pmatrix} = \begin {pmatrix} 0 \\ 1 \\ 0 \\ \end {pmatrix}
+  0 & 0 & 1 \\ \end{pmatrix}
+\cdot \begin{pmatrix} 1 \\ 0 \\ 0 \\
+\end{pmatrix} = \begin{pmatrix} 0 \\ 1 \\ 0 \\ \end{pmatrix}
 = \vec{e_1}' = \vec{e_2} \]
+
+\subsubsection{Abbildungsmatrix bestimmen}
+\begin{itemize}
+  \item Wie kann der Einheitsvektor $\vec{e_1} =
+    \begin{pmatrix}0 \\ 1\end{pmatrix}$ und $\vec{e_2} =
+    \begin{pmatrix} 1 \\ 0 \end{pmatrix}$
+    mit den gegebenen Vektoren dargestellt werden?
+  \item Die Vektoren der Abbildungsmatrix $M$ können auf die selbe Weise
+    dargestellt werden, indem man die auf diese Matrix abgebildeten
+    Vektoren verwendet.
+\end{itemize}
+\[ \vec{e_1} = \frac{1}{2}(\vec{r_a} + \vec{r_b}) 
+  \Rightarrow \vec{e_1'} = \frac{1}{2}(\vec{r_a'} + \vec{r_b'}) \]
+\[ \vec{e_2} = \frac{1}{4}(\vec{r_b} + \vec{r_c})
+  \Rightarrow \vec{e_2'} = \frac{1}{4}(\vec{r_b'} + \vec{r_c'})\]
+Daraus folg die Abbildungsmatrix $M$.
 
 \subsection{Determinanten}
 \subsubsection{Determinante einer 2x2 Matrix}
