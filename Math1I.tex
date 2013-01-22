@@ -488,6 +488,27 @@ Die Anzahl der Elemente einer Basis heisst die Dimension des Vektorraums, kurz \
   \item Einige Vektoren (linear abhängige) lassen sich als Linearkombinationen von anderen
   Vektoren darstellen
 \end{itemize}
+\[ \vec{v_1} = \begin {pmatrix} 1 \\ -2 \\ \color{red}{1} \\ 0 \\ 0 \end
+{pmatrix} \]
+Die Polynome $q_1 = x^2 + 1$, $q_2 = x^2 + x + 2$ und $q_3 = x + 2$ als
+Linearkombination von $1$, $x$ und $x^2$ darstellen:
+\[ \begin{pmatrix}
+  1  &  2  &  2  &  1  &  0  & 0 \\
+  0  &  1  &  1  &  0  &  1  & 0 \\
+  1  &  1  &  0  &  0  &  0  & 1 \\
+\end{pmatrix} \]
+Gauss:
+\[ \begin{pmatrix}
+  1  &  0  &  0  &  1  &  -2 & 0 \\
+  0  &  1  &  0  &  -1 &  2  & 1 \\
+  0  &  0  &  1  &  -1 &  -1 & -1 \\
+\end{pmatrix} \]
+Somit ist $1 = q_1 - q_2 + q_3$, $x = -2q_1 + 2q_2 - q_3$ und $x^2 = q_2
+- q_3$.
+
+Jetzt kann man auch das Polynom $p = 7x^2 - x - 2$ als Linearkombination
+von $q_1$, $q_2$ und $q_3$ darstellen:
+$p = 7(q_2 - q_3) - (-2q_1 + 2q_2 - q_3 ) - 2 \cdot (q_3 - q_2 + q_1)$
 
 \subsubsection{Lineare Abhängigkeit}
 Vektoren sind linear unabhängig, wenn keiner der Vektoren sich
