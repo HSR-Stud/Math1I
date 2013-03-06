@@ -146,8 +146,8 @@ Das wird an folgendem Beispiel gezeigt:
   einer Variable (und nicht vor einer Klammer) stehen:
   \[\neg (A \vee B) \Leftrightarrow \neg A \wedge \neg B\]
 \subsubsection{Verallgemeinerte Konjunktion}
-  Alle Variabeln werden mit der Konjunktion ($\wedge$) verbunden.
-  Die einzelnen Variabeln liegen dabei immer in der Negationsnormalform vor:
+  Alle Variablen werden mit der Konjunktion ($\wedge$) verbunden.
+  Die einzelnen Variablen liegen dabei immer in der Negationsnormalform vor:
   \[ X \wedge \neg Y \wedge Z\]
 
 \subsubsection{Disjunktive Normalform}
@@ -157,8 +157,8 @@ Das wird an folgendem Beispiel gezeigt:
   \[ (X \wedge \neg Y \wedge Z) \vee (X \wedge \neg Y \wedge \neg Z) \vee (\neg X \wedge Y \wedge Z)
     \vee (\neg X \wedge Y \wedge \neg Z) \vee (\neg X \wedge \neg Y \wedge \neg Z)\]
 \subsubsection{Verallgemeinerte Disjunktion}
-  Alle Variabeln werden mit der Disjunktion ($\vee$) verbunden.
-  Die einzelnen Variabeln liegen dabei immer in der Negationsnormalform vor:
+  Alle Variablen werden mit der Disjunktion ($\vee$) verbunden.
+  Die einzelnen Variablen liegen dabei immer in der Negationsnormalform vor:
   \[ X \vee \neg Y \vee Z\]
 \subsubsection{Konjunktive Normalform}
   Die konjunktive Normalform ist eine Verbindung von verallgemeinerten Disjunktion
@@ -188,7 +188,7 @@ Das wird an folgendem Beispiel gezeigt:
       Elemente gelten soll.
     \item Der Existenzquantor ($\exists$) sagt, dass eine Aussage für
       mindestens ein Element gelten soll.
-    \item Gibt es einen Quantor, sind die Variabeln nicht mehr frei wählbar,
+    \item Gibt es einen Quantor, sind die Variablen nicht mehr frei wählbar,
       sondern an den Quantor gebunden.
   \end{itemize}
   Das wird an folgendem Beispiel erläutert:
@@ -236,7 +236,7 @@ Folgende Formel ist zu beweisen:
 Man prüft die Formel für die erste Zahl der Reihe. In unserem Fall ist
 das $n = 1$:
 \[ n = 1: \sum\limits_{k=1}^1 k = 1 = \frac{1}{2} \cdot 1 \cdot (1 + 1) = 1\]
-Die Summenformel git also für n = 1.
+Die Summenformel gilt also für n = 1.
 
 \subsubsection{Induktionsschritt}
 \textbf{a) Induktionsannahme} \\
@@ -245,7 +245,7 @@ Das ist die ursprüngliche Formel:
 
 \textbf{b) Induktionsbehauptung} \\
 Man geht davon aus, dass die Formel auch für die darauf folgende Zahl
-gilt. Deshalb erhöhnt man $n$ überall um 1:
+gilt. Deshalb erhöht man $n$ überall um 1:
  \[ S(n + 1): \sum\limits_{k=1}^{n+1} k = \frac{1}{2} \cdot (n + 1) \cdot (n + 2)\]
 (Quasi \texttt{s/n/n+1/g}) \\
 Die Induktionsbehauptung ist jetzt mit dem Induktionsbeweis zu beweisen.
@@ -414,7 +414,7 @@ Der Vektor von Punkt $Q = (3, 0)$ bis $P = (-1, 3)$ berechnet sich so:
   = \begin {pmatrix} -1 - 3 \\ 0 - (-3) \\ \end {pmatrix}
   = \begin {pmatrix} -4 \\ 3 \\ \end {pmatrix} \]
 
-\subsubsection{Matrix, Matritzen}
+\subsubsection{Matrix, Matrizen}
 Eine $n \times m$ Matrix oder eine Matrix vom Typ $(n, m)$ hat $n$ Zeilen
 und $m$ Spalten, wird mit einem Grossbuchstaben beschrieben und sieht so aus:
 \[ A = \begin {pmatrix}
@@ -475,7 +475,7 @@ Die Matrix
 hat also den Rang 2.
 
 \subsubsection{Dimension}
-Die Anzahl der Elemente einer Basis heisst die Dimension des Vektorraums, kurz \( \text{dim}(V) \). Die Elemente der Basis werden gebraucht, um den Lösungsraum des homogenen Gleichungssystems zu bestimmen (die \highlight{linear abhängigen} Vekoren durch die \highlight{linear unabhängignen} Vektoren berechnen).
+Die Anzahl der Elemente einer Basis heisst die Dimension des Vektorraums, kurz \( \text{dim}(V) \). Die Elemente der Basis werden gebraucht, um den Lösungsraum des homogenen Gleichungssystems zu bestimmen (die \highlight{linear abhängigen} Vektoren durch die \highlight{linear unabhängignen} Vektoren berechnen).
 \[ \text{dim}(\text{Lös}(A, \vec{0})) = n - Rg(A)\]
 \( n \) steht für Anzahl Unbekannte.
 
@@ -541,7 +541,7 @@ unabhängige Vektoren, wie es keine Nullzeilen gibt (=Rang):}
   \vec{v_2} = \begin {pmatrix} 0 \\ -3 \\ 0 \\ \color{red}{1} \\ 0 \end {pmatrix},
   \vec{v_3} = \begin {pmatrix} -1 \\ -4 \\ 0 \\ 0 \\ \color{red}{1} \end {pmatrix}
 \]
-% TODO evtl. ergänzen aus Skirpt Algebra1-32 Seite 21
+% TODO evtl. ergänzen aus Skript Algebra1-32 Seite 21
 
 \subsubsection{Erzeugendensystem}
 Ein Erzeugendensystem $E$ spannt eine Ebene / einen Raum der
@@ -610,7 +610,7 @@ Der Definitionsbereich wird mit $\vec x_n \in \mathbb{R}^n$ angegeben.
 \subsubsection{Weitere Rechenregeln für Vektoren}
 \begin{itemize}
   \item $\vec 0$ ist das neutrale Element: $\vec v + \vec 0 = \vec v$
-  \item $- \vec v$ ist das inversive Element: $\vec v + (- \vec v) = 0$
+  \item $- \vec v$ ist das inverse Element: $\vec v + (- \vec v) = 0$
   \item Es gilt die Assoziativität: $(\vec u + \vec v ) + \vec w = \vec u + (\vec v + \vec w)$
   \item Es gilt die Kommutativität: $\vec u + \vec v = \vec v + \vec u$
   \item Man kann Skalarkörper ($s$) ausmultiplizieren oder ausklammern:
@@ -640,7 +640,7 @@ Zudem gilt folgendes Gesetz:
 \subsection{Lineare Gleichungssysteme}
 \subsubsection{Begriffe}
 \begin{itemize}
-  \item Ein lineares Gleichungssystem ist homogen, wenn die rechte Seitefür alle Gleichungen $= 0$ ist.
+  \item Ein lineares Gleichungssystem ist homogen, wenn die rechte Seite für alle Gleichungen $= 0$ ist.
   \item Ein lineares Gleichungssystem ist inhomogen, wenn die rechte
     Seite nicht immer $= 0$ ist. Spezielle Lösung = Rückwärts einsetzen;
     allgemeine Lösung = Rechte Seite gleich Null.
@@ -735,7 +735,7 @@ Lösungen des homogenen Gleichungssystems:
 allgemeine Lösung}, \lambda \in \mathbb{R} \]
 
 \subsubsection{Lösen eines inhomogenen Gleichungssystems}
-Inhomogene Gleichungssysteme haben die Rechte seite immer $\ne 0$ und
+Inhomogene Gleichungssysteme haben die rechte Seite immer $\ne 0$ und
 besitzen eine spezielle und eine allgemeine Lösung.
 
 Das Gleichungssystem
@@ -774,7 +774,7 @@ Die Lösungsmenge ist schlussendlich:
 allgemeine Lösung}, \lambda \in \mathbb{R} \]
 
 Wichtig: Hat man mehrere Nullzeilen, so muss für jede Nullzeile das
-entsprechende $x_n$ auf 1 (und deas andere auf 0) gesetzt werden
+entsprechende $x_n$ auf 1 (und das andere auf 0) gesetzt werden
 und die Lösungsmenge erweitert
 sich dann um einen Faktor mal die allgemeine Lösung von diesem $x_n$.
 
@@ -1095,7 +1095,7 @@ $P(-1, 3)$ und $Q(3,0)$
   \]
 \end{enumerate}
 \highlight{Abstände}
-Um den Abstand zu einem Punkt zu berechen setzt man den Punkt für $\vec{x}$ in die HNF ein:
+Um den Abstand zu einem Punkt zu berechnen, setzt man den Punkt für $\vec{x}$ in die HNF ein:
 \[
 Punkt(2, 2) \Rightarrow
 \begin{pmatrix}
@@ -1274,7 +1274,7 @@ Das rechnet man am Besten mit einer Tabelle:
   \hline
 \end{tabular}
 
-Das Produkt hat immer so viele Zelen wie der erste Faktor.
+Das Produkt hat immer so viele Zeilen wie der erste Faktor.
 Das heisst jetzt:
 \[ A \cdot B =
   \begin {pmatrix}
@@ -1317,7 +1317,7 @@ Regeln:
     a_{22} & -a_{12} \\
     -a_{21} & a_{11} \\
   \end {pmatrix} \]
-Kehrwert der Determinalte multipliziert mit der Matrix von A, in welcher
+Kehrwert der Determinante multipliziert mit der Matrix von A, in welcher
 die erste Diagonale vertauscht wurde und die zweite Diagonale mit $(-1)$
 multipliziert wurde.
 
@@ -1368,10 +1368,11 @@ Produkt der ersten Diagonale minus Produkt der zweiten Diagonale.
 \subsubsection{Determinante der invertierten Matrix}
 $$ \text{Det}(A^{-1}) = \frac{1}{\text{Det}(A)} $$
 
+
 \subsubsection{Regeln für das Rechnen mit Determinanten}
 Folgende Regeln sind bei Operationen mit Determinanten zu beachten:
 \begin{itemize}
-  \item Determinanten könnnen nur bei quadratischen Matritzen berechnet
+  \item Determinanten können nur bei quadratischen Matrizen berechnet
     werden.
   \item Vertauschen von Zeilen oder Spalten ändert das Vorzeichen der
     Determinante.
@@ -1379,16 +1380,16 @@ Folgende Regeln sind bei Operationen mit Determinanten zu beachten:
     Determinante mit $\frac{1}{c}$ multipliziert.
   \item \highlight{Eine Determinante ist Null, wenn eine gesamte Zeile oder
     eine gesamte Spalte $= 0$ ist.}
-  \item Eine Determinante ist Null, wenn zwei Spalten oder zwei Zelen
+  \item Eine Determinante ist Null, wenn zwei Spalten oder zwei Zeilen
     gleich sind.
   \item Die Determinante ist Null, wenn Zeilen oder Spalten linear
     abhängig sind.
   \item \highlight{Eine obere Dreiecksmatrix hat als Determinante das Produkt der
     Diagonale.}
   \item $\text{Det}(A \cdot B) = \text{Det}(A) \cdot \text{Det}(B)$
-  \item Ist die Matritze $A$ invertierbar, dann ist $\text{Det}(A^{-1}) =
+  \item Ist die Matrize $A$ invertierbar, dann ist $\text{Det}(A^{-1}) =
     \frac{1}{\text{Det}(A)}$
-  \item \highlight{Ist die {\text{Det}(A) $\neq$ 0}, so ist die Matritze $A$ invertierbar.}
+  \item \highlight{Ist die {\text{Det}(A) $\neq$ 0}, so ist die Matrize $A$ invertierbar.}
 \end{itemize}
 
 
@@ -1477,6 +1478,7 @@ Die Matrix $A_i$ wird hierbei gebildet, indem die $i$te Spalte der Koeffizienten
 \subsection{Eigenwerte und Eigenvektoren}
 
 \subsubsection{Eigenwerte}
+
 Die Eigenwerte der Matrix
 \[ A = \begin {pmatrix} 2  & -1 \\ 1 & \frac{1}{2} \end {pmatrix} \]
 berechnet sich so:
@@ -1485,7 +1487,7 @@ berechnet sich so:
   = (2 - \lambda) (\frac{1}{2} - \lambda) + 1 \]
 Diese quadratische Gleichung löst man fertig auf und erhält die (zwei)
 Eigenwerte.
-Indem man die Determinante einer Matrix $ 0 $ setzt, können die Eigegenwerte berechnet werden:
+Indem man die Determinante einer Matrix $ 0 $ setzt, können die Eigenwerte berechnet werden:
 
 \begin{align*}
   A =
